@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<strings>
+	<welcome>Velkommen til spillet, indtast 2-6 navne. Når alle navne er indtastet, trykkes der ok, uden at indtaste et navn og spillet vil starte</welcome>
+	<promptName>Indtast navn på spiller</promptName>
+	<promptName>Lad feltet være tomt for at starte spillet</promptName>
+	<promptName>Du skal indtaste mindst to navne</promptName>
+	<starting>starter</starting>
+	<rollDice>Kast terningerne</rollDice>
+	<winner>har vundet spillet. Ønskes omspil?</winner>
+	<withdraw>Der bliver trukket</withdraw>
+	<withdraw>fra din konto.</withdraw>
+	<deposit>Der bliver sat</deposit>
+	<deposit>ind på din konto.</deposit>
+	<isOwner>Du ejer selv feltet, og skal ikke betale leje</isOwner>
+	<transfer>Du overfører</transfer>
+	<transfer>til</transfer>
+	<lowBalance>Du har ikke råd til at købe feltet</lowBalance>
+	<declinedBuy>Du har valgt ikke at købe feltet</declinedBuy>
+	<acceptedBuy>Du ejer nu feltet</acceptedBuy>
+	<taxChoice>Vil du betale 10 procent</taxChoice>
+	<taxChoice>eller</taxChoice>
+	<rollForRent>Kast Terningerne for at afgøre lejen.</rollForRent>
+	<buy>Vil du købe feltet til en pris på</buy>
+	<broke>Du er gået bankerot og er ude af spillet!</broke>
+	<positionUpdate>Du landede på felt</positionUpdate>
+	<yes>Ja</yes>
+	<no>Nej</no>
+	<roll>Kast!</roll>
+	<taxButton>10 procent</taxButton>
+	<get>Du får</get>
+	<pay>Du skal betale</pay>
+	<ownable>Pris:</ownable>
+	<territory>leje:</territory>
+	<fleet>leje alt efter antal ejet fleets:</fleet>
+	<laborCamp>leje: antal øjne gange antal laborCamps gange 100</laborCamp>
+	
+	<tribeEncampment>Stammelejr</tribeEncampment>
+	<crater>Krater</crater>
+	<mountain>Bjerg</mountain>
+	<coldDesert>Kold ørken</coldDesert>
+	<blackCave>Mørk hule</blackCave>
+	<theWerewall>Varulve Muren</theWerewall>
+	<mountainVillage>Bjerg Byen</mountainVillage>
+	<southCitadel>Sydlige Citadel</southCitadel>
+	<palaceGates>Palads Porte</palaceGates>
+	<tower>Tårn</tower>
+	<castle>Slot</castle>
+	<walledCity>Befæstet By</walledCity>
+	<monastery>Kloster</monastery>
+	<hutsInTheMountain>Hytter i bjerget</hutsInTheMountain>
+	<thePit>Graven</thePit>
+	<goldmine>Guldmine</goldmine>
+	<caravan>Karavane</caravan>
+	<secondSail>2 sejlet</secondSail>
+	<seaGrover>Søulven</seaGrover>
+	<theBuccaneers>Sørøvere</theBuccaneers>
+	<privateerArmade>Kaperne</privateerArmade>
+</strings>
