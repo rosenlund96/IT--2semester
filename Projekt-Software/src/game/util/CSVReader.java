@@ -16,6 +16,7 @@ public class CSVReader {
 	}
 
 	public void ReadFile()
+	//Reads the CSV file and stores it as a ArrayList
 	{
 		try {
 			BufferedReader bReader = new BufferedReader( new FileReader(fileName));
@@ -24,15 +25,15 @@ public class CSVReader {
 			{
 				lineNumber++;
 				CSVElements.add(fileName);
-				//break comma separated line using ","
-				
+				//Add the element readden to the ArrayList
 			}
+			//Close reader just for the sake of it. 
 			bReader.close();
+		//If file not readable for some reason, catch an exception
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		//If file has any IO errors catch an exception
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -45,6 +46,7 @@ public class CSVReader {
 	public String getFileName(){
 		return fileName;
 	}
+	//Prints our the ArrayList to the console
 	public void getArrayList(){
 		for(int i=0;i<this.CSVElements.size();i++){
 			System.out.println(CSVElements.get(i));
