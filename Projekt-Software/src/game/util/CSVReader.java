@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.io.FileInputStream;
 
 public class CSVReader {		 
 	String fileName;
@@ -21,6 +23,8 @@ public class CSVReader {
 		try {
 			BufferedReader bReader = new BufferedReader( new FileReader(fileName));
 			int lineNumber = 0;
+			//BufferedReader bReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF8"));
+			
 			while( (fileName = bReader.readLine()) != null)
 			{
 				lineNumber++;
@@ -47,11 +51,15 @@ public class CSVReader {
 		return fileName;
 	}
 	//Prints our the ArrayList to the console
-	public void getArrayList(){
+	public void printArrayList(){
 		for(int i=0;i<this.CSVElements.size();i++){
 			System.out.println(CSVElements.get(i));
 		}
-
+		
+	}
+	public ArrayList getArrayList(){
+		return CSVElements;
+		
 	}
 
 }

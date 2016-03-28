@@ -1,5 +1,6 @@
 package game.resources;
 
+import game.entities.fields.AbstractField;
 import game.entities.fields.AbstractField.FieldType;
 
 public class FieldData {
@@ -17,7 +18,7 @@ public class FieldData {
 			
 	};
 	public static final FieldType[] FIELDTYPE_DATA = {
-			
+	
 	};
 	
 	
