@@ -28,8 +28,9 @@ public class CSVReader {
 			while( (fileName = bReader.readLine()) != null)
 			{
 				lineNumber++;
-				CSVElements.add(fileName);
-				//Add the element readden to the ArrayList
+				CSVElements.add(fileName + "\n");
+				
+				//Add the element readen to the ArrayList
 			}
 			//Close reader just for the sake of it. 
 			bReader.close();
