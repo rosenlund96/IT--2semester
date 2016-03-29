@@ -57,7 +57,7 @@ public class CSVReader {
 		}
 		
 	}
-	public ArrayList getArrayList(){
+	public ArrayList<String> getArrayList(){
 		return CSVElements;
 		
 	}

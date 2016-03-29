@@ -8,10 +8,13 @@ import game.util.*;
 
 public class LuckyCard extends AbstractField{
 
-	public String filePath = "resources/prov lykken kort.csv";
-	ArrayList <String>Cards = new ArrayList<String>();
+	public String filePath = "resources/Matador - cards.csv";
+	public ArrayList <String>Cards = new ArrayList<String>();
 	CSVReader reader = new CSVReader(filePath);
 	private Random randomGenerator;
+	public Stack<String> Stak = new Stack<String>();
+	public Stack <String> temp = new Stack<String>();
+	public int cardNo = 0;
 	
 	public LuckyCard(FieldManager fieldManager, FieldType fieldType, Outputable output) {
 		super(fieldManager, fieldType, output);
@@ -26,25 +29,34 @@ public class LuckyCard extends AbstractField{
 		Cards = reader.getArrayList();
 		return Cards;
 	}
-	public ArrayList<String> blandKort(){
-	Collections.shuffle(Cards);
-	return Cards;
-	
-	}
 	public String returnerKort(){
-		int index = randomGenerator.nextInt(Cards.size());
-		return Cards.get(index);
+		if(cardNo < 33 ){
+		temp.push(Stak.peek());
+		cardNo++;
+		return Stak.pop();
+		}
+		else {
+			Stak.push(temp.peek());
+			cardNo++;
+			while(cardNo==66) cardNo=0;
+			return temp.pop();
+			
+		}
+		
 	}
-
-
+	public Stack<String> opretStak(){
+		
+		Stak.addAll(Cards);
+		Collections.shuffle(Stak);
+		return Stak;
+	}
+	
 
 	
 	
 	
 	@Override
 	public void landOnField(Player player) {
-		hentKort();
-		blandKort();
 		returnerKort();
         
 		
