@@ -22,7 +22,7 @@ public class CSVReader {
 	{
 		try {
 			BufferedReader bReader = new BufferedReader( new FileReader(fileName));
-			int lineNumber = 0;
+			int lineNumber = 0;//For debug
 			//BufferedReader bReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF8"));
 			
 			while( (fileName = bReader.readLine()) != null)

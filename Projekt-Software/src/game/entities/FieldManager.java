@@ -4,6 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.fields.AbstractField;
 import game.entities.fields.Fleet;
 import game.entities.fields.LaborCamp;
+import game.entities.fields.Prison;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Refuge;
 import game.entities.fields.Tax;
@@ -113,6 +114,9 @@ public class FieldManager {
 				break;
 			case REFUGE: 
 				fields[i] = new Refuge(this, FieldData.FIELDRENT_DATA[i], gui);
+				break;
+			case PRISON:
+				fields[i] = new Prison(this, FieldData.FIELDRENT_DATA[i],gui);
 				break;
 			}	
 		}	

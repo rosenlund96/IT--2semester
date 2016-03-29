@@ -11,7 +11,6 @@ public class LuckyCard extends AbstractField{
 	public String filePath = "resources/Matador - cards.csv";
 	public ArrayList <String>Cards = new ArrayList<String>();
 	CSVReader reader = new CSVReader(filePath);
-	private Random randomGenerator;
 	public Stack<String> Stak = new Stack<String>();
 	public Stack <String> temp = new Stack<String>();
 	public int cardNo = 0;

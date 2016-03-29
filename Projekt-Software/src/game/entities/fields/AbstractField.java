@@ -6,7 +6,7 @@ import game.entities.Player;
 
 public abstract class AbstractField {
 
-	public enum FieldType{TERRITORY, LABOR_CAMP, FLEET, TAX, REFUGE}
+	public enum FieldType{TERRITORY, LABOR_CAMP, FLEET, TAX, REFUGE, PRISON}
 
 	protected FieldManager fieldManager;
 	protected Outputable output;

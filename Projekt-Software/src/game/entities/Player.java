@@ -8,15 +8,17 @@ public class Player {
 	private int position;
 	private String name;
 	private Balance balance;
-	private boolean isBroke; 
+	private boolean isBroke, isParking, isImprisoned; 
 
 	// Constructors
 
-	public Player(String name, int startingBalance, int position, boolean isBroke){
+	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isParking, boolean isImprisoned){
 		this.name = name;
 		this.balance = new Balance(startingBalance);
 		this.isBroke = false; 
 		this.position = position;
+		this.isParking = false;
+		this.isImprisoned = false;
 	}
 
 	// Mutators
@@ -40,7 +42,19 @@ public class Player {
 	private void setBroke(boolean isBroke){
 		this.isBroke = isBroke;
 	}
-
+	public boolean getParking(){
+		return isParking;
+	}
+	public void setParking(boolean isParking){
+		this.isParking = isParking;
+	}
+	public boolean getImprisoned(){
+		return isImprisoned;
+	}
+	public void setImprisoned(boolean isImprisoned){
+		this.isImprisoned = isImprisoned;
+	}
+	
 	public int getBalance(){
 		return balance.getBalance();
 	}
