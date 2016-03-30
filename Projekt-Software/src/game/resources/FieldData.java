@@ -60,14 +60,39 @@ public class FieldData {
 			
 			
 	};
-	public static final int[] FIELDRENT_DATA = {
+	public static final int[] FIELDRENT1_DATA = {
+			
+	};
+	public static final int[] FIELDRENT2_DATA = {
+			
+	};
+	public static final int[] FIELDRENT3_DATA = {
+		
+	};
+	public static final int[] FIELDRENT4_DATA = {
+		
+	};
+	public static final int[] FIELDRENT5_DATA = {
+		
+	};
+	public static final int[] FIELDRENT6_DATA = {
+		
+	};
+	public static final int[] FIELDPROPERTYBUY_DATA = {
 			
 	};
 	public static final int[] FIELDBUYPRICE_DATA = {
+			0,1200,0,1200,0,4000,2000,0,2000,2400,
+			0,2800,3000,2800,3200,4000,3600,0,3600,
+			4000,0,4400,0,4400,4800,4000,5200,5200,
+			3000,5600,0,6000,6000,0,6400,4000,0,7000,0,8000
 			
 	};
 	public static final boolean[] FIELDOWABLE_DATA = {
-			
+			false,true,false,true,false,true,true,false,true,true,
+			false,true,true,true,true,true,true,false,true,
+			true,false,true,false,true,true,true,true,true,
+			true,true,false,true,true,false,true,true,false,true,false,true
 	};
 	public static final FieldType[] FIELDTYPE_DATA = {
 	

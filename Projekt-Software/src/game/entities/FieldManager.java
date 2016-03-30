@@ -101,22 +101,22 @@ public class FieldManager {
 		for (int i = 0; i < fields.length; i++) {
 			switch(FieldData.FIELDTYPE_DATA[i]){
 			case TERRITORY: 
-				fields[i] = new Territory(this, FieldData.FIELDBUYPRICE_DATA[i],FieldData.FIELDRENT_DATA[i], gui);
+				fields[i] = new Territory(this, FieldData.FIELDBUYPRICE_DATA[i],FieldData.FIELDRENT1_DATA[i], gui);
 				break;
 			case LABOR_CAMP: 
-				fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i], FieldData.FIELDRENT_DATA[i], gui);
+				fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i], FieldData.FIELDRENT1_DATA[i], gui);
 				break;
 			case FLEET: 
 				fields[i] = new Fleet(this, FieldData.FIELDBUYPRICE_DATA[i], gui);
 				break;
 			case TAX: 
-				fields[i] = new Tax(this, FieldData.FIELDRENT_DATA[i], gui);
+				fields[i] = new Tax(this, FieldData.FIELDRENT1_DATA[i], gui);
 				break;
 			case REFUGE: 
-				fields[i] = new Refuge(this, FieldData.FIELDRENT_DATA[i], gui);
+				fields[i] = new Refuge(this, FieldData.FIELDRENT1_DATA[i], gui);
 				break;
 			case PRISON:
-				fields[i] = new Prison(this, FieldData.FIELDRENT_DATA[i],gui);
+				fields[i] = new Prison(this, FieldData.FIELDRENT1_DATA[i],gui);
 				break;
 			}	
 		}	
