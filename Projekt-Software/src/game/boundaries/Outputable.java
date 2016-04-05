@@ -54,6 +54,8 @@ public interface Outputable {
 	
 	public void initializeBoard();
 
+	public void PromptPrison(String playerName, int fine, int choice);
+
 
 
 

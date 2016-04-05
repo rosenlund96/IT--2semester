@@ -1,10 +1,6 @@
 package game.resources;
 
-import java.util.ArrayList;
-
-import game.entities.fields.AbstractField;
 import game.entities.fields.AbstractField.FieldType;
-import game.util.CSVReader;
 
 public class FieldData {
 
@@ -29,7 +25,7 @@ public class FieldData {
 			"Fængsel",
 			"Frederiksberg Alle",
 			"Carlsberg",
-			"Blowsvej",
+			"Bylowsvej",
 			"Gl. Kongevej",
 			"Danmark",
 			"Bernstorfvej",

@@ -118,6 +118,11 @@ public class FieldManager {
 			case PRISON:
 				fields[i] = new Prison(this, FieldData.FIELDRENT1_DATA[i],gui);
 				break;
+			case MOVE:
+				fields[i] = new Move();
+				break;
+			case SAVECARD:
+				fields[i] = new LuckyCard();
 			}	
 		}	
 	}
