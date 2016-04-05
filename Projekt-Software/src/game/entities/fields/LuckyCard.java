@@ -15,8 +15,8 @@ public class LuckyCard extends AbstractField{
 	public Stack <String> temp = new Stack<String>();//Og lægges herover efter de er brugt. 
 	public int cardNo = 0;
 	
-	public LuckyCard(FieldManager fieldManager, FieldType LuckyCard, Outputable output) {
-		super(fieldManager, LuckyCard, output);
+	public LuckyCard(FieldManager fieldManager, FieldType LUCKYCARD, Outputable output) {
+		super(fieldManager, LUCKYCARD, output);
 		
 	}
 

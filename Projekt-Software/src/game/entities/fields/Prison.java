@@ -1,6 +1,7 @@
 package game.entities.fields;
 
 import game.boundaries.Outputable;
+import game.controllers.GameController;
 import game.entities.FieldManager;
 import game.entities.Player;
 import game.util.DieCup;
@@ -10,6 +11,7 @@ public class Prison extends AbstractField{
 	private int fine;
 	private DieCup dices;
 	private int choice;
+	GameController controller;
 
 	public Prison(FieldManager fieldManager, int fine, Outputable output) {
 		super(fieldManager,FieldType.PRISON, output);
@@ -41,7 +43,7 @@ public class Prison extends AbstractField{
 			else setImprisoned(true, player);
 		break;
 		case 3: 
-			controller.nextTurn();
+			controller.board.nextTurn();
 		break;
 	}
 	}
