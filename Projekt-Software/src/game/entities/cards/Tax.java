@@ -1,5 +1,5 @@
 package game.entities.cards;
 
-public class Tax {
+public class Tax extends AbstractCard {
 
 }
