@@ -1,5 +1,7 @@
 package game.entities;
 
+import java.util.Collections;
+
 import game.boundaries.Outputable;
 import game.entities.cards.AbstractCard;
 import game.entities.cards.MovaActivePlayer;

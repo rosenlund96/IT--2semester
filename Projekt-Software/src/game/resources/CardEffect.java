@@ -8,6 +8,8 @@ public class CardEffect {
 	private static int players;
 	private static int houses;
 	private static int hotels;
+	
+//Hvordan skal jeg vide ovenstående? 
 
 	
 	
@@ -56,7 +58,7 @@ public class CardEffect {
 	
 	public static final int[] CardEffect_DATA = {
 			1000,0,0,0,-200,-2000,1000,1000,
-			1000,200*players,200,-1000,-(800*houses)-(2300*hotels),
+			1000,200,200,-1000,-(800*houses)-(2300*hotels),
 			0,0,0,0,0,0,1000,0,500,0,0,-(500*houses)-(2000*hotels),
 			-3000,-3000,40000,3000,1000,1000,-1000,-200
 			

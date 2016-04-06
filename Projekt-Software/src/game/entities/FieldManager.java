@@ -45,6 +45,13 @@ public class FieldManager {
 		}
 		return count;
 	}
+	/*********************************************
+	 * Uses landOnField on a field with a player *
+	 *********************************************/
+	public void landOnFieldByNumber(Player player, int fieldNumber){
+		fields[fieldNumber].landOnField(player);
+	}
+	
 	/****************************************
 	 * Returnes the field number of a field *
 	 ****************************************/

@@ -18,13 +18,13 @@ public class GameController {
 	private int turnNumber = 0;
 	private Outputable output;			// Gui controller to change the gui
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
-	private ArrayList<String> names;
+	public ArrayList<String> names;
 
 	private GameState state = GameState.NAME_STATE;
 
 	public GameController(){
 
-		output = new GUIBoundary("resources/language.xml");
+		output = new GUIBoundary("/Projekt-Software/resources/language.xml");
 	
 		dieCup = new DieCup();	
 		names = new ArrayList<String>();
