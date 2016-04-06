@@ -1,7 +1,7 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.FieldManager;
+import game.entities.CardManager;
 import game.entities.Player;
 
 public abstract class AbstractOwnable extends AbstractCard{
@@ -9,9 +9,9 @@ public abstract class AbstractOwnable extends AbstractCard{
 	protected Player owner;
 	
 	
-	public AbstractOwnable(FieldManager fieldManager, Outputable output, CardType cardType, Player owner) {
-		super(fieldManager, output, cardType);
-		this.owner = owner;
+	public AbstractOwnable(CardManager cardManager, Outputable output, CardType cardType) {
+		super(cardManager, output, cardType);
+		owner = null;
 	}
 	
 	public Player getOwner(){

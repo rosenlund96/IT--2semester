@@ -1,15 +1,15 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.FieldManager;
+import game.entities.CardManager;
 import game.entities.Player;
 
 public class Refuge extends AbstractCard {
 	
 	private int bonus;
 
-	public Refuge(FieldManager fieldManager, Outputable output, int bonus) {
-		super(fieldManager, output, CardType.REFUGE);
+	public Refuge(CardManager cardManager, Outputable output, int bonus) {
+		super(cardManager, output, CardType.REFUGE);
 		this.bonus=bonus;
 	}
 

@@ -1,15 +1,15 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.FieldManager;
+import game.entities.CardManager;
 import game.entities.Player;
 
 public class Prison extends AbstractOwnable {
 
 	
 	
-	public Prison(FieldManager fieldManager, Outputable output, CardType cardType, Player owner) {
-		super(fieldManager, output, cardType, owner);
+	public Prison(CardManager cardManager, Outputable output) {
+		super(cardManager, output, CardType.PRISON);
 		// TODO Auto-generated constructor stub
 	}
 

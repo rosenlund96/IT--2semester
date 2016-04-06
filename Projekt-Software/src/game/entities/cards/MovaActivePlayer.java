@@ -1,15 +1,15 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.FieldManager;
+import game.entities.CardManager;
 import game.entities.Player;
 
 public class MovaActivePlayer extends AbstractCard {
 
 	private int effect;
 	
-	public MovaActivePlayer(FieldManager fieldManager, Outputable output, int effect) {
-		super(fieldManager, output, CardType.MOVE);
+	public MovaActivePlayer(CardManager cardManager, Outputable output, int effect) {
+		super(cardManager, output, CardType.MOVE);
 		this.effect = effect;
 	}
 

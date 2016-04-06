@@ -86,12 +86,7 @@ public class FieldManager {
 			}
 		}
 	}
-	/*********************************************
-	 * Uses landOnField on a field with a player *
-	 *********************************************/
-	public void landOnFieldByNumber(Player player, int fieldNumber){
-		fields[fieldNumber].landOnField(player);
-	}
+	 
 	
 	/************************************************************
 	 * Creates the array of fields use from the FieldData class *

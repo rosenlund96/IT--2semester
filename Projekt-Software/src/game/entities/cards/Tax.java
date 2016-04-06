@@ -1,15 +1,15 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.FieldManager;
+import game.entities.CardManager;
 import game.entities.Player;
 
 public class Tax extends AbstractCard {
 
 	private int taxAmount;
 	
-	public Tax(FieldManager fieldManager, Outputable output, int taxAmount) {
-		super(fieldManager, output, CardType.TAX);
+	public Tax(CardManager cardManager, Outputable output, int taxAmount) {
+		super(cardManager, output, CardType.TAX);
 		this.taxAmount = taxAmount;
 		
 	}

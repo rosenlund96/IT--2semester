@@ -1,21 +1,20 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.FieldManager;
+import game.entities.CardManager;
 import game.entities.Player;
 
 public abstract class AbstractCard {
 	
-	public enum CardType{MOVE, PRISON, REFUGE, TAX, SAVECARD}
+	public enum CardType{MOVE, PRISON, REFUGE, TAX}
 
 	
-	protected FieldManager fieldManager;
+	protected CardManager cardManager;
 	protected Outputable output;
-
-	protected CardType cardType;
+    protected CardType cardType;
 	
-	public AbstractCard(FieldManager fieldManager, Outputable output, CardType cardType){
-		this.fieldManager = fieldManager;
+	public AbstractCard(CardManager cardManager, Outputable output, CardType cardType){
+		this.cardManager = cardManager;
 		this.cardType = cardType;
 		this.output = output;
 	}
