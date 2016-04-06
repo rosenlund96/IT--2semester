@@ -6,7 +6,7 @@ import game.entities.Player;
 
 public abstract class AbstractCard {
 	
-	public enum CardType{MOVE, PRISON, REFUGE, TAX}
+	public enum CardType{MOVE, PRISON, REFUGE, TAX, SAVECARD}
 
 	
 	protected FieldManager fieldManager;

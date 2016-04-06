@@ -1,15 +1,14 @@
 package game.resources;
 
-import game.boundaries.Outputable;
-import game.entities.FieldManager;
-import game.entities.fields.AbstractField;
-import game.entities.fields.AbstractField.FieldType;
+import game.entities.cards.AbstractCard;
+
 
 public class CardEffect {
 
 	private static int players;
 	private static int houses;
 	private static int hotels;
+
 	
 	
 	public static final int[] CardNo = {
@@ -62,40 +61,41 @@ public class CardEffect {
 			-3000,-3000,40000,3000,1000,1000,-1000,-200
 			
 	};
-	public static final FieldType[] CardType = {
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.PRISON,
-			AbstractField.FieldType.PRISON,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.SAVECARD,
-			AbstractField.FieldType.SAVECARD,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.MOVE,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.REFUGE,
-			AbstractField.FieldType.TAX,
-			AbstractField.FieldType.TAX
+	public static final AbstractCard.CardType[] CardType = {
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.PRISON,
+			AbstractCard.CardType.PRISON,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.SAVECARD,
+			AbstractCard.CardType.SAVECARD,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.MOVE,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.REFUGE,
+			AbstractCard.CardType.TAX,
+			AbstractCard.CardType.TAX
+			
 			
 			
 			

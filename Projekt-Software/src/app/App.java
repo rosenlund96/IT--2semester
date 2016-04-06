@@ -1,24 +1,14 @@
 package app;
 
-import java.util.Stack;
-
-import game.entities.fields.LuckyCard;
-import game.util.CSVReader;
-import game.util.FieldDataHandler;
+import game.controllers.GameController;
 
 public class App {
-	
-
-public static void main(String[] args){
+	public static void main(String[] args){
 		
 		// instantiate GameControlelr and starts game.
-	FieldDataHandler handler = new FieldDataHandler();
-	handler.readData();
-	System.out.println(handler.readData());
-	
-	
+		GameController game = new GameController();
+		game.run();
 		
-	
 		
 	}
 }

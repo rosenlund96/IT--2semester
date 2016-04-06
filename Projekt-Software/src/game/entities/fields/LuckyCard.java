@@ -16,7 +16,7 @@ public class LuckyCard extends AbstractField{
 	public int cardNo = 0;
 	
 	public LuckyCard(FieldManager fieldManager, FieldType LUCKYCARD, Outputable output) {
-		super(fieldManager, LUCKYCARD, output);
+		super(fieldManager, FieldType.LUCKYCARD, output);
 		
 	}
 

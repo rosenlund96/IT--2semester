@@ -268,16 +268,16 @@ public class GUIBoundary implements Outputable{
 			switch(FieldData.FIELDTYPE_DATA[i]){
 			case REFUGE:
 				fields[i] = new Refuge.Builder().build();
-				fields[i].setDescription(reader.getElement("get", 0) + " " + FieldData.FIELDRENT_DATA[i]);
+				fields[i].setDescription(reader.getElement("get", 0) + " " + FieldData.FIELDRENT1_DATA[i]);
 				break;
 			case TAX:
 				fields[i] = new Tax.Builder().build();
-				fields[i].setDescription(reader.getElement("pay", 0) + " " + FieldData.FIELDRENT_DATA[i]);
+				fields[i].setDescription(reader.getElement("pay", 0) + " " + FieldData.FIELDRENT1_DATA[i]);
 				break;
 			case TERRITORY:
 				fields[i] = new Street.Builder().build();
 				fields[i].setDescription(reader.getElement("ownable", 0) + " " + FieldData.FIELDBUYPRICE_DATA[i] +
-						", " + reader.getElement("territory", 0) + " " +FieldData.FIELDRENT_DATA[i]);
+						", " + reader.getElement("territory", 0) + " " +FieldData.FIELDRENT1_DATA[i]);
 				break;
 			case LABOR_CAMP:
 				fields[i] = new Brewery.Builder().build();
@@ -298,5 +298,12 @@ public class GUIBoundary implements Outputable{
 		}
 		GUI.create(fields);
 	
+	}
+
+
+	@Override
+	public void PromptPrison(String playerName, int fine, int choice) {
+		// TODO Auto-generated method stub
+		
 	}
 }

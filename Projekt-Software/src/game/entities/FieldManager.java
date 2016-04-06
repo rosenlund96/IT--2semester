@@ -4,6 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.fields.AbstractField;
 import game.entities.fields.Fleet;
 import game.entities.fields.LaborCamp;
+import game.entities.fields.LuckyCard;
 import game.entities.fields.Prison;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Refuge;
@@ -118,11 +119,9 @@ public class FieldManager {
 			case PRISON:
 				fields[i] = new Prison(this, FieldData.FIELDRENT1_DATA[i],gui);
 				break;
-			case MOVE:
-				fields[i] = new Move();
-				break;
-			case SAVECARD:
-				fields[i] = new LuckyCard();
+			case LUCKYCARD:
+				fields[i] = new LuckyCard(this, null, gui);
+			
 			}	
 		}	
 	}
