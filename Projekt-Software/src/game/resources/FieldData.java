@@ -122,7 +122,7 @@ public class FieldData {
 			true,true,false,true,true,false,true,true,false,true,false,true
 	};
 	public static final FieldType[] FIELDTYPE_DATA = {
-			AbstractField.FieldType.LABOR_CAMP,
+			AbstractField.FieldType.START,
 			AbstractField.FieldType.TERRITORY,
 			AbstractField.FieldType.LUCKYCARD,
 			AbstractField.FieldType.TERRITORY,

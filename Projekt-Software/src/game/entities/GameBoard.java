@@ -7,7 +7,7 @@ import game.boundaries.Outputable;
 public class GameBoard {
 
 	private ArrayList<Player> players;
-	private FieldManager fieldManager;
+	public FieldManager fieldManager;
 	private CardManager cardManager;
 	private int playerTurn;
 	private final int STARTING_POSITION = 0;

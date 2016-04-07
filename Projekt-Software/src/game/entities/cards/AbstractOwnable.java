@@ -25,7 +25,7 @@ public abstract class AbstractOwnable extends AbstractCard{
 	
 	/****************************************************************************
 	 * Function can only be called by an inheriting class						*
-	 * If Field has no owner. Player can buy the field if he has enough money	*
+	 * If Card has no owner. Player can save the card                           *
 	 ***************************************************************************/
 
 	@Override

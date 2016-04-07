@@ -8,6 +8,7 @@ import game.entities.fields.LuckyCard;
 import game.entities.fields.Prison;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Refuge;
+import game.entities.fields.Start;
 import game.entities.fields.Tax;
 import game.entities.fields.Territory;
 import game.entities.fields.AbstractField.FieldType;
@@ -123,6 +124,9 @@ public class FieldManager {
 				break;
 			case LUCKYCARD:
 				fields[i] = new LuckyCard(this, null, gui);
+			case START:
+				fields[i] = new Start(this, 4000, gui);
+				break;
 			
 			}	
 		}	
