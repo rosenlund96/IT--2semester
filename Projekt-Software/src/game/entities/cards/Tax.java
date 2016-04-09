@@ -46,8 +46,6 @@ public class Tax extends AbstractCard {
 	 ***********************************************************/
 	private void collectTax(int amount, Player player){
 		player.withdraw(amount);
-
-		output.showWithdrawMessage(player.getName(), amount);
 	}
 	
 	public int getTaxAmount(){

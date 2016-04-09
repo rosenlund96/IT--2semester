@@ -43,7 +43,7 @@ public class CardManager {
 		for (int i = 0; i < cards.length; i++) {
 			switch(CardEffect.CardType_DATA[i]){
 			case MOVE: 
-				cards[i] = new MovaActivePlayer(this, gui, CardEffect.CardPositionEffect_Data[i]) ;
+				cards[i] = new MovaActivePlayer(this, gui, CardEffect.CardNo_DATA[i]) ;
 				break;
 			case PRISON: 
 				cards[i] = new game.entities.cards.Prison(this, gui);

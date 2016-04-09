@@ -23,9 +23,12 @@ public class GameController {
 	private GameState state = GameState.NAME_STATE;
 
 	public GameController(){
-
+		try{
 		output = new GUIBoundary("/Projekt-Software/resources/language.xml");
-	
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
 		dieCup = new DieCup();	
 		names = new ArrayList<String>();
 	}

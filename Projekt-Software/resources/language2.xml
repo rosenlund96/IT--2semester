@@ -34,25 +34,45 @@
 	<fleet>leje alt efter antal ejet fleets:</fleet>
 	<laborCamp>leje: antal øjne gange antal laborCamps gange 100</laborCamp>
 	
-	<tribeEncampment>Stammelejr</tribeEncampment>
-	<crater>Krater</crater>
-	<mountain>Bjerg</mountain>
-	<coldDesert>Kold ørken</coldDesert>
+	<Start>Start</Start>
+	<Rødovrevej>Rødovrevej</Rødovrevej>
+	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Hvidovrevej>Hvidovrevej</Hvidovrevej>
 	<blackCave>Mørk hule</blackCave>
-	<theWerewall>Varulve Muren</theWerewall>
-	<mountainVillage>Bjerg Byen</mountainVillage>
-	<southCitadel>Sydlige Citadel</southCitadel>
-	<palaceGates>Palads Porte</palaceGates>
-	<tower>Tårn</tower>
-	<castle>Slot</castle>
-	<walledCity>Befæstet By</walledCity>
-	<monastery>Kloster</monastery>
-	<hutsInTheMountain>Hytter i bjerget</hutsInTheMountain>
-	<thePit>Graven</thePit>
-	<goldmine>Guldmine</goldmine>
-	<caravan>Karavane</caravan>
-	<secondSail>2 sejlet</secondSail>
-	<seaGrover>Søulven</seaGrover>
-	<theBuccaneers>Sørøvere</theBuccaneers>
-	<privateerArmade>Kaperne</privateerArmade>
+	<Indkomstskat>Betal Indkomstskat 10% eller 4000kr.</Indkomstskat>
+	<LBFærgerne>LB Færgerne</LBFærgerne>
+	<prøvLykken>Prøv Lykken</prøvLykken>
+	<valbyLanggade>Valby Langgade</valbyLanggade>
+	<Allægade>Allægade</Allægade>
+	<Fængsel>Fængsel</Fængsel>
+	<frederiksbergAlle>Frederiksberg Alle</frederiksbergAlle>
+	<Carlsberg>Carlsberg</Carlsberg>
+	<Bylowsvej>Bylowsvej</Bylowsvej>
+	<Kongevej>Gl. Kongevej</Kongevej>
+	<Danmark>Danmark</Danmark>
+	<Bernstorfvej>Bernstorfvej</Bernstorfvej>
+	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Hellerupvej>Hellerupvej</Hellerupvej>
+	<Strandvej>Strandvej</Strandvej>
+	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Trianglen>Trianglen</Trianglen>
+	<Østerbrogade>Østerbrogade</Østerbrogade>
+	<Grønningen>Grønningen</Grønningen>
+	<molsLinien>Mols linien A/S</molsLinien>
+	<Bredgade>Bredgade</Bredgade>
+	<Nytorv>Kgs Nytorv</Nytorv>
+	<cocaCola>Coca-Cola</cocaCola>
+	<Østergade>Østergade</Østergade>
+	<Fængsel>De Fængsles</Fængsel>
+	<Amagertorv>Amagertorv</Amagertorv>
+	<Vimmelskaftet>Vimmelskaftet</Vimmelskaftet>
+	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Nygade>Nygade</Nygade>
+	<skandinaviskLinietrafik>Skandinavisk Linietrafik A/S</skandinaviskLinietrafik>
+	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Frederiksberggade>Frederiksberggade</Frederiksberggade>
+	<ekstraordinærStatsskat>Ekstraordinær statsskat - betal kr. 2000</ekstraordinærStatsskat>
+	<Rådhuspladsen>Rådhuspladsen</Rådhuspladsen>
+	
+	
 </strings>

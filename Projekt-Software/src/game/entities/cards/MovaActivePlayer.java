@@ -6,15 +6,12 @@ import game.entities.Player;
 
 public class MovaActivePlayer extends AbstractCard {
 
-	private int effect;
 	private int cardNo;
 	private int fieldNo;
 	
 	
-	public MovaActivePlayer(CardManager cardManager, Outputable output, int effect) {
+	public MovaActivePlayer(CardManager cardManager, Outputable output, int cardNo) {
 		super(cardManager, output, CardType.MOVE);
-		this.effect = effect;
-		this.cardNo = cardManager.getCardNumber(this);
 	}
 
 	@Override
@@ -39,36 +36,36 @@ public class MovaActivePlayer extends AbstractCard {
 		case (2)://Gå til start
 			fieldNo=1;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition(difference % 41);
+			player.setPosition((currentPosition + difference) % 41);
 			break;
 			
 		case(14)://Gå til Grønningen
 			fieldNo = 25;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition(difference % 41);
+			player.setPosition((currentPosition + difference) % 41);
 			break;
 			
 		case(15)://Nærmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition(difference % 41);
+			player.setPosition((currentPosition +difference) % 41);
 			
 		case(16)://Nærmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition(difference % 41);
+			player.setPosition((currentPosition + difference) % 41);
 			
 			
 		case(17)://LB færgerne
 			fieldNo=6;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition(difference % 41);
+			player.setPosition((currentPosition +difference) % 41);
 			break;
 			
 		case(21)://Frederiksberg Alle
 			fieldNo=12;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition(difference % 41);
+			player.setPosition((currentPosition + difference) % 41);
 			break;
 		case(23)://Rådhuspladsen
 			player.setPosition(40);
@@ -81,9 +78,7 @@ public class MovaActivePlayer extends AbstractCard {
 		
 	}
 	
-	public int getEffect(){
-		return effect;
-	}
+
 	public int getCount(int currentPosition, int fieldNo){
 		int count = 0;
 		while(currentPosition != fieldNo){
@@ -99,26 +94,26 @@ public class MovaActivePlayer extends AbstractCard {
 		return count;
 	}
 	public int closestRefuge(int currentPosition){
-		int refuge1= 6;
-		int refuge2 = 13;
-		int refuge3 = 29;
+		int r1= 6;
+		int r2 = 13;
+		int r3 = 29;
 		
-		int difference1 = getCount(currentPosition, refuge1);
-		int difference2 = getCount(currentPosition, refuge2);
-		int difference3 = getCount(currentPosition, refuge3);
+		int difference1 = getCount(currentPosition, r1);
+		int difference2 = getCount(currentPosition, r2);
+		int difference3 = getCount(currentPosition, r3);
 		
 		if(difference1<difference2 && difference1<difference3){
-		    return refuge1;
+		    return r1;
 		}else if(difference2<difference3 && difference2<difference1){
-		    return refuge2;
+		    return r2;
 		}else{
-		    return refuge3;
+		    return r3;
 		}
 	}
 	
 	@Override
 	public String toString(){
-		return super.toString() + ", effect=" + effect;
+		return super.toString() + ", cardNo=" + cardNo ;
 	}
 	
 	

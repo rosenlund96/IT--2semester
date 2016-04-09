@@ -16,7 +16,7 @@ import game.resources.FieldData;
 
 public class FieldManager {
 
-	public final int NUMBER_OF_FIELDS = 41;
+	public final int NUMBER_OF_FIELDS = 40;
 	private AbstractField[] fields;
 	
 	/**************************************************
