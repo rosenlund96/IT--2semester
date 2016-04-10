@@ -21,8 +21,6 @@ public class Refuge extends AbstractCard {
 	public Refuge(CardManager cardManager, Outputable output, int bonus) {
 		super(cardManager, output, CardType.REFUGE);
 		this.bonus=bonus;
-		fieldManager = new FieldManager(output);
-		gameController = new GameController();
 	}
 	
 	@Override

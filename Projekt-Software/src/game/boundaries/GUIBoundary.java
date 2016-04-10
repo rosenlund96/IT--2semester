@@ -18,6 +18,7 @@ import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
+import game.resources.CardEffect;
 import game.resources.FieldData;
 import game.util.XMLReader;
 
@@ -323,7 +324,22 @@ public class GUIBoundary implements Outputable{
 	}
 	@Override
 	public void initializeCards(){
-		
+		for(int i = 0; i < CardEffect.CardNo_DATA.length; i++){
+			switch(CardEffect.CardType_DATA[i]){
+			case MOVE:
+				break;
+			case PRISON:
+				break;
+			case REFUGE:
+				break;
+			case TAX:
+				break;
+			default:
+				break;
+			
+			
+			}
+		}
 	}
 
 	@Override
