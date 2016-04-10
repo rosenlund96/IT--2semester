@@ -95,6 +95,10 @@ public class FieldManager {
 			}
 		}
 	}
+	
+	public boolean passStart(Player player){
+		
+	}
 	 
 	
 	/************************************************************
