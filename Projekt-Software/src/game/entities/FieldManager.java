@@ -19,6 +19,8 @@ public class FieldManager {
 
 	public final int NUMBER_OF_FIELDS = 40;
 	private AbstractField[] fields;
+	public int newPosAmount;
+	public int oldPos;
 	
 	/**************************************************
 	 * Construktor, takes a gui to pass to the fields *
@@ -97,6 +99,13 @@ public class FieldManager {
 	}
 	
 	public boolean passStart(Player player){
+		if(oldPos+newPosAmount>40){
+		return true;
+	}
+		else 
+		{
+			return false;
+		}
 		
 	}
 	 

@@ -28,7 +28,8 @@ public class GameController {
 	private GameState state = GameState.NAME_STATE;
 
 	public GameController(){
-		output = new GUIBoundary("C:/Users/Mathias R. Larsen/git/Projekt-Software/Projekt-Software/resources/language2.xml");
+		String userHome = System.getProperty("user.home");
+		output = new GUIBoundary(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
 		
 		
 		dieCup = new DieCup();	

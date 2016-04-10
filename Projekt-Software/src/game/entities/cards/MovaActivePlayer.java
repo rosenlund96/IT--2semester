@@ -26,6 +26,7 @@ public class MovaActivePlayer extends AbstractCard {
 		case (3)://Gå til fængsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
+			
 			break;
 			
 		case (4)://Gå til fængsel
@@ -92,6 +93,12 @@ public class MovaActivePlayer extends AbstractCard {
 			}
 		}
 		return count;
+	}
+	public boolean passStart(int currentPosition, int fieldNo){
+		if (currentPosition+getCount(currentPosition,fieldNo)<=40) {
+			return false;
+		}
+		return true;
 	}
 	public int closestRefuge(int currentPosition){
 		int r1= 6;
