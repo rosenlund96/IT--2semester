@@ -12,6 +12,7 @@ import game.entities.fields.Start;
 import game.entities.fields.Tax;
 import game.entities.fields.Territory;
 import game.entities.fields.AbstractField.FieldType;
+import game.resources.CardEffect;
 import game.resources.FieldData;
 
 public class FieldManager {
@@ -123,7 +124,8 @@ public class FieldManager {
 				fields[i] = new Prison(this, FieldData.FIELDRENT1_DATA[i],gui);
 				break;
 			case LUCKYCARD:
-				fields[i] = new LuckyCard(this, null, gui);
+				fields[i] = new LuckyCard(this, gui);
+				break;
 			case START:
 				fields[i] = new Start(this, 4000, gui);
 				break;

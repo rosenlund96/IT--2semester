@@ -1,5 +1,11 @@
 package game.entities.cards;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
 import game.boundaries.Outputable;
 import game.controllers.GameController;
 import game.entities.CardManager;

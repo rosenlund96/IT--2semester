@@ -1,17 +1,23 @@
 package game.boundaries;
 
 import java.awt.Color;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import desktop_codebehind.Car;
 import desktop_fields.Brewery;
-import desktop_fields.Empty;
+import desktop_fields.Chance;
 import desktop_fields.Field;
+import desktop_fields.Jail;
 import desktop_fields.Refuge;
 import desktop_fields.Shipping;
+import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
-import game.entities.Player;
 import game.resources.FieldData;
 import game.util.XMLReader;
 
@@ -23,10 +29,11 @@ public class GUIBoundary implements Outputable{
 	// Fields
 	XMLReader reader;
 	Field[] fields;
+
 	
 	
 	// Constructors
-	public GUIBoundary(String langFilePath){
+	public GUIBoundary(String langFilePath) {
 		this.reader = new XMLReader(langFilePath);
 		this.fields = new Field[FieldData.FIELDNAME_DATA.length];
 		this.initializeBoard();
@@ -289,7 +296,21 @@ public class GUIBoundary implements Outputable{
 				fields[i].setDescription(reader.getElement("ownable", 0) + " " + FieldData.FIELDBUYPRICE_DATA[i] +
 						", " + reader.getElement("fleet", 0));
 				break;
+			case PRISON:
+				fields[i] = new Jail.Builder().build();
+				fields[i].setDescription(reader.getElement("fine", 0)+ " " + "Kr. 1000");
+				break;
+			case START:
+				fields[i] = new Start.Builder().build();
+				fields[i].setDescription(reader.getElement("bonus", 0) + " " + "Kr. 4000");
+				break;
+			
+			case LUCKYCARD:
+				fields[i] = new Chance.Builder().build();
+				fields[i].setDescription(reader.getElement("lucky", 0));
+				break;
 			}
+			
 			
 			
 			fields[i].setTitle(String.valueOf(i+1));

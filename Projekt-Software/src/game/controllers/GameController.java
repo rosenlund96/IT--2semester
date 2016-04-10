@@ -1,6 +1,11 @@
 package game.controllers;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import game.boundaries.*;
 import game.entities.GameBoard;
@@ -23,12 +28,9 @@ public class GameController {
 	private GameState state = GameState.NAME_STATE;
 
 	public GameController(){
-		try{
-		output = new GUIBoundary("/Projekt-Software/resources/language.xml");
-		}
-		catch(Exception e){
-			System.out.println(e);
-		}
+		output = new GUIBoundary("C:/Users/Mathias R. Larsen/git/Projekt-Software/Projekt-Software/resources/language2.xml");
+		
+		
 		dieCup = new DieCup();	
 		names = new ArrayList<String>();
 	}
@@ -55,13 +57,14 @@ public class GameController {
 	 ********************************************/
 	private void nameState(){
 		// Shows a welcome message in the GUI
-		output.showWelcome();
+		//output.showWelcome();
 		
 		// Adds names to string array
 		for (int i = 0; i < 6; i++){
 			boolean error = false;
 			// Checks if names are long enough and saves them in array
 			while (true){
+			
 				String name = output.promptPlayerName(i+1, error);
 				if (name.length() == 0){
 					if(i>=2){
@@ -78,7 +81,7 @@ public class GameController {
 					output.addPlayer(name, STARTING_BALANCE, i);
 					break;
 				}				
-			}	
+	}	
 		}
 
 		// Creates the gameboard

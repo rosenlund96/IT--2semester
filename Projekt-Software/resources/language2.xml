@@ -29,50 +29,49 @@
 	<taxButton>10 procent</taxButton>
 	<get>Du får</get>
 	<pay>Du skal betale</pay>
+	<fine>Bøde:</fine>
+	<bonus>Bonus ved passering: </bonus>
 	<ownable>Pris:</ownable>
 	<territory>leje:</territory>
 	<fleet>leje alt efter antal ejet fleets:</fleet>
 	<laborCamp>leje: antal øjne gange antal laborCamps gange 100</laborCamp>
+	<lucky>Måske er du heldig!</lucky>
 	
 	<Start>Start</Start>
-	<Rødovrevej>Rødovrevej</Rødovrevej>
-	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Rodovrevej>Rødovrevej</Rodovrevej>
+	<provLykken>Prøv Lykken</provLykken>
 	<Hvidovrevej>Hvidovrevej</Hvidovrevej>
-	<blackCave>Mørk hule</blackCave>
 	<Indkomstskat>Betal Indkomstskat 10% eller 4000kr.</Indkomstskat>
-	<LBFærgerne>LB Færgerne</LBFærgerne>
-	<prøvLykken>Prøv Lykken</prøvLykken>
+	<LBFaergerne>LB Færgerne</LBFaergerne>
+	<Roskildevej>Roskildevej</Roskildevej>
 	<valbyLanggade>Valby Langgade</valbyLanggade>
-	<Allægade>Allægade</Allægade>
-	<Fængsel>Fængsel</Fængsel>
+	<Allaegade>Allægade</Allaegade>
+	<Faengsel>Fængsel</Faengsel>
 	<frederiksbergAlle>Frederiksberg Alle</frederiksbergAlle>
 	<Carlsberg>Carlsberg</Carlsberg>
 	<Bylowsvej>Bylowsvej</Bylowsvej>
 	<Kongevej>Gl. Kongevej</Kongevej>
 	<Danmark>Danmark</Danmark>
 	<Bernstorfvej>Bernstorfvej</Bernstorfvej>
-	<prøvLykken>Prøv Lykken</prøvLykken>
 	<Hellerupvej>Hellerupvej</Hellerupvej>
 	<Strandvej>Strandvej</Strandvej>
-	<prøvLykken>Prøv Lykken</prøvLykken>
+	<Parkering>Parkering</Parkering>
 	<Trianglen>Trianglen</Trianglen>
-	<Østerbrogade>Østerbrogade</Østerbrogade>
-	<Grønningen>Grønningen</Grønningen>
+	<Osterbrogade>Østerbrogade</Osterbrogade>
+	<Gronningen>Grønningen</Gronningen>
 	<molsLinien>Mols linien A/S</molsLinien>
 	<Bredgade>Bredgade</Bredgade>
 	<Nytorv>Kgs Nytorv</Nytorv>
 	<cocaCola>Coca-Cola</cocaCola>
-	<Østergade>Østergade</Østergade>
-	<Fængsel>De Fængsles</Fængsel>
+	<Ostergade>Østergade</Ostergade>
+	<Faengsel>De Fængsles</Faengsel>
 	<Amagertorv>Amagertorv</Amagertorv>
 	<Vimmelskaftet>Vimmelskaftet</Vimmelskaftet>
-	<prøvLykken>Prøv Lykken</prøvLykken>
 	<Nygade>Nygade</Nygade>
 	<skandinaviskLinietrafik>Skandinavisk Linietrafik A/S</skandinaviskLinietrafik>
-	<prøvLykken>Prøv Lykken</prøvLykken>
 	<Frederiksberggade>Frederiksberggade</Frederiksberggade>
-	<ekstraordinærStatsskat>Ekstraordinær statsskat - betal kr. 2000</ekstraordinærStatsskat>
-	<Rådhuspladsen>Rådhuspladsen</Rådhuspladsen>
+	<ekstraordinaerStatsskat>Ekstraordinær statsskat - betal kr. 2000</ekstraordinaerStatsskat>
+	<Raadhuspladsen>Rådhuspladsen</Raadhuspladsen>
 	
 	
 </strings>

@@ -124,5 +124,10 @@ public class TestBoundary1 implements Outputable {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void PromptPrison(String playerName, int fine, int choice) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
