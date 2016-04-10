@@ -26,59 +26,51 @@ public class MovaActivePlayer extends AbstractCard {
 		case (3)://Gå til fængsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
-			
-			break;
-			
+			break;	
 		case (4)://Gå til fængsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
-			break;
-			
+			break;	
 		case (2)://Gå til start
 			fieldNo=1;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference) % 41);
-			break;
-			
+			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+			break;	
 		case(14)://Gå til Grønningen
 			fieldNo = 25;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference) % 41);
-			break;
-			
+			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+			break;	
 		case(15)://Nærmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition +difference) % 41);
-			
+			player.setPosition((currentPosition +difference) % 41);	
+			break;
 		case(16)://Nærmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference) % 41);
-			
-			
+			break;	
 		case(17)://LB færgerne
 			fieldNo=6;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition +difference) % 41);
+			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
 			break;
-			
 		case(21)://Frederiksberg Alle
 			fieldNo=12;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference) % 41);
+			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
 			break;
 		case(23)://Rådhuspladsen
 			player.setPosition(40);
-			break;
-			
-			//Denne klasse er meget ucharmerende, men den virker!
-
-		
-		}
-		
-	}
-	
+			break;		
+			//Denne klasse er meget ucharmerende, men den virker	
+		}	
+	}	
 
 	public int getCount(int currentPosition, int fieldNo){
 		int count = 0;
@@ -122,7 +114,4 @@ public class MovaActivePlayer extends AbstractCard {
 	public String toString(){
 		return super.toString() + ", cardNo=" + cardNo ;
 	}
-	
-	
-
 }

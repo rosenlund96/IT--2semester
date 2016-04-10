@@ -26,9 +26,10 @@ import game.util.XMLReader;
  */
 public class GUIBoundary implements Outputable{
 	
-	// Fields
+	// Fields and cards
 	XMLReader reader;
 	Field[] fields;
+	
 
 	
 	
@@ -320,7 +321,10 @@ public class GUIBoundary implements Outputable{
 		GUI.create(fields);
 	
 	}
-
+	@Override
+	public void initializeCards(){
+		
+	}
 
 	@Override
 	public void PromptPrison(String playerName, int fine, int choice) {

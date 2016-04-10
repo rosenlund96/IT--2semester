@@ -54,7 +54,20 @@ public interface Outputable {
 	
 	public void initializeBoard();
 
+
 	public void PromptPrison(String playerName, int fine, int choice);
+
+	void initializeCards();
+	
+	public void setHotel();
+	
+	public void setHouse();
+	
+	public void sellProperty();
+	
+	public void cardDrawn();
+	
+	
 
 
 
