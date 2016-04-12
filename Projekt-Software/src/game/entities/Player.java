@@ -5,20 +5,22 @@ public class Player {
 
 	// Attributes
 
-	private int position;
+	private int position, timeInPrison, outOfJailCard;
 	private String name;
 	private Balance balance;
 	private boolean isBroke, isParking, isImprisoned; 
 
 	// Constructors
 
-	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isParking, boolean isImprisoned){
+	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isParking, boolean isImprisoned, int timeInPrison, int outOfJailCard){
 		this.name = name;
 		this.balance = new Balance(startingBalance);
 		this.isBroke = false; 
 		this.position = position;
 		this.isParking = false;
 		this.isImprisoned = false;
+		this.timeInPrison = 0;
+		this.outOfJailCard = 0;
 	}
 
 	// Mutators
@@ -61,6 +63,18 @@ public class Player {
 
 	public void deposit(int amount){
 		balance.deposit(amount);
+	}
+	public int gettimeInPrison() {
+		return timeInPrison;
+	}
+	public void settimeInPrison(int timeInPrison) {
+		this.timeInPrison=timeInPrison;
+	}
+	public int getoutOfJailCard (){
+		return outOfJailCard;
+	}
+	public void setoutOfJailCard(int outOfJailCard)	{
+	this.outOfJailCard=outOfJailCard;
 	}
 
 	/*
