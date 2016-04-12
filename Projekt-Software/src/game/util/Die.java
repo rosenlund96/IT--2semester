@@ -30,7 +30,7 @@ public class Die {
 		return faceValue;
 	}
 
-	// Service Methdos
+	// Service Methodes
 
 	/********************************************************
 	 * sets faceValue to a new random value between 1 and 6	*
