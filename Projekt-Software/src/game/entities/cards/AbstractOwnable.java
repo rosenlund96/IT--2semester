@@ -6,7 +6,7 @@ import game.entities.Player;
 
 public abstract class AbstractOwnable extends AbstractCard{
 
-	protected Player owner;
+	protected Player owner; 
 	
 	
 	public AbstractOwnable(CardManager cardManager, Outputable output, CardType cardType) {
@@ -16,6 +16,9 @@ public abstract class AbstractOwnable extends AbstractCard{
 	
 	public Player getOwner(){
 		return owner; 
+	}
+	public void setOwner(Player player){
+		owner = player; 
 	}
 	
 	public void clearOwner(){

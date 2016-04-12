@@ -5,7 +5,6 @@ import game.entities.CardManager;
 import game.entities.Player;
 
 public class MovaActivePlayer extends AbstractCard {
-
 	private int cardNo;
 	private int fieldNo;
 	
