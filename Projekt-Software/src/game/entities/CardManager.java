@@ -8,7 +8,7 @@ import game.entities.cards.MovaActivePlayer;
 import game.resources.CardEffect;
 
 public class CardManager {
-
+//SKal vise en tekstbesked. Denne klasse lave en stak af kort, som kan udskrives til gui. Temp stak og aktiv stak. 
 	
 	public final int NUMBER_OF_CARDS = 33;
 	private AbstractCard[] cards;
