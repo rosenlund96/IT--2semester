@@ -9,7 +9,7 @@ public class Creator {
 	DBConnector con = new DBConnector();
 	
 	
-	//Opretter en ny database og returner navnet på denne
+	//Opretter en ny database og returner navnet pï¿½ denne
 	public LocalDateTime createGameDB(LocalDateTime time){
 		try {
 			con.doQuery(createDB);
@@ -18,11 +18,13 @@ public class Creator {
 		}
 		return time;
 	}
-	//Opretter de fornødne tabeller i databasen
+	//Opretter de fornï¿½dne tabeller i databasen
 	public void createTables(){
 		createGame();
 		createPlayers();
 		createOwnable();
+		createCards();
+		createBank();
 	}
 	public void createGame(){
 		String query = "";
@@ -57,6 +59,14 @@ public class Creator {
 			con.doQuery(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void createBank() {
+		String query = "";
+		try {
+			con.doQuery(query);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
