@@ -66,6 +66,8 @@ public interface Outputable {
 	public void sellProperty();
 	
 	public void cardDrawn();
+
+	public void showNoCardMessage(String name);
 	
 	
 
