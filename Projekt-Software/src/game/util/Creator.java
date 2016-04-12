@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class Creator {
 	LocalDateTime time = LocalDateTime.now();
-	String createDB = "Create database" + time;
+	String createDB = "create database" + time;
 	DBConnector con = new DBConnector();
 	
 	
@@ -27,7 +27,10 @@ public class Creator {
 		createBank();
 	}
 	public void createGame(){
-		String query = "";
+		String query = ("game_id time" + 
+						"player_id varchar(4)" + 
+						"primary key (time)" + 
+						"foreign key (player_id) refereneces players (player_id)");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -36,7 +39,13 @@ public class Creator {
 		}
 	}
 	public void createPlayers(){
-		String query = "";
+		String query = ("player_id varchar(4)" + 
+						"playerOnBoard int" + 
+						"playerBalance int" +
+						"housesOwned int" +
+						"hotelsOwned int" + 
+						"cardsOwned varchar" +
+						"primary key (player_id)");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
