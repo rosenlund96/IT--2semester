@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 
 public class Creator {
 	LocalDateTime time = LocalDateTime.now();
-	String createDB = "Create database" + time;
+	String createDB = "create database" + time;
 	DBConnector con = new DBConnector();
 	
 	
-	//Opretter en ny database og returner navnet på denne
+	//Opretter en ny database og returner navnet pï¿½ denne
 	public LocalDateTime createGameDB(LocalDateTime time){
 		try {
 			con.doQuery(createDB);
@@ -18,14 +18,19 @@ public class Creator {
 		}
 		return time;
 	}
-	//Opretter de fornødne tabeller i databasen
+	//Opretter de fornï¿½dne tabeller i databasen
 	public void createTables(){
 		createGame();
 		createPlayers();
 		createOwnable();
+		createCards();
+		createBank();
 	}
 	public void createGame(){
-		String query = "";
+		String query = ("game_id time" + 
+						"player_id varchar(4)" + 
+						"primary key (time)" + 
+						"foreign key (player_id) refereneces players (player_id)");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -34,7 +39,13 @@ public class Creator {
 		}
 	}
 	public void createPlayers(){
-		String query = "";
+		String query = ("player_id varchar(4)" + 
+						"playerOnBoard int" + 
+						"playerBalance int" +
+						"housesOwned int" +
+						"hotelsOwned int" + 
+						"cardsOwned varchar" +
+						"primary key (player_id)");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -52,11 +63,19 @@ public class Creator {
 		}
 	}
 	public void createCards(){
-		String query = "";
+		String query = ("card_id");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void createBank() {
+		String query = "";
+		try {
+			con.doQuery(query);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
