@@ -36,7 +36,7 @@ public class LuckyCardTest {
 		//Setup
 		int cardNo = 15;
 		MovaActivePlayer card = new MovaActivePlayer(cm, output, cardNo);
-		player = new Player("name", 5000, 5, false, false, false);
+		player = new Player("name", 5000, 5, false, false, 0, 0);
 		assertEquals("Player created at position 5",5, player.getPosition());
 		//Act
 		int fieldNo = 6;

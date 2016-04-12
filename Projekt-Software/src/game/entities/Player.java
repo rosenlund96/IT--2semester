@@ -8,16 +8,15 @@ public class Player {
 	private int position, timeInPrison, outOfJailCard;
 	private String name;
 	private Balance balance;
-	private boolean isBroke, isParking, isImprisoned; 
+	private boolean isBroke, isImprisoned; 
 
 	// Constructors
 
-	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isParking, boolean isImprisoned, int timeInPrison, int outOfJailCard){
+	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isImprisoned, int timeInPrison, int outOfJailCard){
 		this.name = name;
 		this.balance = new Balance(startingBalance);
 		this.isBroke = false; 
 		this.position = position;
-		this.isParking = false;
 		this.isImprisoned = false;
 		this.timeInPrison = 0;
 		this.outOfJailCard = 0;
@@ -43,12 +42,6 @@ public class Player {
 
 	private void setBroke(boolean isBroke){
 		this.isBroke = isBroke;
-	}
-	public boolean getParking(){
-		return isParking;
-	}
-	public void setParking(boolean isParking){
-		this.isParking = isParking;
 	}
 	public boolean getImprisoned(){
 		return isImprisoned;
