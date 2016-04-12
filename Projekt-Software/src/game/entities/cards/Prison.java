@@ -15,13 +15,8 @@ public class Prison extends AbstractOwnable {
 
 	@Override
 	public void drawCard(Player player) {
-		if (player.getImprisoned()==true) {
-			owner = player;
-			player.setImprisoned(false);
-			this.clearOwner();
-		}
-		else player = owner;
-		
+		this.setOwner(player);
 	}
+	
 
 }
