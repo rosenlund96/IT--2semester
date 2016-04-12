@@ -63,7 +63,7 @@ public class Creator {
 		}
 	}
 	public void createCards(){
-		String query = "";
+		String query = ("card_id");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
