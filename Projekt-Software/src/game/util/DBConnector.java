@@ -9,16 +9,15 @@ import java.sql.Statement;
 
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */
-	public class Connector {
 		private final String HOST     = "Localhost";
 		private final int    PORT     = 3306;
 		private final String DATABASE = "Projekt";
 		private final String USERNAME = "root"; 
 		private final String PASSWORD = "";
-		private Connection connection;
+		public Connection connection;
 
 
-		public Connector() {
+		public DBConnector() {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
@@ -44,4 +43,4 @@ public class DBConnector {
 			stmt.executeUpdate(query);
 		}
 	}
-}
+
