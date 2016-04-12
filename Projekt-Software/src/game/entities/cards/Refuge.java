@@ -47,6 +47,7 @@ public class Refuge extends AbstractCard {
 			bonus = 200;
 			int playerCount = gameController.names.size();
 			player.deposit(bonus*playerCount);
+			//Træk 200 fra hvermodspiller
 		
 		}
 		
