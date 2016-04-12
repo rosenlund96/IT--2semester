@@ -20,6 +20,44 @@ public class Creator {
 	}
 	//Opretter de fornødne tabeller i databasen
 	public void createTables(){
-		
+		createGame();
+		createPlayers();
+		createOwnable();
+	}
+	public void createGame(){
+		String query = "";
+		try {
+			con.doQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void createPlayers(){
+		String query = "";
+		try {
+			con.doQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void createOwnable(){
+		String query = "";
+		try {
+			con.doQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void createCards(){
+		String query = "";
+		try {
+			con.doQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
