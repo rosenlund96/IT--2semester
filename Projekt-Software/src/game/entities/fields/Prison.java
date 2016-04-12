@@ -20,9 +20,6 @@ public class Prison extends AbstractField{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void setParking(boolean isParking, Player player){
-		player.setParking(isParking);
-	}
 	public void setImprisoned(boolean isImprisoned, Player player){
 		player.setImprisoned(isImprisoned);
 	}
