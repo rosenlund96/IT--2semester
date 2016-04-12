@@ -69,8 +69,7 @@ public class Prison extends AbstractField{
 		break;
 	}
 	}
-	
-	
+	//fuck this shit
 	
 	
 	@Override
