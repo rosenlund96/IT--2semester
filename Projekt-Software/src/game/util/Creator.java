@@ -27,10 +27,11 @@ public class Creator {
 		createBank();
 	}
 	public void createGame(){
-		String query = ("game_id time" + 
-						"player_id varchar(4)" + 
-						"primary key (time)" + 
-						"foreign key (player_id) refereneces players (player_id)");
+		String query = ("create table Game" + 
+						"(game_id time, " + 
+						"player_id varchar(4), " + 
+						"primary key (time), " + 
+						"foreign key (player_id) references Players (player_id));");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -39,13 +40,15 @@ public class Creator {
 		}
 	}
 	public void createPlayers(){
-		String query = ("player_id varchar(4)" + 
-						"playerOnBoard int" + 
-						"playerBalance int" +
-						"housesOwned int" +
-						"hotelsOwned int" + 
-						"cardsOwned varchar" +
-						"primary key (player_id)");
+		String query = ("create table Players" + 
+						"(player_id varchar(4), " + 
+						"playerOnBoard int, " + 
+						"playerBalance int, " +
+						"housesOwned int, " +
+						"hotelsOwned int, " + 
+						"card_id varchar, " +
+						"primary key (player_id), " +
+						"foreign key (card_id) references Cards (card_id));");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -63,7 +66,11 @@ public class Creator {
 		}
 	}
 	public void createCards(){
-		String query = ("card_id");
+		String query = ("create table Cards" + 
+						"(card_id varchar, " +
+						"cardTemp varchar, " +
+						"cardActive varchar" + 
+						"primary key (card_id)");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
