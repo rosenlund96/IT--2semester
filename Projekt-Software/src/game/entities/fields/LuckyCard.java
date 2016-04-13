@@ -1,15 +1,18 @@
 package game.entities.fields;
 
 import game.entities.*;
+import game.entities.cards.AbstractCard;
+
 import java.util.*;
 import game.boundaries.*;
 
 
 public class LuckyCard extends AbstractField{
 
-	public Stack<String> Stak = new Stack<String>(); //Kortene gemmes i denne stak
-	public Stack <String> temp = new Stack<String>();//Og lægges herover efter de er brugt. 
+	public Stack<AbstractCard> Stak = new Stack<AbstractCard>(); //Kortene gemmes i denne stak
+	public Stack <AbstractCard> temp = new Stack<AbstractCard>();//Og lægges herover efter de er brugt. 
 	public int cardNo = 0;
+	CardManager cardManager;
 	
 	public LuckyCard(FieldManager fieldManager, Outputable output) {
 		super(fieldManager, FieldType.LUCKYCARD, output);
@@ -20,10 +23,11 @@ public class LuckyCard extends AbstractField{
 	//Skal vi mon have en tredje stak til de kort der er ude og svømme? Eller bare slette dem og oprette dem på ny? 
 	
 	
-	public Stack<String> hentKort(){
-		
+	public Stack<AbstractCard> hentKort(){
+	 Stak.addAll(cardManager.cardList);
+		return Stak;
 	}
-	public String returnerKort(){
+	public AbstractCard returnerKort(){
 		if(cardNo < 33 ){
 		temp.push(Stak.peek());
 		cardNo++;
@@ -63,7 +67,7 @@ public class LuckyCard extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
-		returnerKort();
+		returnerKort().toString();
         
 		
 	}

@@ -13,7 +13,7 @@ public class CardManager {
 //SKal vise en tekstbesked. Denne klasse lave en stak af kort, som kan udskrives til gui. Temp stak og aktiv stak. 
 	
 	public final int NUMBER_OF_CARDS = 33;
-	private AbstractCard[] cards;
+	public AbstractCard[] cards;
 	public List<AbstractCard> cardList;
 	
 	/**************************************************

@@ -49,7 +49,7 @@ public class Player {
 	public void setImprisoned(boolean isImprisoned){
 		this.isImprisoned = isImprisoned;
 	}
-	
+
 	public int getBalance(){
 		return balance.getBalance();
 	}
@@ -67,7 +67,7 @@ public class Player {
 		return outOfJailCard;
 	}
 	public void setoutOfJailCard(int outOfJailCard)	{
-	this.outOfJailCard=getoutOfJailCard()+outOfJailCard;
+		this.outOfJailCard=getoutOfJailCard()+outOfJailCard;
 	}
 
 	/*
@@ -77,11 +77,11 @@ public class Player {
 	 */
 	public int withdraw(int amount){
 		int withdrawen = balance.withdraw(amount);
-		
+
 		// if withdrawen amount is less than asked for. player must be broke
 		if(withdrawen < amount)
 			this.setBroke(true);
-		
+
 		return withdrawen;
 	}
 
