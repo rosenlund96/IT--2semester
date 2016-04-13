@@ -1,6 +1,7 @@
 package test.mockClasses;
 
 import game.boundaries.Outputable;
+import game.entities.Player;
 
 public class TestBoundary1 implements Outputable {
 
@@ -126,6 +127,41 @@ public class TestBoundary1 implements Outputable {
 	}
 	@Override
 	public void PromptPrison(String playerName, int fine, int choice) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void initializeCards() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setHotel() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setHouse() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void sellProperty() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void cardDrawn() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showNoCardMessage(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showGetPrisonCardMessage(Player player) {
 		// TODO Auto-generated method stub
 		
 	}

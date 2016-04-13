@@ -43,6 +43,7 @@ public class Prison extends AbstractField{
 		case 1:
 			payFine(player);
 			settimeInPrison(0, player);
+			setImprisoned(false, player);
 		break;
 		case 2:
 			dices.roll();
@@ -64,6 +65,10 @@ public class Prison extends AbstractField{
 				this.landOnField(player);
 			}
 		break;
+		case 4:
+			settimeInPrison(player.gettimeInPrison()+1, player);
+			output.showDoTimeMessage(player);
+			break;
 	}
 	}
 	//fuck this shit
@@ -71,14 +76,14 @@ public class Prison extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
-		if (player.gettimeInPrison()>=3)	{
-		payFine(player);
-		setImprisoned(false, player);
-		settimeInPrison(0, player);
+		setImprisoned(true, player);
+		if (player.gettimeInPrison()<=3)	{
+			initializeChoice(choice, player);
+			output.PromptPrison(player.getName(),fine,choice);
 	}
 	else {
-		output.PromptPrison(player.getName(),fine,choice);
-		initializeChoice(choice, player);
+		setImprisoned(false, player);
+		settimeInPrison(0, player);
 		//Spilleren skal her have valget imellem at kaster terninger, vente, benytte slip ud af fængsel kort eller betale bøden
 		
 	}

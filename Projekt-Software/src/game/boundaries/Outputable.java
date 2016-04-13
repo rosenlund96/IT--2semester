@@ -1,5 +1,6 @@
 package game.boundaries;
 
+import game.entities.Player;
 
 /************************************************************************
  * 																		*
@@ -68,6 +69,10 @@ public interface Outputable {
 	public void cardDrawn();
 
 	public void showNoCardMessage(String name);
+
+	public void showGetPrisonCardMessage(Player player);
+
+	public void showDoTimeMessage(Player player);
 	
 	
 

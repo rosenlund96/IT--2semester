@@ -1,6 +1,8 @@
 package game.entities;
 
+
 import java.util.Collections;
+import java.util.List;
 
 import game.boundaries.Outputable;
 import game.entities.cards.AbstractCard;
@@ -12,6 +14,7 @@ public class CardManager {
 	
 	public final int NUMBER_OF_CARDS = 33;
 	private AbstractCard[] cards;
+	public List<AbstractCard> cardList;
 	
 	/**************************************************
 	 * Constructor, takes a GUI to pass to the fields *
@@ -33,11 +36,15 @@ public class CardManager {
 		return number;
 	
 	}
+	public void addPrisonCard(){
+		
+	}
 	
 	/************************************************************
-	 * Creates the array of fields use from the FieldData class *
+	 * Creates the array of cards from CardEffect class and shuffles 
+	 * Kortene skal loades ind i luckycard klassen og derfra gives*
 	 ************************************************************/
-	private void initializeCards(Outputable gui){
+	private List<AbstractCard> initializeCards(Outputable gui){
 		cards = new AbstractCard[NUMBER_OF_CARDS];
 
 		for (int i = 0; i < cards.length; i++) {
@@ -57,6 +64,11 @@ public class CardManager {
 			
 			}	
 		}	
+		for (int i = 0; i < cards.length; i++) {
+			cardList.add(cards[i]);
+			}
+			Collections.shuffle(cardList);
+			return cardList;
 	}
 	
 }

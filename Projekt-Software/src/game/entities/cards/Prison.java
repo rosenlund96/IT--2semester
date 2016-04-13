@@ -16,6 +16,8 @@ public class Prison extends AbstractOwnable {
 	@Override
 	public void drawCard(Player player) {
 		this.setOwner(player);
+		player.setoutOfJailCard(player.getoutOfJailCard()+1);
+		output.showGetPrisonCardMessage(player);
 	}
 	
 

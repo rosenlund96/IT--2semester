@@ -3,14 +3,10 @@ package game.entities.fields;
 import game.entities.*;
 import java.util.*;
 import game.boundaries.*;
-import game.util.*;
 
 
 public class LuckyCard extends AbstractField{
 
-	public String filePath = "resources/Matador - cards.csv";
-	public ArrayList <String>Cards = new ArrayList<String>();//Henter kortene ned fra CSV
-	CSVReader reader = new CSVReader(filePath);
 	public Stack<String> Stak = new Stack<String>(); //Kortene gemmes i denne stak
 	public Stack <String> temp = new Stack<String>();//Og lægges herover efter de er brugt. 
 	public int cardNo = 0;
@@ -20,15 +16,12 @@ public class LuckyCard extends AbstractField{
 		
 	}
 
-	
+	//kortene skal hentes fra cardmanager og derfra skal de så gemmes i stak, via hentkort. Herfra skal returnerkort, klare resten. 
+	//Skal vi mon have en tredje stak til de kort der er ude og svømme? Eller bare slette dem og oprette dem på ny? 
 	
 	
 	public Stack<String> hentKort(){
-		reader.ReadFile();
-		Cards = reader.getArrayList();
-		Stak.addAll(Cards);
-		Collections.shuffle(Stak);
-		return Stak;
+		
 	}
 	public String returnerKort(){
 		if(cardNo < 33 ){
@@ -45,15 +38,24 @@ public class LuckyCard extends AbstractField{
 		}
 		
 	}
-	public void gemKort(){
+	public void gemKort(Player player, game.entities.cards.AbstractOwnable card){
 		if (cardNo < 33 ){
 			temp.pop();
+			player.setoutOfJailCard(1);
+			card.setOwner(player);
+			
 		}
 		else {
 			Stak.pop();
+			player.setoutOfJailCard(1);
+			card.setOwner(player);
 		}
 	}
-	
+	public int antalKort(){
+		int stak = Stak.size();
+		int Temp = temp.size();
+		return stak+Temp;
+	}
 	
 
 	

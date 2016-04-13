@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.Iterator;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import game.boundaries.Outputable;
@@ -12,6 +14,7 @@ import game.entities.FieldManager;
 import game.entities.Player;
 import game.entities.cards.AbstractCard.CardType;
 import game.entities.cards.MovaActivePlayer;
+import game.entities.cards.Prison;
 import game.entities.cards.Refuge;
 import game.entities.cards.Tax;
 import game.entities.fields.AbstractField.FieldType;
@@ -22,8 +25,10 @@ import test.mockClasses.TestBoundary1;
 public class LuckyCardTest {
 	private Outputable output;
 	private CardManager cm;
+	private FieldManager fm;
 	private Player player;
 
+	@Before
 	public void setUp() throws Exception {
 		output = new TestBoundary1();
 		cm = new CardManager(output);
@@ -53,7 +58,7 @@ public class LuckyCardTest {
 		//Setup
 		int bonus = 1000;
 		Refuge refuge = new Refuge(cm, output, bonus);
-		player = new Player("name", 1000, 5, false, false, false);
+		player = new Player("name", 1000, 0, false, false, 0, 0);
 		assertEquals("Player created with balance 1000", 1000, player.getBalance());
 		
 		//Act
@@ -61,21 +66,25 @@ public class LuckyCardTest {
 		
 		//Asserts 
 		assertEquals("Player balance should now be 2000", 2000, player.getBalance());
-		//test fejler da fieldmanager ikke kan oprette felter. XML fil ikkke opdateret. 
 	}
 	@Test
-	public void TaxCardTest(){
+	public void PrisonCardTest(){
 		//Setup
-		int taxAmount = 1000;
-		Tax tax = new Tax(cm, output, taxAmount);
-		player = new Player("name", 2000, 5, false, false, false);
-		assertEquals("Player created with balance 2000", 2000, player.getBalance());
+		Prison prisonCard = new Prison(cm, output);
+		game.entities.fields.Prison prisonField = new game.entities.fields.Prison(fm, 1000, output);
+		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
+		assertEquals("Player instantiated, and not imprisoned", false, p1.getImprisoned());
+		assertEquals("Player has no prison card", 0, p1.getoutOfJailCard());
 		
-		//Act
-		tax.drawCard(player);
+		//Act and asserts
+		prisonField.landOnField(p1);
+		assertEquals("Player should now be imprisoned", true, p1.getImprisoned());
+		prisonCard.drawCard(p1);
+		assertEquals("Player should now have a prison card", 1, p1.getoutOfJailCard());
 		
-		//Asserts 
-		assertEquals("Player balance should now be 1000", 1000, player.getBalance());
-		//test fejler da fieldmanager ikke kan oprette felter. XML fil ikkke opdateret. 
+		
+		
+		
 	}
+	
 }

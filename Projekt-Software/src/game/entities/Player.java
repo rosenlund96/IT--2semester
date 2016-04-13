@@ -67,7 +67,7 @@ public class Player {
 		return outOfJailCard;
 	}
 	public void setoutOfJailCard(int outOfJailCard)	{
-	this.outOfJailCard=outOfJailCard;
+	this.outOfJailCard=getoutOfJailCard()+outOfJailCard;
 	}
 
 	/*
