@@ -15,16 +15,20 @@ import game.entities.Player;
 public class Refuge extends AbstractCard {
 	
 	private int bonus;
+	private int cardNo;
 	private FieldManager fieldManager;
 	private GameController gameController;
 
-	public Refuge(CardManager cardManager, Outputable output, int bonus) {
+	public Refuge(CardManager cardManager, Outputable output, int bonus, int cardNo) {
 		super(cardManager, output, CardType.REFUGE);
 		this.bonus=bonus;
+		this.cardNo = cardNo;
+	
 	}
 	
 	@Override
 	public void drawCard(Player player) {
+		output.showCardMessage(player, cardNo);
 		switch (bonus) {
 		case 1000:
 			player.deposit(1000);

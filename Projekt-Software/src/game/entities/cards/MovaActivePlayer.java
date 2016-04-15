@@ -5,16 +5,19 @@ import game.entities.CardManager;
 import game.entities.Player;
 
 public class MovaActivePlayer extends AbstractCard {
-	private int cardNo;
 	private int fieldNo;
+	private int cardNo;
 	
 	
 	public MovaActivePlayer(CardManager cardManager, Outputable output, int cardNo) {
 		super(cardManager, output, CardType.MOVE);
+		this.cardNo = cardNo;
+		
 	}
 
 	@Override
 	public void drawCard(Player player) {
+		output.showCardMessage(player, cardNo);
 		int currentPosition = player.getPosition();
 		int difference;
 		switch (cardNo) {

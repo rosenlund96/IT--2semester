@@ -1,11 +1,8 @@
 package game.boundaries;
 
 import java.awt.Color;
-import java.io.IOException;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import desktop_codebehind.Car;
 import desktop_fields.Brewery;
@@ -18,6 +15,7 @@ import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
+import game.entities.Player;
 import game.resources.CardEffect;
 import game.resources.FieldData;
 import game.util.XMLReader;
@@ -30,6 +28,7 @@ public class GUIBoundary implements Outputable{
 	// Fields and cards
 	XMLReader reader;
 	Field[] fields;
+	String[] cards;
 	
 
 	
@@ -246,6 +245,7 @@ public class GUIBoundary implements Outputable{
 		String btnTaxAmount = String.valueOf(taxAmount);
 		String result = GUI.getUserButtonPressed(msg, btnPercent, btnTaxAmount);
 		
+		
 		if(result.equals(btnPercent))
 			return true;
 		
@@ -322,29 +322,90 @@ public class GUIBoundary implements Outputable{
 		GUI.create(fields);
 	
 	}
+
 	@Override
-	public void initializeCards(){
-		for(int i = 0; i < CardEffect.CardNo_DATA.length; i++){
-			switch(CardEffect.CardType_DATA[i]){
-			case MOVE:
-				break;
-			case PRISON:
-				break;
-			case REFUGE:
-				break;
-			case TAX:
-				break;
-			default:
-				break;
-			
-			
-			}
+	public int PromptPrison(String playerName) {
+		String msg = reader.getElement("prison", 0);
+		String c1 = reader.getElement("prison", 1);
+		String c2 = reader.getElement("prison", 2);
+		String c3 = reader.getElement("prison", 3);
+		String c4 = reader.getElement("prison", 4);
+		String result = GUI.getUserButtonPressed(msg, c1,c2,c3,c4);
+		
+		if(result == c1){
+			return 1;
+		}
+		else if(result == c1){
+			return 2;
+		}
+		else if(result == c3){
+			return 3;
+		}
+		else{
+			return 4;
 		}
 	}
 
+
 	@Override
-	public void PromptPrison(String playerName, int fine, int choice) {
+	public void setHotel() {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public void setHouse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void sellProperty() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void cardDrawn() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void showNoCardMessage(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void showGetPrisonCardMessage(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void showDoTimeMessage(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void showCardMessage(Player playerName, int cardNo) {
+		String s1 = reader.getElement("Cards", cardNo-1);
+		
+		String msg = playerName + ": " + s1;
+		GUI.displayChanceCard(msg);
+		
+	}
+
+
+
+
 }

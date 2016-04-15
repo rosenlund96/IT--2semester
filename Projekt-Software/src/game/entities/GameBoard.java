@@ -19,6 +19,7 @@ public class GameBoard {
 		
 		players =  new ArrayList<Player>();
 		fieldManager = new FieldManager(gui);
+		cardManager = new CardManager(gui);
 		// Makes a new ArrayList of the players
 		for (int i = 0; i < names.size(); i++) {
 			players.add(new Player(names.get(i), startingBalance, STARTING_POSITION,false, false,0,0));

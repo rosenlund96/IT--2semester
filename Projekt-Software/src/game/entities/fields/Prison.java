@@ -10,12 +10,10 @@ public class Prison extends AbstractField{
 	
 	private int fine;
 	private DieCup dices;
-	private int choice;
 	GameController controller;
 
-	public Prison(FieldManager fieldManager, int fine, Outputable output) {
+	public Prison(FieldManager fieldManager, Outputable output) {
 		super(fieldManager,FieldType.PRISON, output);
-		this.fine = fine;
 		dices = new DieCup();
 		// TODO Auto-generated constructor stub
 	}
@@ -38,8 +36,9 @@ public class Prison extends AbstractField{
 
 
 
-	public void initializeChoice(int choice, Player player){
-	switch(choice){
+	public void initializeChoice(Player player){
+		int choice = output.PromptPrison(player.getName());
+		switch(choice){
 		case 1:
 			payFine(player);
 			settimeInPrison(0, player);
@@ -78,8 +77,7 @@ public class Prison extends AbstractField{
 	public void landOnField(Player player) {
 		setImprisoned(true, player);
 		if (player.gettimeInPrison()<=3)	{
-			initializeChoice(choice, player);
-			output.PromptPrison(player.getName(),fine,choice);
+			initializeChoice(player);
 	}
 	else {
 		setImprisoned(false, player);

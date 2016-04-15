@@ -12,11 +12,13 @@ public abstract class AbstractCard {
 	protected CardManager cardManager;
 	protected Outputable output;
     protected CardType cardType;
+    protected int cardNo;
 	
 	public AbstractCard(CardManager cardManager, Outputable output, CardType cardType){
 		this.cardManager = cardManager;
 		this.cardType = cardType;
 		this.output = output;
+		
 	}
 	
 	public CardType getFieldType(){

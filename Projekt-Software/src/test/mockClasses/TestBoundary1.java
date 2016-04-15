@@ -165,5 +165,10 @@ public class TestBoundary1 implements Outputable {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void showDoTimeMessage(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -8,13 +8,13 @@ public class Prison extends AbstractOwnable {
 
 	
 	
-	public Prison(CardManager cardManager, Outputable output) {
-		super(cardManager, output, CardType.PRISON);
-		// TODO Auto-generated constructor stub
+	public Prison(CardManager cardManager, Outputable output, int cardNo) {
+		super(cardManager, output, CardType.PRISON, cardNo);
 	}
 
 	@Override
 	public void drawCard(Player player) {
+		output.showCardMessage(player, cardNo);
 		this.setOwner(player);
 		player.setoutOfJailCard(player.getoutOfJailCard()+1);
 		output.showGetPrisonCardMessage(player);

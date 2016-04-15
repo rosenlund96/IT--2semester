@@ -18,6 +18,7 @@ public abstract class AbstractField {
 		this.fieldManager = fieldManager;
 		this.output = output;
 		this.fieldType = fieldType;
+		
 
 	} 
 

@@ -56,9 +56,8 @@ public interface Outputable {
 	public void initializeBoard();
 
 
-	public void PromptPrison(String playerName, int fine, int choice);
+	public int PromptPrison(String playerName);
 
-	void initializeCards();
 	
 	public void setHotel();
 	
@@ -73,6 +72,8 @@ public interface Outputable {
 	public void showGetPrisonCardMessage(Player player);
 
 	public void showDoTimeMessage(Player player);
+
+	void showCardMessage(Player player, int cardNo);
 	
 	
 

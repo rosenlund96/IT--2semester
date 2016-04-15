@@ -36,6 +36,11 @@
 	<fleet>leje alt efter antal ejet fleets:</fleet>
 	<laborCamp>leje: antal øjne gange antal laborCamps gange 100</laborCamp>
 	<lucky>Måske er du heldig!</lucky>
+	<prison>Du er kommet i fængsel! - Du har nu 4 valgmuligheder</prison>
+	<prison>Betal Bøden: kr. 1000</prison>
+	<prison>Slå to ens, med terningerne</prison>
+	<prison>Brug fængselskort</prison>
+	<prison>Sid tiden ud.</prison>
 	
 	<Start>Start</Start>
 	<Rodovrevej>Rødovrevej</Rodovrevej>
@@ -72,6 +77,40 @@
 	<Frederiksberggade>Frederiksberggade</Frederiksberggade>
 	<ekstraordinaerStatsskat>Ekstraordinær statsskat - betal kr. 2000</ekstraordinaerStatsskat>
 	<Raadhuspladsen>Rådhuspladsen</Raadhuspladsen>
+	
+	<cards>De modtager deres aktieudbytte. Modtag kr. 1000 af banken</cards>
+	<cards>Ryk frem til start.</cards>
+	<cards>Gå i fængsel. Ryk direkte til fængslet. Selvom de passere start, indkassere De ikke kr. 4000.</cards>
+	<cards>Gå i fængsel. Ryk direkte til fængslet. Selvom de passere start, indkassere De ikke kr. 4000.</cards>
+	<cards>De har været en tur i udlandet og har haft for mange cigaretter med hjem. Betal kr. 200 i told</cards>
+	<cards>De har modtaget deres tandlæge regning, betal kr. 2000.</cards>
+	<cards>De havde en række med 11 rigtige i tipning. Modtag kr. 1000</cards>
+	<cards>Deres præmieobligation er kommet ud. Modtag kr. 1000 af banken.</cards>
+	<cards>Deres præmieobligation er kommet ud. Modtag kr. 1000 af banken.</cards>
+	<cards>Det er deres fødselsdag. Modtag af hver spiller, kr. 200</cards>
+	<cards>Værdien af egen avl fra nyttehaven udgør 200kr. Modtag kr. 200 af banken.</cards>
+	<cards>Betal deres bilforsikring. Kr. 1000</cards>
+	<cards>Ejendomsskatterne er steget, ekstraudgifterne er: 800kr pr hus, 2300kr pr hotel.</cards>
+	<cards>Ryk frem til Grønningen, hvis De passere start. Indkasser da kr. 4000</cards>
+	<cards>Ryk brikken frem til det nærmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.</cards>
+	<cards>Ryk brikken frem til det nærmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.</cards>
+	<cards>Tag med LB-færgerne --- Flyt brikken frem, og hvis de passere start, indkasser da kr. 4000</cards>
+	<cards>I andledning af kongens fødselsdag benådes de herved for fængsel. Dette kort kan opbevares, indtil de får brug for det, eller de kan sælge det.</cards>
+	<cards>I andledning af kongens fødselsdag benådes de herved for fængsel. Dette kort kan opbevares, indtil de får brug for det, eller de kan sælge det.</cards>
+	<cards>Grundet dyrtiden har de fået gageforhøjelse. Modtag kr. 1000</cards>
+	<cards>Ryk frem til Frederiksberg Allé,. Hvis de passere start, indkasser da kr. 4000.</cards>
+	<cards>De har vundet i klasselotteriet, modtag kr. 500.</cards>
+	<cards>Tag ind på Rådhuspladsen.</cards>
+	<cards>Ryk tre felter tilbage.</cards>
+	<cards>Oliepriserne er steget, og De skal betale; kr. 500 pr hus, kr. 2000 pr hotel.</cards>
+	<cards>Betal kr. 3000 for reparation af deres vogn.</cards>
+	<cards>Betal kr. 3000 for reparation af deres vogn.</cards>
+	<cards>De modtager det store Matadorlegat for værdigt trængende, kr 40.000. Ved værdigt trængende forstås, at deres formue, dvs. deres kontakte penge, plus skøder, plus penge, ike overstiger kr. 15.000</cards>
+	<cards>Kommunen har eftergivet en kvartalsskat, hæv i banken kr. 3000.</cards>
+	<cards>Modtag udbytte af deres aktier, kr. 1000</cards>
+	<cards>Modtag udbytte af deres aktier, kr. 1000</cards>
+	<cards>De er kørt frem for fuld stop, betal kr. 1000 i bøde. </cards>
+	<cards>De har modtaget en parkeringsbåde, betal kr 200 i bøde.</cards>
 	
 	
 </strings>

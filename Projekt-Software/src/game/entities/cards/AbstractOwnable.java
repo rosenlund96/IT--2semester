@@ -7,11 +7,13 @@ import game.entities.Player;
 public abstract class AbstractOwnable extends AbstractCard{
 
 	protected Player owner; 
+	protected int cardNo;
 	
 	
-	public AbstractOwnable(CardManager cardManager, Outputable output, CardType cardType) {
+	public AbstractOwnable(CardManager cardManager, Outputable output, CardType cardType, int cardNo) {
 		super(cardManager, output, cardType);
 		owner = null;
+		
 	}
 	
 	public Player getOwner(){

@@ -31,6 +31,7 @@ public class LuckyCardTest {
 	@Before
 	public void setUp() throws Exception {
 		output = new TestBoundary1();
+		fm = new FieldManager(output);
 		cm = new CardManager(output);
 
 	}
@@ -40,7 +41,7 @@ public class LuckyCardTest {
 		
 		//Setup
 		int cardNo = 15;
-		MovaActivePlayer card = new MovaActivePlayer(cm, output, cardNo);
+		MovaActivePlayer card = new MovaActivePlayer(cm, output, cardNo, null);
 		player = new Player("name", 5000, 5, false, false, 0, 0);
 		assertEquals("Player created at position 5",5, player.getPosition());
 		//Act
@@ -57,7 +58,7 @@ public class LuckyCardTest {
 	public void RefugeCardTest(){
 		//Setup
 		int bonus = 1000;
-		Refuge refuge = new Refuge(cm, output, bonus);
+		Refuge refuge = new Refuge(cm, output, bonus, null);
 		player = new Player("name", 1000, 0, false, false, 0, 0);
 		assertEquals("Player created with balance 1000", 1000, player.getBalance());
 		
@@ -70,7 +71,7 @@ public class LuckyCardTest {
 	@Test
 	public void PrisonCardTest(){
 		//Setup
-		Prison prisonCard = new Prison(cm, output);
+		Prison prisonCard = new Prison(cm, output, null);
 		game.entities.fields.Prison prisonField = new game.entities.fields.Prison(fm, 1000, output);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
 		assertEquals("Player instantiated, and not imprisoned", false, p1.getImprisoned());
@@ -81,10 +82,19 @@ public class LuckyCardTest {
 		assertEquals("Player should now be imprisoned", true, p1.getImprisoned());
 		prisonCard.drawCard(p1);
 		assertEquals("Player should now have a prison card", 1, p1.getoutOfJailCard());
+	}
+	
+	@Test
+	public void LuckyCardClassTest(){
+		//setup
+		LuckyCard luckyCard = new LuckyCard(fm, output);
+		Player player = new Player("name",5000 , 0, false, false, 0, 0);
 		
+		//Act
+		luckyCard.landOnField(player);
 		
-		
-		
+		//Asserts
+		assertEquals("LyckyCard class' STAK, should not be empty", 33,cm.cards.length);
 	}
 	
 }

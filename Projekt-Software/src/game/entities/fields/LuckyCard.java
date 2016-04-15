@@ -9,8 +9,8 @@ import game.boundaries.*;
 
 public class LuckyCard extends AbstractField{
 
-	public Stack<AbstractCard> Stak = new Stack<AbstractCard>(); //Kortene gemmes i denne stak
-	public Stack <AbstractCard> temp = new Stack<AbstractCard>();//Og lægges herover efter de er brugt. 
+	public Stack<AbstractCard[]> Stak = new Stack<AbstractCard[]>(); //Kortene gemmes i denne stak
+	public Stack <AbstractCard[]> temp = new Stack<AbstractCard[]>();//Og lægges herover efter de er brugt. 
 	public int cardNo = 0;
 	CardManager cardManager;
 	
@@ -23,11 +23,12 @@ public class LuckyCard extends AbstractField{
 	//Skal vi mon have en tredje stak til de kort der er ude og svømme? Eller bare slette dem og oprette dem på ny? 
 	
 	
-	public Stack<AbstractCard> hentKort(){
-	 Stak.addAll(cardManager.cardList);
+	public Stack<AbstractCard[]> hentKort(){
+	int i;
+		Stak.push(cardManager.cards[i]);
 		return Stak;
 	}
-	public AbstractCard returnerKort(){
+	public AbstractCard[] returnerKort(){
 		if(cardNo < 33 ){
 		temp.push(Stak.peek());
 		cardNo++;

@@ -8,7 +8,7 @@ public class Tax extends AbstractCard {
 
 	private int taxAmount;
 	
-	public Tax(CardManager cardManager, Outputable output, int taxAmount) {
+	public Tax(CardManager cardManager, Outputable output, int taxAmount, int cardNo) {
 		super(cardManager, output, CardType.TAX);
 		this.taxAmount = taxAmount;
 		
@@ -16,6 +16,7 @@ public class Tax extends AbstractCard {
 
 	@Override
 	public void drawCard(Player player) {
+		output.showCardMessage(player, cardNo);
 		switch (taxAmount) {
 		case 200:
 			collectTax(200, player);

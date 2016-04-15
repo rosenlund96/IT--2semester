@@ -14,7 +14,6 @@ public class CardManager {
 	
 	public final int NUMBER_OF_CARDS = 33;
 	public AbstractCard[] cards;
-	public List<AbstractCard> cardList;
 	
 	/**************************************************
 	 * Constructor, takes a GUI to pass to the fields *
@@ -44,7 +43,7 @@ public class CardManager {
 	 * Creates the array of cards from CardEffect class and shuffles 
 	 * Kortene skal loades ind i luckycard klassen og derfra gives*
 	 ************************************************************/
-	private List<AbstractCard> initializeCards(Outputable gui){
+	private void initializeCards(Outputable gui){
 		cards = new AbstractCard[NUMBER_OF_CARDS];
 
 		for (int i = 0; i < cards.length; i++) {
@@ -53,22 +52,18 @@ public class CardManager {
 				cards[i] = new MovaActivePlayer(this, gui, CardEffect.CardNo_DATA[i]) ;
 				break;
 			case PRISON: 
-				cards[i] = new game.entities.cards.Prison(this, gui);
+				cards[i] = new game.entities.cards.Prison(this, gui, CardEffect.CardNo_DATA[i]);
 				break;
 			case REFUGE: 
-				cards[i] = new game.entities.cards.Refuge(this, gui, CardEffect.CardEffect_DATA[i]);
+				cards[i] = new game.entities.cards.Refuge(this, gui, CardEffect.CardEffect_DATA[i],CardEffect.CardNo_DATA[i]);
 				break;
 			case TAX: 
-				cards[i] = new game.entities.cards.Tax(this, gui, CardEffect.CardEffect_DATA[i]) ;
+				cards[i] = new game.entities.cards.Tax(this, gui, CardEffect.CardEffect_DATA[i],CardEffect.CardNo_DATA[i]) ;
 				break;
 			
 			}	
+			
 		}	
-		for (int i = 0; i < cards.length; i++) {
-			cardList.add(cards[i]);
-			}
-			Collections.shuffle(cardList);
-			return cardList;
 	}
 	
 }
