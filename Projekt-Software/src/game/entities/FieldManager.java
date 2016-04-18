@@ -98,15 +98,10 @@ public class FieldManager {
 		}
 	}
 	
-	public boolean passStart(Player player){
+	public void passStart(Player player){
 		if(oldPos+newPosAmount>40){
-		return true;
-	}
-		else 
-		{
-			return false;
+		player.deposit(4000);
 		}
-		
 	}
 	 
 	

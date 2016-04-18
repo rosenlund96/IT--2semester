@@ -1,5 +1,7 @@
 package game.entities.fields;
 
+import javax.management.modelmbean.DescriptorSupport;
+
 import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
@@ -15,6 +17,7 @@ public class Start extends AbstractField {
 
 	public void landOnField(Player player) {
 		player.deposit(bonus);
+		
 		
 	}
 

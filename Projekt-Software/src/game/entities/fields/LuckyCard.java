@@ -68,7 +68,7 @@ public class LuckyCard extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
-		output.showCardMessage(player, cardNo);
+		returnerKort().toString();
         
 		
 	}
