@@ -119,7 +119,7 @@ public class FieldManager {
 		for (int i = 0; i < fields.length; i++) {
 			switch(FieldData.FIELDTYPE_DATA[i]){
 			case TERRITORY: 
-				fields[i] = new Territory(this, FieldData.FIELDBUYPRICE_DATA[i],FieldData.FIELDRENT1_DATA[i], gui);
+				fields[i] = new Territory(this, FieldData.FIELDBUYPRICE_DATA[i],FieldData.FIELDRENT1_DATA[i], FieldData.FIELDNUMBER[i], gui);
 				break;
 			case LABOR_CAMP: 
 				fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i], FieldData.FIELDRENT1_DATA[i], gui);
