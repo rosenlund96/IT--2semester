@@ -42,7 +42,7 @@ public class Territory extends AbstractOwnable {
 
 	private void sellPropertys(Player player) {
 		if(this.owner==player){
-			if(houseCount<=4){
+			if(houseCount<=4 && houseCount != 0){
 				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
 			if(choice==true){
 				houseCount--;	
