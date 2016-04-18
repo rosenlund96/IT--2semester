@@ -24,7 +24,7 @@ public class CardManager {
 	}
 	
 	/****************************************
-	 * Returns the field number of a field *
+	 * Returns the card number of a card *
 	 ****************************************/
 	public int getCardNumber(AbstractCard card){
 		int number  = 0;

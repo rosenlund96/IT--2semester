@@ -57,15 +57,10 @@ public interface Outputable {
 
 
 	public int PromptPrison(String playerName);
-
 	
-	public void setHotel();
-	
-	public void setHouse();
+	public void setHouse(int houseCount, int fieldNo);
 	
 	public void sellProperty();
-	
-	public void cardDrawn();
 
 	public void showNoCardMessage(String name);
 
@@ -74,6 +69,20 @@ public interface Outputable {
 	public void showDoTimeMessage(Player player);
 
 	void showCardMessage(Player player, int cardNo);
+
+	public boolean promptBuyProperty(String name, int i);
+
+	public void showEnoughPropertys(String name);
+
+	public void showNotOwner(String name);
+
+	public void setHotel(boolean hasHotel, int fieldNo);
+
+	public boolean promptAction(String name);
+
+	public boolean promptSellProperty(String name, int i);
+
+	public void showNoPropertys(String name);
 	
 	
 

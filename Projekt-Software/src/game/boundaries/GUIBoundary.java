@@ -325,6 +325,7 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public int PromptPrison(String playerName) {
+		//choice for prisoncard
 		String msg = reader.getElement("prison", 0);
 		String c1 = reader.getElement("prison", 1);
 		String c2 = reader.getElement("prison", 2);
@@ -347,33 +348,14 @@ public class GUIBoundary implements Outputable{
 	}
 
 
-	@Override
-	public void setHotel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void setHouse() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	
 
 	@Override
 	public void sellProperty() {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	@Override
-	public void cardDrawn() {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public void showNoCardMessage(String name) {
@@ -406,6 +388,94 @@ public class GUIBoundary implements Outputable{
 	}
 
 
+	@Override
+	public boolean promptBuyProperty(String name, int i) {
+		String s1 = reader.getElement("buy", 2);
+		int price = i;
+		String yes = reader.getElement("yes", 0);
+		String no = reader.getElement("no", 0);
+		
+		String msg = name + ": " + s1 + " " + price;
+		String result = GUI.getUserButtonPressed(msg, yes,no);
+		if(result ==yes){
+			return true;
+		}
+		else {
+		return false;
+		}
+	}
+	@Override
+	public boolean promptSellProperty(String name, int i) {
+		String s1 = reader.getElement("sell", 2);
+		String yes = reader.getElement("yes", 0);
+		String no = reader.getElement("no", 0);
+		int price = i;
+		
+		String msg = name + ": " + s1 + " " + price;
+		String result = GUI.getUserButtonPressed(msg, yes,no);
+		
+		if(result == yes){
+			return true;
+		}
+		else {
+			return false;
+			}
+	}
 
+
+
+	@Override
+	public void showEnoughPropertys(String name) {
+		String msg = name + ": " + reader.getElement("noMore", 0);
+		GUI.showMessage(msg);
+		
+	}
+	@Override
+	public void showNoPropertys(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showNotOwner(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void setHotel(boolean hasHotel, int fieldNo) {
+		if(hasHotel==false){
+			GUI.setHouses(fieldNo, 4);
+			GUI.setHotel(fieldNo, false);
+		}
+		else if(hasHotel==true){
+		GUI.setHouses(fieldNo, 0);
+		GUI.setHotel(fieldNo, true);
+		}
+	}
+	@Override
+	public void setHouse(int houseCount, int fieldNo) {
+		GUI.setHotel(fieldNo, false);
+		GUI.setHouses(fieldNo, houseCount);
+	}
+
+
+	@Override
+	public boolean promptAction(String name) {
+		String msg = reader.getElement("action", 0);
+		String c1 = reader.getElement("buy", 1);
+		String c2 = reader.getElement("sell", 0);
+		
+		String result = GUI.getUserButtonPressed(msg, c1,c2);
+		
+		if(result==c1){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
 
 }

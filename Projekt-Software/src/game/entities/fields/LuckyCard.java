@@ -23,7 +23,7 @@ public class LuckyCard extends AbstractField{
 	//Skal vi mon have en tredje stak til de kort der er ude og svømme? Eller bare slette dem og oprette dem på ny? 
 	
 	
-	public Stack<AbstractCard[]> hentKort(){
+	public AbstractCard[]> hentKort(){
 	int i;
 		Stak.push(cardManager.cards[i]);
 		return Stak;
@@ -68,7 +68,7 @@ public class LuckyCard extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
-		returnerKort().toString();
+		output.showCardMessage(player, cardNo);
         
 		
 	}
