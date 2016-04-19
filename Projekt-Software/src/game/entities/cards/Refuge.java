@@ -32,15 +32,19 @@ public class Refuge extends AbstractCard {
 		switch (bonus) {
 		case 1000:
 			player.deposit(1000);
+			output.showDepositMessage(player.getName(), bonus);
 			break;
 		case 200:
 			player.deposit(200);
+			output.showDepositMessage(player.getName(), bonus);
 			break;
 		case 500:
 			player.deposit(500);
+			output.showDepositMessage(player.getName(), bonus);
 			break;
 		case 3000:
 			player.deposit(3000);
+			output.showDepositMessage(player.getName(), bonus);
 			break;
 		case 40000:
 			if (fieldManager.getFieldsValue(player)<= 15000) {

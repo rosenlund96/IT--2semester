@@ -383,7 +383,7 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public void showCardMessage(Player playerName, int cardNo) {
-		String s1 = reader.getElement("Cards", cardNo-1);
+		String s1 = reader.getElement("cards", cardNo);
 		
 		String msg = playerName + ": " + s1;
 		GUI.displayChanceCard(msg);

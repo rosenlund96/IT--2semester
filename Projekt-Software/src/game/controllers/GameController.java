@@ -121,6 +121,7 @@ public class GameController {
 
 			// Moves the active player on the board
 			board.moveActivePlayer(dieCup.roll());
+			
 
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());

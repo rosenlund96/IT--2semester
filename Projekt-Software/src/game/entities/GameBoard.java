@@ -57,7 +57,9 @@ public class GameBoard {
 		players.get(playerTurn).setPosition((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields());
 		fieldManager.newPosAmount=amount;
 		fieldManager.oldPos=players.get(playerTurn).getPosition()-amount;
-		
+		if(players.get(playerTurn).getPosition()+amount>40){
+			players.get(playerTurn).deposit(4000);
+		}
 		
 	}
 	/********************************************
