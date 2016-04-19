@@ -26,9 +26,14 @@
 	<sell>Sælge</sell>
 	<sell>Sælg hus/hotel, til kr.)</sell>
 	<action>Vil du købe eller sælge?</action>
+	<nothing>Gør intet!</nothing>
 	<noMore>Du har allerede et hotel!</noMore>
+	<noMore>Du har ingen bygninger på dette felt!</noMore>
 	<broke>Du er gået bankerot og er ude af spillet!</broke>
 	<positionUpdate>Du landede på felt</positionUpdate>
+	<rollPrison>Slå med terningerne for at komme ud af fælgsel. </rollPrison>
+	<youGot>Du slog en</youGot>
+	<youGot>og en</youGot>
 
 	<yes>Ja</yes>
 	<no>Nej</no>

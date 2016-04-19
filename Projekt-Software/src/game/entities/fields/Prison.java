@@ -49,9 +49,11 @@ public class Prison extends AbstractField{
 			if (dices.getDie1()==dices.getDie2()) {
 				setImprisoned(false, player);
 				settimeInPrison(0, player);
+				output.showRollingDiceForPrison1(player, dices.getDie1(),dices.getDie2());
 				
 			}
 			else settimeInPrison(player.gettimeInPrison()+1, player);
+			    output.showRollingDiceForPrison2(player, dices.getDie1(), dices.getDie2());
 		break; 
 		case 3:
 			if (player.getoutOfJailCard()>0)	{

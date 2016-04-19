@@ -435,7 +435,8 @@ public class GUIBoundary implements Outputable{
 	}
 	@Override
 	public void showNoPropertys(String name) {
-		// TODO Auto-generated method stub
+		String msg = name + ": " + reader.getElement("noMore", 1);
+		GUI.getUserButtonPressed(msg, "Ok");
 		
 	}
 
@@ -465,19 +466,45 @@ public class GUIBoundary implements Outputable{
 
 
 	@Override
-	public boolean promptAction(String name) {
-		String msg = reader.getElement("action", 0);
+	public int promptAction(String name) {
+		String s1 = reader.getElement("action", 0);
+		String msg = name + ": " + s1;
 		String c1 = reader.getElement("buy", 1);
 		String c2 = reader.getElement("sell", 0);
+		String c3 = reader.getElement("nothing", 0);
 		
-		String result = GUI.getUserButtonPressed(msg, c1,c2);
+		String result = GUI.getUserButtonPressed(msg, c1,c2, c3);
 		
 		if(result==c1){
-			return true;
+			return 1;
 		}
-		else{
-			return false;
+		else if(result==c2){
+			return 2;
 		}
+		else {
+			return 3;
+		}
+		
+	}
+
+
+	@Override
+	public void showRollingDiceForPrison1(Player player, int die1, int die2) {
+		String s1 = reader.getElement("rollPrison", 0);
+		String msg = player + ": " + s1;
+		GUI.getUserButtonPressed(msg, "OK");
+		
+	}
+
+
+	@Override
+	public void showRollingDiceForPrison2(Player player, int die1, int die2) {
+		String s1 = reader.getElement("rollPrison", 1);
+		String s2 = reader.getElement("youGot", 0);
+		String s3 = reader.getElement("youGot", 1);
+		String msg = player + ": " + s1 + s2+ " " + die1 + s3 + " " + die2 ;
+		GUI.getUserButtonPressed(msg, "OK");
+		
 		
 	}
 

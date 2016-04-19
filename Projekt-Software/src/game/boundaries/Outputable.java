@@ -78,11 +78,15 @@ public interface Outputable {
 
 	public void setHotel(boolean hasHotel, int fieldNo);
 
-	public boolean promptAction(String name);
+	public int promptAction(String name);
 
 	public boolean promptSellProperty(String name, int i);
 
 	public void showNoPropertys(String name);
+
+	public void showRollingDiceForPrison1(Player player, int die1, int die2);
+
+	public void showRollingDiceForPrison2(Player player, int die1, int die2);
 	
 	
 

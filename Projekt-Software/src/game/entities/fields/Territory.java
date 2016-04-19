@@ -2,6 +2,7 @@ package game.entities.fields;
 
 import game.boundaries.Outputable;
 import game.entities.FieldManager;
+import game.entities.GameBoard;
 import game.entities.Player;
 import game.resources.FieldData;
 
@@ -9,6 +10,7 @@ public class Territory extends AbstractOwnable {
 	
 	int houseCount;
 	int fieldNo;
+	private GameBoard board;
 	
 
 	public Territory(FieldManager fieldManager, int price, int rent, int fieldNo, Outputable output) {
@@ -31,18 +33,26 @@ public class Territory extends AbstractOwnable {
 		}
 		else // Player is owner and should not pay rent
 			output.showPlayerIsOwner(player.getName());
-			boolean choice = output.promptAction(player.getName());
-			if(choice==true){
+			int choice = output.promptAction(player.getName());
+			if(choice==1){
 				buyPropertys(player);
 			}
-			else if(choice==false){
+			else if(choice==2){
 				sellPropertys(player);
+			}
+			else if(choice==3){
 			}
 	}
 
 	private void sellPropertys(Player player) {
 		if(this.owner==player){
-			if(houseCount<=4 && houseCount != 0){
+			if(houseCount==0){
+			output.showNoPropertys(player.getName());
+			this.landOnField(player);
+			}
+			
+			
+			if(houseCount<=4){
 				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
 			if(choice==true){
 				houseCount--;	
@@ -57,26 +67,25 @@ public class Territory extends AbstractOwnable {
 				}
 				
 			}
-	}
-		else{
-			output.showNoPropertys(player.getName());
-		}
-		
+	}	
 	}
 
 	//Gives the player the ability to buy properties
 	private void buyPropertys(Player player){
+		int price = FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1];
 		if(this.owner==player){
 			if(houseCount<=3){
-				boolean choice = output.promptBuyProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
+				boolean choice = output.promptBuyProperty(player.getName(), price);
 			if(choice==true){
-				houseCount++;	
+				player.withdraw(price);
+				houseCount++;
 				output.setHouse(houseCount,fieldNo);
 			}
 		}
 			else if(houseCount==4){
 				boolean choice = output.promptBuyProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
 				if(choice==true){
+					
 					houseCount++;	
 					output.setHotel(true, fieldNo);
 				}
