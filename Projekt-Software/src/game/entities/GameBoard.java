@@ -94,6 +94,23 @@ public class GameBoard {
 
 		return playerName;
 	}
+	/********************************************************
+	 * Checks to see if activePlayer is imprisoned. 		*
+	 * If player is imprisoned, the game shifts turn		*
+	 ********************************************************/
+	public String isActivePlayerImprisoned(){
+		String playerName = null;
+		if(players.get(playerTurn).getImprisoned()==true){
+			playerName = players.get(playerTurn).getName();
+			players.get(playerTurn).settimeInPrison(players.get(playerTurn).gettimeInPrison()+1);
+			if(players.get(playerTurn).gettimeInPrison()==3){
+				players.get(playerTurn).setImprisoned(false);
+				players.get(playerTurn).settimeInPrison(0);
+			}
+			nextTurn();
+		}
+		return playerName;
+	}
 	/*******************************************
 	 * Changes playersTurn to the next in line *
 	 *******************************************/

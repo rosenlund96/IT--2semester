@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 
 import game.boundaries.*;
 import game.entities.GameBoard;
+import game.entities.fields.Prison;
 import game.util.DieCup;
 import game.util.Rollable;
 
@@ -115,7 +116,10 @@ public class GameController {
 				board.findStartingPlayer();
 				output.showStartingPlayer(board.getActivePlayerName());
 			}
-
+			String name = board.isActivePlayerImprisoned();
+			if(name != null){
+			output.showImprisonedMessage(name);
+			}
 			// Prompts the GUI to show active player and get him to roll
 			output.promptRollDice(board.getActivePlayerName());
 
@@ -132,10 +136,11 @@ public class GameController {
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 			
 			// Check if active player is broke
-			String name =board.isActivePlayerBroke();
-			if(name != null){
-				output.showBrokeMessage(name);				
+			String name1 =board.isActivePlayerBroke();
+			if(name1 != null){
+				output.showBrokeMessage(name1);				
 			}
+			
 			
 			turnNumber++;
 			

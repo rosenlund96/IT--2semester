@@ -31,7 +31,7 @@ public class Territory extends AbstractOwnable {
 		{	// if player is not owner. player pay rent logic
 			transferRent(player);
 		}
-		else // Player is owner and should not pay rent
+		else if (this.owner==player) {// Player is owner and should not pay rent
 			output.showPlayerIsOwner(player.getName());
 			int choice = output.promptAction(player.getName());
 			if(choice==1){
@@ -42,6 +42,7 @@ public class Territory extends AbstractOwnable {
 			}
 			else if(choice==3){
 			}
+		}
 	}
 
 	private void sellPropertys(Player player) {

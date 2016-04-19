@@ -89,6 +89,8 @@ public interface Outputable {
 	public void showRollingDiceForPrison2(Player player, int die1, int die2);
 
 	public int promptGameState();
+
+	public void showImprisonedMessage(String name2);
 	
 	
 

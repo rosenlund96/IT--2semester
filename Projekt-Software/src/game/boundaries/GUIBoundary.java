@@ -525,4 +525,13 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+
+	@Override
+	public void showImprisonedMessage(String name2) {
+		String s1 = reader.getElement("imprisoned", 0);
+		String msg = name2 + ": " + s1;
+		GUI.showMessage(msg);
+		
+	}
+
 }
