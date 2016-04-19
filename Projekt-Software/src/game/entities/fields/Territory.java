@@ -38,12 +38,7 @@ public class Territory extends AbstractOwnable {
 				buyPropertys(player);
 			}
 			else if(choice==2){
-				try {
 					sellPropertys(player);
-				} catch (Exception e) {
-				
-				}
-				
 			}
 			else if(choice==3){
 			}
@@ -62,6 +57,7 @@ public class Territory extends AbstractOwnable {
 			if(choice==true){
 				houseCount--;	
 				output.setHouse(houseCount,fieldNo);
+				this.landOnField(player);
 			}
 		}
 			else if(houseCount==5){
@@ -69,6 +65,7 @@ public class Territory extends AbstractOwnable {
 				if(choice==true){
 					houseCount--;	
 					output.setHotel(false,fieldNo);
+					this.landOnField(player);
 				}
 				
 			}

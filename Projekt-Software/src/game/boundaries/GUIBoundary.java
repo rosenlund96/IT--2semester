@@ -409,7 +409,7 @@ public class GUIBoundary implements Outputable{
 	}
 	@Override
 	public boolean promptSellProperty(String name, int i) {
-		String s1 = reader.getElement("sell", 2);
+		String s1 = reader.getElement("sell", 1);
 		String yes = reader.getElement("yes", 0);
 		String no = reader.getElement("no", 0);
 		int price = i;
