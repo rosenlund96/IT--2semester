@@ -16,7 +16,7 @@ public class GameController {
 
 	private final int STARTING_BALANCE = 30000;
 
-	public enum GameState {NAME_STATE , PLAY_STATE, WIN_STATE};
+	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
 
@@ -25,7 +25,7 @@ public class GameController {
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
 	public ArrayList<String> names;
 
-	private GameState state = GameState.NAME_STATE;
+	private GameState state = GameState.LOAD_STATE;
 
 	public GameController(){
 		String userHome = System.getProperty("user.home");
@@ -42,6 +42,8 @@ public class GameController {
 	public void run(){
 		while (true){
 			switch (state){
+			case LOAD_STATE: loadState();
+			break;
 			case NAME_STATE: nameState();
 			break;
 			case PLAY_STATE: playState();
@@ -53,6 +55,15 @@ public class GameController {
 		}
 	}
 
+	private void loadState(){
+		int choice = output.promptGameState();
+		if (choice==1){
+			state = GameState.NAME_STATE;
+		}
+	}
+	
+	
+	
 	/*********************************************
 	 * Method used to get the players names 	 *
 	 ********************************************/

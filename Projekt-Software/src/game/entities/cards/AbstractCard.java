@@ -14,8 +14,7 @@ public abstract class AbstractCard {
     protected CardType cardType;
     protected int cardNo;
 	
-	public AbstractCard(CardManager cardManager, Outputable output, CardType cardType){
-		this.cardManager = cardManager;
+	public AbstractCard( Outputable output, CardType cardType){
 		this.cardType = cardType;
 		this.output = output;
 		

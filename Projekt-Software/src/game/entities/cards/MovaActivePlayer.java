@@ -9,8 +9,8 @@ public class MovaActivePlayer extends AbstractCard {
 	private int cardNo;
 	
 	
-	public MovaActivePlayer(CardManager cardManager, Outputable output, int cardNo) {
-		super(cardManager, output, CardType.MOVE);
+	public MovaActivePlayer(Outputable output, int cardNo) {
+		super(output, CardType.MOVE);
 		this.cardNo = cardNo;
 		
 	}

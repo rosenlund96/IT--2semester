@@ -35,8 +35,8 @@ public class CardManager {
 		return number;
 	
 	}
-	public void addPrisonCard(){
-		
+	public void drawCardByNumber(Player player, int cardNumber){
+		cards[cardNumber].drawCard(player);
 	}
 	
 	/************************************************************
@@ -49,16 +49,16 @@ public class CardManager {
 		for (int i = 0; i < cards.length; i++) {
 			switch(CardEffect.CardType_DATA[i]){
 			case MOVE: 
-				cards[i] = new MovaActivePlayer(this, gui, CardEffect.CardNo_DATA[i]) ;
+				cards[i] = new MovaActivePlayer(gui, CardEffect.CardNo_DATA[i]) ;
 				break;
 			case PRISON: 
-				cards[i] = new game.entities.cards.Prison(this, gui, CardEffect.CardNo_DATA[i]);
+				cards[i] = new game.entities.cards.Prison(gui, CardEffect.CardNo_DATA[i]);
 				break;
 			case REFUGE: 
-				cards[i] = new game.entities.cards.Refuge(this, gui, CardEffect.CardEffect_DATA[i],CardEffect.CardNo_DATA[i]);
+				cards[i] = new game.entities.cards.Refuge(gui, CardEffect.CardEffect_DATA[i],CardEffect.CardNo_DATA[i]);
 				break;
 			case TAX: 
-				cards[i] = new game.entities.cards.Tax(this, gui, CardEffect.CardEffect_DATA[i],CardEffect.CardNo_DATA[i]) ;
+				cards[i] = new game.entities.cards.Tax(gui, CardEffect.CardEffect_DATA[i],CardEffect.CardNo_DATA[i]) ;
 				break;
 			
 			}	

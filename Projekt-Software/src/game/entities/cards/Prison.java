@@ -8,8 +8,8 @@ public class Prison extends AbstractOwnable {
 
 	
 	
-	public Prison(CardManager cardManager, Outputable output, int cardNo) {
-		super(cardManager, output, CardType.PRISON, cardNo);
+	public Prison(Outputable output, int cardNo) {
+		super(output, CardType.PRISON, cardNo);
 	}
 
 	@Override

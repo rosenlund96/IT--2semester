@@ -34,6 +34,9 @@
 	<rollPrison>Slå med terningerne for at komme ud af fælgsel. </rollPrison>
 	<youGot>Du slog en</youGot>
 	<youGot>og en</youGot>
+	<load>Vil du indlæse et gemt spil, eller starte et nyt?</load>
+	<load>Nyt spil</load>
+	<load>Hent gemt spil</load>
 
 	<yes>Ja</yes>
 	<no>Nej</no>

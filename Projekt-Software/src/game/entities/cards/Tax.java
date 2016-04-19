@@ -8,8 +8,8 @@ public class Tax extends AbstractCard {
 
 	private int taxAmount;
 	
-	public Tax(CardManager cardManager, Outputable output, int taxAmount, int cardNo) {
-		super(cardManager, output, CardType.TAX);
+	public Tax(Outputable output, int taxAmount, int cardNo) {
+		super(output, CardType.TAX);
 		this.taxAmount = taxAmount;
 		
 	}

@@ -508,4 +508,21 @@ public class GUIBoundary implements Outputable{
 		
 	}
 
+
+	@Override
+	public int promptGameState() {
+		String s1 = reader.getElement("load", 0);
+		String c1 = reader.getElement("load", 1);
+		String c2 = reader.getElement("load", 2);
+		
+		String result = GUI.getUserButtonPressed(s1, c1,c2);
+		
+		if (result == c1) {
+			return 1;
+		}
+		else{
+			return 2;
+		}
+	}
+
 }
