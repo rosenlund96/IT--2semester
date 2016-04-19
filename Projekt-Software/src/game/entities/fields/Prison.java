@@ -10,12 +10,15 @@ public class Prison extends AbstractField{
 	
 	private int fine;
 	private DieCup dices;
+	private int fieldNo;
 	GameController controller;
 
-	public Prison(FieldManager fieldManager, Outputable output) {
+	public Prison(FieldManager fieldManager, Outputable output, int fieldNo) {
 		super(fieldManager,FieldType.PRISON, output);
 		dices = new DieCup();
 		fine = 1000; 
+		this.fieldNo = fieldNo;
+		
 	}
 
 	public void setImprisoned(boolean isImprisoned, Player player){
@@ -77,6 +80,7 @@ public class Prison extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
+		if(fieldNo==31){
 		setImprisoned(true, player);
 		if (player.gettimeInPrison()<=3)	{
 			initializeChoice(player);
@@ -87,6 +91,6 @@ public class Prison extends AbstractField{
 		//Spilleren skal her have valget imellem at kaster terninger, vente, benytte slip ud af fængsel kort eller betale bøden
 		
 	}
+	}	
 	}
-	
 }

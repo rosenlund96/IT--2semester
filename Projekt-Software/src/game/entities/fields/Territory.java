@@ -38,7 +38,12 @@ public class Territory extends AbstractOwnable {
 				buyPropertys(player);
 			}
 			else if(choice==2){
-				sellPropertys(player);
+				try {
+					sellPropertys(player);
+				} catch (Exception e) {
+				
+				}
+				
 			}
 			else if(choice==3){
 			}
@@ -80,6 +85,7 @@ public class Territory extends AbstractOwnable {
 				player.withdraw(price);
 				houseCount++;
 				output.setHouse(houseCount,fieldNo);
+				this.landOnField(player);
 			}
 		}
 			else if(houseCount==4){

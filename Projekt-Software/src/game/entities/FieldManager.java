@@ -129,7 +129,7 @@ public class FieldManager {
 				fields[i] = new Refuge(this, FieldData.FIELDRENT1_DATA[i], gui);
 				break;
 			case PRISON:
-				fields[i] = new Prison(this,gui);
+				fields[i] = new Prison(this,gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case LUCKYCARD:
 				fields[i] = new LuckyCard(this, gui);
