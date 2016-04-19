@@ -3,7 +3,7 @@
 	<welcome>Velkommen til spillet, indtast 2-6 navne. Når alle navne er indtastet, trykkes der ok, uden at indtaste et navn og spillet vil starte</welcome>
 	<promptName>Indtast navn på spiller</promptName>
 	<promptName>Lad feltet være tomt for at starte spillet</promptName>
-	<promptName>Du skal indtaste mindst to navne</promptName>
+	<promptName>Du skal indtaste mindst tre navne</promptName>
 	<starting>starter</starting>
 	<rollDice>Kast terningerne</rollDice>
 	<winner>har vundet spillet. Ønskes omspil?</winner>
@@ -67,8 +67,8 @@
 	<Roskildevej>Roskildevej</Roskildevej>
 	<valbyLanggade>Valby Langgade</valbyLanggade>
 	<Allaegade>Allægade</Allaegade>
-	<Faengsel1>På besøg!</Faengsel1>
-	<Faengsel2>De fængsles</Faengsel2>
+	<Faengsel2>På besøg!</Faengsel2>
+	<Faengsel1>De fængsles</Faengsel1>
 	<frederiksbergAlle>Frederiksberg Alle</frederiksbergAlle>
 	<Carlsberg>Carlsberg</Carlsberg>
 	<Bylowsvej>Bylowsvej</Bylowsvej>

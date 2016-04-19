@@ -80,7 +80,7 @@ public class GameController {
 			
 				String name = output.promptPlayerName(i+1, error);
 				if (name.length() == 0){
-					if(i>=2){
+					if(i>=3){
 						// break loop (no more players)
 						i = 6;
 						break;
@@ -120,13 +120,14 @@ public class GameController {
 			if(name != null){
 			output.showImprisonedMessage(name);
 			}
+			if(name==null){
 			// Prompts the GUI to show active player and get him to roll
 			output.promptRollDice(board.getActivePlayerName());
 
 			// Moves the active player on the board
 			board.moveActivePlayer(dieCup.roll());
 			
-
+			}
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 			output.showUpdateMessage(board.getActivePlayerName(),  board.getActivePlayerPosition());

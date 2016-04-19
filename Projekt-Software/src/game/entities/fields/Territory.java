@@ -2,7 +2,6 @@ package game.entities.fields;
 
 import game.boundaries.Outputable;
 import game.entities.FieldManager;
-import game.entities.GameBoard;
 import game.entities.Player;
 import game.resources.FieldData;
 
@@ -10,7 +9,6 @@ public class Territory extends AbstractOwnable {
 	
 	int houseCount;
 	int fieldNo;
-	private GameBoard board;
 	
 
 	public Territory(FieldManager fieldManager, int price, int rent, int fieldNo, Outputable output) {
@@ -54,7 +52,7 @@ public class Territory extends AbstractOwnable {
 			
 			
 			if(houseCount<=4){
-				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
+				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
 			if(choice==true){
 				houseCount--;	
 				output.setHouse(houseCount,fieldNo);
@@ -62,7 +60,7 @@ public class Territory extends AbstractOwnable {
 			}
 		}
 			else if(houseCount==5){
-				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
+				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
 				if(choice==true){
 					houseCount--;	
 					output.setHotel(false,fieldNo);

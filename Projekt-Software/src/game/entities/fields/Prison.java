@@ -83,7 +83,7 @@ public class Prison extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
-		if(fieldNo==31){
+		if(fieldNo==11){
 		player.settimeInPrison(player.gettimeInPrison()+1);
 		setImprisoned(true, player);
 		initializeChoice(player);

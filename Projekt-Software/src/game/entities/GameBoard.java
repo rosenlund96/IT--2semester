@@ -102,8 +102,10 @@ public class GameBoard {
 		String playerName = null;
 		if(players.get(playerTurn).getImprisoned()==true){
 			playerName = players.get(playerTurn).getName();
+			players.get(playerTurn).setPosition(11);
 			players.get(playerTurn).settimeInPrison(players.get(playerTurn).gettimeInPrison()+1);
 			if(players.get(playerTurn).gettimeInPrison()==3){
+				players.get(playerTurn).deposit(1000);
 				players.get(playerTurn).setImprisoned(false);
 				players.get(playerTurn).settimeInPrison(0);
 			}
