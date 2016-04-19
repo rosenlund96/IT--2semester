@@ -15,7 +15,7 @@ public class Prison extends AbstractField{
 	public Prison(FieldManager fieldManager, Outputable output) {
 		super(fieldManager,FieldType.PRISON, output);
 		dices = new DieCup();
-		// TODO Auto-generated constructor stub
+		fine = 1000; 
 	}
 
 	public void setImprisoned(boolean isImprisoned, Player player){
