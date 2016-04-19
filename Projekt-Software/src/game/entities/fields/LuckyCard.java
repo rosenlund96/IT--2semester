@@ -2,6 +2,7 @@ package game.entities.fields;
 
 import game.entities.*;
 import game.entities.cards.AbstractCard;
+import game.resources.CardEffect;
 
 import java.util.*;
 import game.boundaries.*;
@@ -9,8 +10,8 @@ import game.boundaries.*;
 
 public class LuckyCard extends AbstractField{
 
-	public Stack<AbstractCard[]> Stak = new Stack<AbstractCard[]>(); //Kortene gemmes i denne stak
-	public Stack <AbstractCard[]> temp = new Stack<AbstractCard[]>();//Og lægges herover efter de er brugt. 
+	public ArrayList<AbstractCard> Stak = new ArrayList<AbstractCard>(); //Kortene gemmes i denne stak
+	public Stack<AbstractCard> temp = new Stack<AbstractCard>();//Og lægges herover efter de er brugt. 
 	public int cardNo = 0;
 	CardManager cardManager;
 	
@@ -23,38 +24,18 @@ public class LuckyCard extends AbstractField{
 	//Skal vi mon have en tredje stak til de kort der er ude og svømme? Eller bare slette dem og oprette dem på ny? 
 	
 	
-	public AbstractCard[]> hentKort(){
-	int i;
-		Stak.push(cardManager.cards[i]);
+	public ArrayList<AbstractCard> hentKort(){
+	for (int i = 0; i < CardEffect.CardNo_DATA.length; i++) {
+		Stak.add(cardManager.cards[i]);
+	}
 		return Stak;
 	}
-	public AbstractCard[] returnerKort(){
-		if(cardNo < 33 ){
-		temp.push(Stak.peek());
-		cardNo++;
-		return Stak.pop();
-		}
-		else {
-			Stak.push(temp.peek());
-			cardNo++;
-			while(cardNo==66) cardNo=0;
-			return temp.pop();
-			
-		}
+	public AbstractCard returnerKort(){
 		
+		return null;
 	}
 	public void gemKort(Player player, game.entities.cards.AbstractOwnable card){
-		if (cardNo < 33 ){
-			temp.pop();
-			player.setoutOfJailCard(1);
-			card.setOwner(player);
-			
-		}
-		else {
-			Stak.pop();
-			player.setoutOfJailCard(1);
-			card.setOwner(player);
-		}
+		
 	}
 	public int antalKort(){
 		int stak = Stak.size();
@@ -68,7 +49,7 @@ public class LuckyCard extends AbstractField{
 	
 	@Override
 	public void landOnField(Player player) {
-		returnerKort().toString();
+		returnerKort();
         
 		
 	}

@@ -13,6 +13,7 @@ import desktop_fields.Refuge;
 import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
+import desktop_fields.Street.Builder;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
 import game.entities.Player;
@@ -284,7 +285,9 @@ public class GUIBoundary implements Outputable{
 				fields[i].setDescription(reader.getElement("pay", 0) + " " + FieldData.FIELDRENT1_DATA[i]);
 				break;
 			case TERRITORY:
-				fields[i] = new Street.Builder().build();
+				fields[i] = new Street.Builder()
+				.setBgColor(FieldData.fieldColor[i])
+				.build();
 				fields[i].setDescription(reader.getElement("ownable", 0) + " " + FieldData.FIELDBUYPRICE_DATA[i] +
 						", " + reader.getElement("territory", 0) + " " +FieldData.FIELDRENT1_DATA[i]);
 				break;
