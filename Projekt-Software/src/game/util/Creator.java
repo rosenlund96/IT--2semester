@@ -24,7 +24,7 @@ public class Creator {
 		createPlayers();
 		createOwnable();
 		createCards();
-		createBank();
+		createBoard();
 	}
 	public void createGame(){
 		String query = ("create table Game" + 
@@ -57,7 +57,9 @@ public class Creator {
 		}
 	}
 	public void createOwnable(){
-		String query = "";
+		String query = ("create table Ownable" +
+						"(ownable boolean, " +
+						"");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -69,7 +71,7 @@ public class Creator {
 		String query = ("create table Cards" + 
 						"(card_id varchar, " +
 						"cardTemp varchar, " +
-						"cardActive varchar" + 
+						"cardActive varchar, " + 
 						"primary key (card_id)");
 		try {
 			con.doQuery(query);
@@ -78,8 +80,10 @@ public class Creator {
 			e.printStackTrace();
 		}
 	}
-	public void createBank() {
-		String query = "";
+	public void createBoard() {
+		String query = ("create table Board" +
+						"(board_id time, " +
+						"");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
