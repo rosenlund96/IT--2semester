@@ -69,7 +69,7 @@ public class LuckyCardTest {
 	public void PrisonCardTest(){
 		//Setup
 		Prison prisonCard = new Prison(output, 0);
-		game.entities.fields.Prison prisonField = new game.entities.fields.Prison(fm, output, 31);
+		game.entities.fields.Prison prisonField = new game.entities.fields.Prison(fm, output, 11);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
 		assertEquals("Player instantiated, and not imprisoned", false, p1.getImprisoned());
 		assertEquals("Player has no prison card", 0, p1.getoutOfJailCard());
