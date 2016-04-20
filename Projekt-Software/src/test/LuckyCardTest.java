@@ -9,7 +9,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import game.boundaries.Outputable;
-import game.entities.CardManager;
 import game.entities.FieldManager;
 import game.entities.Player;
 import game.entities.cards.AbstractCard.CardType;
@@ -24,7 +23,6 @@ import test.mockClasses.TestBoundary1;
 
 public class LuckyCardTest {
 	private Outputable output;
-	private CardManager cm;
 	private FieldManager fm;
 	private Player player;
 
@@ -32,7 +30,6 @@ public class LuckyCardTest {
 	public void setUp() throws Exception {
 		output = new TestBoundary1();
 		fm = new FieldManager(output);
-		cm = new CardManager(output);
 
 	}
 	
@@ -84,17 +81,5 @@ public class LuckyCardTest {
 		assertEquals("Player should now have a prison card", 1, p1.getoutOfJailCard());
 	}
 	
-	@Test
-	public void LuckyCardClassTest(){
-		//setup
-		LuckyCard luckyCard = new LuckyCard(fm, output);
-		Player player = new Player("name",5000 , 0, false, false, 0, 0);
-		
-		//Act
-		luckyCard.landOnField(player);
-		
-		//Asserts
-		assertEquals("LyckyCard class' STAK, should not be empty", 33,cm.cards.length);
-	}
 	
 }

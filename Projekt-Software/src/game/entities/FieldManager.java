@@ -128,7 +128,7 @@ public class FieldManager {
 				fields[i] = new LuckyCard(this, gui);
 				break;
 			case START:
-				fields[i] = new Start(this, 4000, gui);
+				fields[i] = new Start(this, 4000,FieldData.FIELDNUMBER[i], gui);
 				break;
 			
 			}	

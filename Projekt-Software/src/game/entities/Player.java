@@ -5,7 +5,7 @@ public class Player {
 
 	// Attributes
 
-	private int position, timeInPrison, outOfJailCard;
+	private int position, timeInPrison, outOfJailCard, housesOwned, hotelsOwned;
 	private String name;
 	private Balance balance;
 	private boolean isBroke, isImprisoned; 
@@ -68,6 +68,18 @@ public class Player {
 	}
 	public void setoutOfJailCard(int outOfJailCard)	{
 		this.outOfJailCard=getoutOfJailCard()+outOfJailCard;
+	}
+	public void setHousesOwned(int amount){
+		this.housesOwned=getHousesOwned()+amount;
+	}
+	public int getHousesOwned(){
+		return housesOwned;
+	}
+	public void setHotelsOwned(int amount){
+		this.hotelsOwned=getHotelsOwned()+amount;
+	}
+	public int getHotelsOwned(){
+		return hotelsOwned;
 	}
 
 	/*

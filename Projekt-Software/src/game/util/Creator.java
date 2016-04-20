@@ -9,7 +9,7 @@ public class Creator {
 	DBConnector con = new DBConnector();
 	
 	
-	//Opretter en ny database og returner navnet pï¿½ denne
+	//Opretter en ny database og returner navnet på denne
 	public LocalDateTime createGameDB(LocalDateTime time){
 		try {
 			con.doQuery(createDB);
@@ -18,20 +18,20 @@ public class Creator {
 		}
 		return time;
 	}
-	//Opretter de fornï¿½dne tabeller i databasen
+	//Opretter de fornødne tabeller i databasen
 	public void createTables(){
 		createGame();
-		createPlayers();
 		createOwnable();
-		createCards();
 		createBoard();
 	}
 	public void createGame(){
+		//Gemmer alt fra GameController.
 		String query = ("create table Game" + 
-						"(game_id time, " + 
-						"player_id varchar(4), " + 
+						"game_id time, " + 
+						"game_State varchar(10)" +
+						"turnNumber int" +
 						"primary key (time), " + 
-						"foreign key (player_id) references Players (player_id));");
+						"foreign key (player_id) references player_LIST (player_id));");
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -39,16 +39,17 @@ public class Creator {
 			e.printStackTrace();
 		}
 	}
-	public void createPlayers(){
-		String query = ("create table Players" + 
-						"(player_id varchar(4), " + 
-						"playerOnBoard int, " + 
-						"playerBalance int, " +
-						"housesOwned int, " +
-						"hotelsOwned int, " + 
-						"card_id varchar, " +
-						"primary key (player_id), " +
-						"foreign key (card_id) references Cards (card_id));");
+	public void createPlayersList(){
+		String query = ("create table player_List" +
+						"player_id int NOT NULL, " +
+						"playerName varchar(40) NOT NULL," + 
+						"playerBalance int NOT NULL," +
+						"playerPosition int NOT NULL," +
+						"housesOwned int, NOT NULL" +
+						"hotelsOwned int, NOT NULL" + 
+						"prisonCards_owned int, NOT NULL" +
+						"primary key (playerName,playerBalance,playerPosition)");
+		
 		try {
 			con.doQuery(query);
 		} catch (SQLException e) {
@@ -57,6 +58,7 @@ public class Creator {
 		}
 	}
 	public void createOwnable(){
+		//Gemmer alt om felter.
 		String query = ("create table Ownable" +
 						"(ownable boolean, " +
 						"");
@@ -67,22 +69,11 @@ public class Creator {
 			e.printStackTrace();
 		}
 	}
-	public void createCards(){
-		String query = ("create table Cards" + 
-						"(card_id varchar, " +
-						"cardTemp varchar, " +
-						"cardActive varchar, " + 
-						"primary key (card_id)");
-		try {
-			con.doQuery(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	public void createBoard() {
+		//Gemmer alt på boardet, herunder positioner og bygninger
 		String query = ("create table Board" +
-						"(board_id time, " +
+						"field_NoOwnedBy int,"+
+						"housesOnFields int," +
 						"");
 		try {
 			con.doQuery(query);

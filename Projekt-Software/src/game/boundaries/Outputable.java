@@ -29,7 +29,7 @@ public interface Outputable {
 	
 	public void showWithdrawMessage(String playerName, int amount);
 	
-	public void showDepositMessage(String playerName, int bonus);
+	public void showDepositMessage(String playerName, int bonus);//Refuge metode
 	
 	public void showTransferMessage(String playerName, String ownerName, int amount);
 	
@@ -60,21 +60,17 @@ public interface Outputable {
 	
 	public void setHouse(int houseCount, int fieldNo);
 	
-	public void sellProperty();
-
 	public void showNoCardMessage(String name);
 
-	public void showGetPrisonCardMessage(Player player);
+	public void showGetPrisonCardMessage(Player player);//AbstractCard
 
 	public void showDoTimeMessage(Player player);
-
-	void showCardMessage(Player player, int cardNo);
+    
+	void showCardMessage(Player player, int cardNo);//AbstractCard
 
 	public boolean promptBuyProperty(String name, int i);
 
 	public void showEnoughPropertys(String name);
-
-	public void showNotOwner(String name);
 
 	public void setHotel(boolean hasHotel, int fieldNo);
 
@@ -83,10 +79,6 @@ public interface Outputable {
 	public boolean promptSellProperty(String name, int i);
 
 	public void showNoPropertys(String name);
-
-	public void showRollingDiceForPrison1(Player player, int die1, int die2);
-
-	public void showRollingDiceForPrison2(Player player, int die1, int die2);
 
 	public int promptGameState();
 
@@ -99,6 +91,8 @@ public interface Outputable {
 	public void showHousesOnFieldMessage(Player player);
 
 	public void showDontSell(Player player);
+
+	public void showParkingMessage(Player player);
 	
 	
 

@@ -58,8 +58,13 @@ public class GameController {
 
 	private void loadState(){
 		int choice = output.promptGameState();
+		//Make new game, and create DB.
 		if (choice==1){
 			state = GameState.NAME_STATE;
+		}
+		//load old game.
+		else if(choice==2){
+			
 		}
 	}
 	
