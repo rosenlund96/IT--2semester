@@ -12,6 +12,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 import game.entities.cards.AbstractCard.CardType;
+import game.entities.cards.ChanceCard;
 import game.entities.cards.MovaActivePlayer;
 import game.entities.cards.Prison;
 import game.entities.cards.Refuge;
@@ -80,6 +81,19 @@ public class LuckyCardTest {
 		prisonCard.drawCard(p1);
 		assertEquals("Player should now have a prison card", 1, p1.getoutOfJailCard());
 	}
-	
+	@Test
+	public void newPrisonCardTest(){
+		//setup
+		LuckyCard card = new LuckyCard(fm,output);
+		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
+		assertEquals("Player has no prison card", 0, p1.getoutOfJailCard());
+		assertEquals("Cards instantiated, and array not empty", true,card.cards.length>0);
+		//Act
+		ChanceCard oldCard = card.drawCard();
+		ChanceCard newCard = card.drawCard();
+
+		//Asserts
+		assertEquals("The two cards drawn, should not be the same, as cards are stored as a queue", false,oldCard==newCard);
+	}
 	
 }

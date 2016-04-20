@@ -7,7 +7,7 @@ import game.boundaries.*;
 
 public class LuckyCard extends AbstractField{
 
-	private ChanceCard[] cards;
+	public ChanceCard[] cards;
 	private final int JAIL = 10;
 	
 	
