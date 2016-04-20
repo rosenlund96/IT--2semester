@@ -8,7 +8,6 @@ public class GameBoard {
 
 	private ArrayList<Player> players;
 	public FieldManager fieldManager;
-	private CardManager cardManager;
 	private int playerTurn;
 	private final int STARTING_POSITION = 0;
 

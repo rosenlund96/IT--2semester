@@ -91,6 +91,14 @@ public interface Outputable {
 	public int promptGameState();
 
 	public void showImprisonedMessage(String name2);
+
+	public void showCard(String text);
+
+	public boolean promptSellFields(Player player);
+
+	public void showHousesOnFieldMessage(Player player);
+
+	public void showDontSell(Player player);
 	
 	
 

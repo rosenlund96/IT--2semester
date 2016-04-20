@@ -25,6 +25,7 @@
 	<buy>Køb hus/hotel, til kr.</buy>
 	<sell>Sælge</sell>
 	<sell>Sælg hus/hotel, til kr.</sell>
+	<sell>Vil du sælge feltet?</sell>
 	<action>Vil du købe eller sælge?</action>
 	<nothing>Gør intet!</nothing>
 	<noMore>Du har allerede et hotel!</noMore>
@@ -37,6 +38,8 @@
 	<load>Vil du indlæse et gemt spil, eller starte et nyt?</load>
 	<load>Nyt spil</load>
 	<load>Hent gemt spil</load>
+	<protertiesHere>Du kan ikke sælge, da du har huse eller hotel på grunden!</protertiesHere>
+	<protertiesHere>Du har valgt, ikke at sælge.</protertiesHere>
 
 	<yes>Ja</yes>
 	<no>Nej</no>

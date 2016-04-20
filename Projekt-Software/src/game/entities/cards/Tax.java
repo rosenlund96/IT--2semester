@@ -1,7 +1,6 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.CardManager;
 import game.entities.Player;
 
 public class Tax extends AbstractCard {

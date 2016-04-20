@@ -12,7 +12,6 @@ import game.entities.fields.Start;
 import game.entities.fields.Tax;
 import game.entities.fields.Territory;
 import game.entities.fields.AbstractField.FieldType;
-import game.resources.CardEffect;
 import game.resources.FieldData;
 
 public class FieldManager {

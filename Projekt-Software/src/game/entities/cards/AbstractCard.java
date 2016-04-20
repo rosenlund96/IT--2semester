@@ -1,7 +1,6 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-import game.entities.CardManager;
 import game.entities.Player;
 
 public abstract class AbstractCard {
@@ -9,7 +8,6 @@ public abstract class AbstractCard {
 	public enum CardType{MOVE, PRISON, REFUGE, TAX}
 
 	
-	protected CardManager cardManager;
 	protected Outputable output;
     protected CardType cardType;
     protected int cardNo;

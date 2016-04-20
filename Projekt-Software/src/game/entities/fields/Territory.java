@@ -98,6 +98,25 @@ public class Territory extends AbstractOwnable {
 			output.showEnoughPropertys(player.getName());
 		}
 	}
+	
+	public void sellField(Player player){
+		int price = FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1];
+		if(this.owner==player){
+			if(houseCount!=0){
+				output.showHousesOnFieldMessage(player);
+			}
+			else if(houseCount==0){
+				boolean choice = output.promptSellFields(player);
+				if(choice==true){
+					this.owner=null;
+					player.deposit(price/2);
+				}
+				else if(choice==false){
+					output.showDontSell(player);
+				}
+			}
+		}
+		}
 		
 	
 

@@ -176,5 +176,6 @@ public class GameController {
 		board = new GameBoard(names,STARTING_BALANCE, output);
 		output.removeAllOwners();
 		
+		
 	}
 }

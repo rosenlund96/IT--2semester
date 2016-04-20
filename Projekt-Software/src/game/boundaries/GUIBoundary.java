@@ -1,9 +1,6 @@
 package game.boundaries;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import desktop_codebehind.Car;
 import desktop_fields.Brewery;
 import desktop_fields.Chance;
@@ -13,11 +10,10 @@ import desktop_fields.Refuge;
 import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
-import desktop_fields.Street.Builder;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
 import game.entities.Player;
-import game.resources.CardEffect;
+import game.entities.fields.AbstractField.FieldType;
 import game.resources.FieldData;
 import game.util.XMLReader;
 
@@ -96,7 +92,11 @@ public class GUIBoundary implements Outputable{
 	public void removeAllOwners(){
 		for(int i = 0; i < fields.length;i++){
 			fields[i].setTitle(String.valueOf(i+1));
+			GUI.setHouses(i+1, 0);
+			GUI.setHotel(i+1, false);
 		}
+		
+		
 	}
 
 
@@ -530,6 +530,47 @@ public class GUIBoundary implements Outputable{
 	public void showImprisonedMessage(String name2) {
 		String s1 = reader.getElement("imprisoned", 0);
 		String msg = name2 + ": " + s1;
+		GUI.showMessage(msg);
+		
+	}
+
+
+	@Override
+	public void showCard(String text) {
+		GUI.displayChanceCard(text);
+		GUI.getUserButtonPressed("", "OK");
+		
+	}
+
+
+	@Override
+	public boolean promptSellFields(Player player) {
+		String s1 = reader.getElement("sell", 2);
+		String c1 = reader.getElement("yes", 0);
+		String c2 = reader.getElement("no", 0);
+		String msg = player + ": " + s1;
+		String result = GUI.getUserButtonPressed(msg, c1,c2);
+		
+		if(result==c1){
+			return true;
+		}
+		return false;
+	}
+
+
+	@Override
+	public void showHousesOnFieldMessage(Player player) {
+		String s1 = reader.getElement("protertiesHere", 0);
+		String msg = player + ": " + s1;
+		GUI.showMessage(msg);
+		
+	}
+
+
+	@Override
+	public void showDontSell(Player player) {
+		String s1 = reader.getElement("protertiesHere", 1);
+		String msg = player + ": " + s1;
 		GUI.showMessage(msg);
 		
 	}

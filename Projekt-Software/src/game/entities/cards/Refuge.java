@@ -8,7 +8,6 @@ import org.xml.sax.SAXException;
 
 import game.boundaries.Outputable;
 import game.controllers.GameController;
-import game.entities.CardManager;
 import game.entities.FieldManager;
 import game.entities.Player;
 
