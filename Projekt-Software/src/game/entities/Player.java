@@ -61,7 +61,12 @@ public class Player {
 		return timeInPrison;
 	}
 	public void settimeInPrison(int timeInPrison) {
-		this.timeInPrison=timeInPrison;
+		this.timeInPrison=gettimeInPrison()+timeInPrison;
+		if(gettimeInPrison()==3){
+			this.timeInPrison=0;
+			this.withdraw(1000);
+			this.setImprisoned(false);
+		}
 	}
 	public int getoutOfJailCard (){
 		return outOfJailCard;

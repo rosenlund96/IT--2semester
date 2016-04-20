@@ -124,15 +124,16 @@ public class GameController {
 			String name = board.isActivePlayerImprisoned();
 			if(name != null){
 			output.showImprisonedMessage(name);
+			board.nextTurn();
 			}
-			if(name==null){
+			
 			// Prompts the GUI to show active player and get him to roll
 			output.promptRollDice(board.getActivePlayerName());
 
 			// Moves the active player on the board
 			board.moveActivePlayer(dieCup.roll());
 			
-			}
+			
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 			output.showUpdateMessage(board.getActivePlayerName(),  board.getActivePlayerPosition());
