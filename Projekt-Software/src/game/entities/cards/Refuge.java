@@ -4,6 +4,7 @@ import game.boundaries.Outputable;
 import game.controllers.GameController;
 import game.entities.FieldManager;
 import game.entities.Player;
+import game.entities.cards.AbstractCard.CardType;
 
 public class Refuge extends AbstractCard {
 	
@@ -57,6 +58,10 @@ public class Refuge extends AbstractCard {
 	
 	public int getBonus(){
 		return bonus;
+	}
+	
+	public CardType getCardType(){
+		return this.cardType.REFUGE;
 	}
 	
 	@Override

@@ -2,6 +2,7 @@ package game.entities.cards;
 
 import game.boundaries.Outputable;
 import game.entities.Player;
+import game.entities.cards.AbstractCard.CardType;
 
 public class Prison extends AbstractOwnable {
 
@@ -19,5 +20,8 @@ public class Prison extends AbstractOwnable {
 		output.showGetPrisonCardMessage(player);
 	}
 	
+	public CardType getCardType(){
+		return this.cardType.PRISON;
+	}
 
 }

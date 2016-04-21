@@ -33,7 +33,7 @@ public class LuckyCard extends AbstractField{
 					"Værdien af egen avl fra nyttehaven udgør 200kr. Modtag kr. 200 af banken.,0,0,200, false, false",
 					"Betal deres bilforsikring. Kr. 1000,0,0,1000, false, false",
 			    	"Ryk frem til Grønningen hvis De passere start. Indkasser da kr. 4000,0,24,0,false,false",
-					"Tag med LB-færgerne --- Flyt brikken frem og hvis de passere start indkasser da kr. 4000,0,6,0,false,false",
+					"Tag med LB-færgerne --- Flyt brikken frem og hvis de passere start indkasser da kr. 4000,0,5,0,false,false",
 					"I andledning af kongens fødselsdag benådes de herved for fængsel. Dette kort kan opbevares indtil de får brug for det eller de kan sælge det.,0,0,0,true,false",
 					"I andledning af kongens fødselsdag benådes de herved for fængsel. Dette kort kan opbevares indtil de får brug for det eller de kan sælge det.,0,0,0,true,false",
 					"Grundet dyrtiden har de fået gageforhøjelse. Modtag kr. 1000,0,0,1000,false,false",
@@ -83,6 +83,9 @@ public class LuckyCard extends AbstractField{
 		if (drawn.getMoneyAmount()!=0){
 			if (drawn.getMoneyAmount()>0){
 				player.deposit(drawn.getMoneyAmount());
+			}
+			if(drawn.getMoneyAmount()<0){
+				player.withdraw(drawn.getMoneyAmount());
 			}
 		}
 		//If the card is a Move card.

@@ -18,7 +18,7 @@ public abstract class AbstractCard {
 		
 	}
 	
-	public CardType getFieldType(){
+	public CardType getCardType(){
 		return cardType;
 	}
 	

@@ -111,6 +111,10 @@ public class MovaActivePlayer extends AbstractCard {
 		}
 	}
 	
+	public CardType getCardType(){
+		return this.cardType.MOVE;
+	}
+	
 	@Override
 	public String toString(){
 		return super.toString() + ", cardNo=" + cardNo ;
