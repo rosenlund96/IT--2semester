@@ -85,7 +85,7 @@ public class LuckyCard extends AbstractField{
 				player.deposit(drawn.getMoneyAmount());
 			}
 			if(drawn.getMoneyAmount()<0){
-				player.withdraw(drawn.getMoneyAmount());
+				player.withdraw(Math.abs(drawn.getMoneyAmount()));
 			}
 		}
 		//If the card is a Move card.
