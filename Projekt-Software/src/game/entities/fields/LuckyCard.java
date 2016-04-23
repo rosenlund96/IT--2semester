@@ -11,7 +11,7 @@ import game.boundaries.*;
 public class LuckyCard extends AbstractField{
 
 	public AbstractCard[] cards;
-	private final int NUMBER_OF_Cards = 33;
+	private final int NUMBER_OF_CARDS= 33;
 	private Outputable output;
 	String userHome = System.getProperty("user.home");
 	XMLReader reader = new XMLReader(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
@@ -28,9 +28,9 @@ public class LuckyCard extends AbstractField{
 	 * Creates the array of fields use from the FieldData class *
 	 ************************************************************/
 	public AbstractCard[] initializeCards(Outputable gui){
-		cards = new AbstractCard[NUMBER_OF_Cards];
+		cards = new AbstractCard[NUMBER_OF_CARDS];
 
-		for (int i = 0; i < NUMBER_OF_Cards; i++) {
+		for (int i = 0; i < NUMBER_OF_CARDS; i++) {
 			switch(CardEffect.CardType_DATA[i]){
 			case MOVE:
 				cards[i] = new MovaActivePlayer(gui, CardEffect.CardNo_DATA[i]);
