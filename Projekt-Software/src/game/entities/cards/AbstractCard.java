@@ -11,11 +11,23 @@ public abstract class AbstractCard {
 	protected Outputable output;
     protected CardType cardType;
     protected int cardNo;
+    protected String text;
 	
-	public AbstractCard( Outputable output, CardType cardType){
+	public AbstractCard( Outputable output, CardType cardType, String text){
 		this.cardType = cardType;
 		this.output = output;
+		this.text = text;
 		
+	}
+	public void setText(String text){
+		this.text = text;
+	}
+	public String getText(){
+		return text;
+	}
+	
+	public int getCardNo(){
+		return cardNo;
 	}
 	
 	public CardType getCardType(){

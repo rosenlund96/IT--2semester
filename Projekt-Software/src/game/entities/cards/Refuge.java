@@ -1,54 +1,52 @@
 package game.entities.cards;
 
+import desktop_resources.GUI;
 import game.boundaries.Outputable;
 import game.controllers.GameController;
 import game.entities.FieldManager;
 import game.entities.Player;
-import game.entities.cards.AbstractCard.CardType;
+import game.util.XMLReader;
 
 public class Refuge extends AbstractCard {
 	
 	private int bonus;
 	private int cardNo;
 	private FieldManager fieldManager;
-	private GameController gameController;
-
+	private static String text;
+	
+	
 	public Refuge(Outputable output, int bonus, int cardNo) {
-		super(output, CardType.REFUGE);
+		super(output, CardType.REFUGE, text);
 		this.bonus=bonus;
 		this.cardNo = cardNo;
 	
 	}
 	
+	public int getCardNo(){
+		return cardNo;
+	}
+	
 	@Override
 	public void drawCard(Player player) {
-		output.showCardMessage(player, cardNo);
+		
 		switch (bonus) {
 		case 1000:
 			player.deposit(1000);
-			output.showDepositMessage(player.getName(), bonus);
+		
 			break;
 		case 200:
 			player.deposit(200);
-			output.showDepositMessage(player.getName(), bonus);
+			
 			break;
 		case 500:
 			player.deposit(500);
-			output.showDepositMessage(player.getName(), bonus);
+			
 			break;
 		case 3000:
 			player.deposit(3000);
-			output.showDepositMessage(player.getName(), bonus);
-			break;
-		case 40000:
-			if (fieldManager.getFieldsValue(player)<= 15000) {
-				player.deposit(bonus);
-			}
+			
 			break;
 		default:
-			bonus = 200;
-			int playerCount = gameController.names.size();
-			player.deposit(bonus*playerCount);
 			//Træk 200 fra hvermodspiller
 		
 		}
@@ -58,10 +56,6 @@ public class Refuge extends AbstractCard {
 	
 	public int getBonus(){
 		return bonus;
-	}
-	
-	public CardType getCardType(){
-		return this.cardType.REFUGE;
 	}
 	
 	@Override
