@@ -60,7 +60,7 @@ public class Player {
 	public int gettimeInPrison() {
 		return timeInPrison;
 	}
-	public void settimeInPrison(int timeInPrison) {
+	public void setTimeInPrison(int timeInPrison) {
 		this.timeInPrison=gettimeInPrison()+timeInPrison;
 		if(gettimeInPrison()==3){
 			this.timeInPrison=0;

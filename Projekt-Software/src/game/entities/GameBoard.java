@@ -102,7 +102,7 @@ public class GameBoard {
 		if(players.get(playerTurn).getImprisoned()==true){
 			playerName = players.get(playerTurn).getName();
 			players.get(playerTurn).setPosition(11);
-			players.get(playerTurn).settimeInPrison(1);
+			players.get(playerTurn).setTimeInPrison(1);
 		}
 		return playerName;
 	}
