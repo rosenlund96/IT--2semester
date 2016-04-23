@@ -1,73 +1,91 @@
 package game.entities.cards;
 
+import desktop_resources.GUI;
 import game.boundaries.Outputable;
 import game.entities.Player;
+import game.util.XMLReader;
 
 public class MovaActivePlayer extends AbstractCard {
 	private int fieldNo;
 	private int cardNo;
+	private static String text;
+
 	
 	
 	public MovaActivePlayer(Outputable output, int cardNo) {
-		super(output, CardType.MOVE);
+		super(output, CardType.MOVE, text);
 		this.cardNo = cardNo;
 		
+	}
+	
+	public int getCardNo(){
+		return cardNo;
 	}
 
 	@Override
 	public void drawCard(Player player) {
-		output.showCardMessage(player, cardNo);
+		
 		int currentPosition = player.getPosition();
 		int difference;
 		switch (cardNo) {
 		
 		case (24)://Ryk tre felter tilbage
-			player.setPosition(Math.abs((currentPosition-3)) % 41);
+			player.setPosition(Math.abs((currentPosition-3)) % 40);
+			
 			break;	
 		case (3)://Gå til fængsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
+			
 			break;	
 		case (4)://Gå til fængsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
+			
 			break;	
 		case (2)://Gå til start
 			fieldNo=1;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition + difference) % 41);
+			player.setPosition((currentPosition + difference-1) % 40);
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+			
 			break;	
 		case(14)://Gå til Grønningen
 			fieldNo = 25;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition + difference) % 41);
+			player.setPosition((currentPosition + difference-1) % 40);
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+			
 			break;	
 		case(15)://Nærmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition +difference) % 41);	
+			player.setPosition((currentPosition +difference-1) % 40);	
+			
 			break;
 		case(16)://Nærmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition + difference) % 41);
+			player.setPosition((currentPosition + difference-1) % 40);
+			
 			break;	
 		case(17)://LB færgerne
 			fieldNo=6;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition +difference) % 41);
+			player.setPosition((currentPosition +difference-1) % 40);
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+			
 			break;
 		case(21)://Frederiksberg Alle
 			fieldNo=12;
 			difference = getCount(currentPosition, fieldNo);
-			player.setPosition((currentPosition + difference) % 41);
+			player.setPosition((currentPosition + difference-1) % 40);
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+			
 			break;
 		case(23)://Rådhuspladsen
 			player.setPosition(40);
+			
 			break;		
 			//Denne klasse er meget ucharmerende, men den virker	
 		}	
@@ -109,10 +127,6 @@ public class MovaActivePlayer extends AbstractCard {
 		}else{
 		    return r3;
 		}
-	}
-	
-	public CardType getCardType(){
-		return this.cardType.MOVE;
 	}
 	
 	@Override

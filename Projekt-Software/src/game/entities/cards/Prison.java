@@ -1,27 +1,27 @@
 package game.entities.cards;
 
+import desktop_resources.GUI;
 import game.boundaries.Outputable;
 import game.entities.Player;
-import game.entities.cards.AbstractCard.CardType;
+import game.util.XMLReader;
 
 public class Prison extends AbstractOwnable {
 
 	
-	
 	public Prison(Outputable output, int cardNo) {
-		super(output, CardType.PRISON, cardNo);
+		super(output, CardType.PRISON);
+		this.cardNo=cardNo;
 	}
 
+	
+	public int getCardNo(){
+		return cardNo;
+	}
 	@Override
 	public void drawCard(Player player) {
-		output.showCardMessage(player, cardNo);
 		this.setOwner(player);
 		player.setoutOfJailCard(player.getoutOfJailCard()+1);
-		output.showGetPrisonCardMessage(player);
 	}
 	
-	public CardType getCardType(){
-		return this.cardType.PRISON;
-	}
 
 }

@@ -7,10 +7,11 @@ public abstract class AbstractOwnable extends AbstractCard{
 
 	protected Player owner; 
 	protected int cardNo;
+	protected static String text;
 	
 	
-	public AbstractOwnable(Outputable output, CardType cardType, int cardNo) {
-		super(output, cardType);
+	public AbstractOwnable(Outputable output, CardType cardType) {
+		super(output, cardType, text);
 		owner = null;
 		
 	}
