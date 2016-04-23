@@ -33,17 +33,17 @@ public class Territory extends AbstractOwnable {
 			output.showPlayerIsOwner(player.getName());
 			int choice = output.promptAction(player.getName());
 			if(choice==1){
-				buyPropertys(player);
+				buyProperties(player);
 			}
 			else if(choice==2){
-					sellPropertys(player);
+					sellProperties(player);
 			}
 			else if(choice==3){
 			}
 		}
 	}
 
-	private void sellPropertys(Player player) {
+	private void sellProperties(Player player) {
 		if(this.owner==player){
 			if(houseCount==0){
 			output.showNoPropertys(player.getName());
@@ -72,7 +72,7 @@ public class Territory extends AbstractOwnable {
 	}
 
 	//Gives the player the ability to buy properties
-	private void buyPropertys(Player player){
+	private void buyProperties(Player player){
 		int price = FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1];
 		if(this.owner==player){
 			if(houseCount<=3){
