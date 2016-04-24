@@ -57,22 +57,22 @@ public class Player {
 	public void deposit(int amount){
 		balance.deposit(amount);
 	}
-	public int gettimeInPrison() {
+	public int getTimeInPrison() {
 		return timeInPrison;
 	}
 	public void setTimeInPrison(int timeInPrison) {
-		this.timeInPrison=gettimeInPrison()+timeInPrison;
-		if(gettimeInPrison()==3){
+		this.timeInPrison=getTimeInPrison()+timeInPrison;
+		if(getTimeInPrison()==3){
 			this.timeInPrison=0;
 			this.withdraw(1000);
 			this.setImprisoned(false);
 		}
 	}
-	public int getoutOfJailCard (){
+	public int getOutOfJailCard (){
 		return outOfJailCard;
 	}
-	public void setoutOfJailCard(int outOfJailCard)	{
-		this.outOfJailCard=getoutOfJailCard()+outOfJailCard;
+	public void setOutOfJailCard(int outOfJailCard)	{
+		this.outOfJailCard=getOutOfJailCard()+outOfJailCard;
 	}
 	public void setHousesOwned(int amount){
 		this.housesOwned=getHousesOwned()+amount;
