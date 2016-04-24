@@ -10,6 +10,7 @@ import org.xml.sax.SAXException;
 import game.boundaries.*;
 import game.entities.GameBoard;
 import game.entities.fields.Prison;
+import game.util.Creator;
 import game.util.DieCup;
 import game.util.Rollable;
 
@@ -20,6 +21,7 @@ public class GameController {
 	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
+	//public Creator create = new Creator();
 
 	private int turnNumber = 0;
 	private Outputable output;			// Gui controller to change the gui
@@ -60,6 +62,11 @@ public class GameController {
 		int choice = output.promptGameState();
 		//Make new game, and create DB.
 		if (choice==1){
+			try {
+				//create.createTables();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			state = GameState.NAME_STATE;
 		}
 		//load old game.
