@@ -58,7 +58,7 @@ public class Prison extends AbstractField{
 
 
 			}
-			else setTimeInPrison(player.gettimeInPrison()+1, player);
+			else setTimeInPrison(player.getTimeInPrison()+1, player);
 
 
 			break; 
@@ -74,7 +74,7 @@ public class Prison extends AbstractField{
 			}
 			break;
 		case 4:
-			setTimeInPrison(player.gettimeInPrison()+1, player);
+			setTimeInPrison(player.getTimeInPrison()+1, player);
 			output.showDoTimeMessage(player);
 			break;
 		}
@@ -84,7 +84,7 @@ public class Prison extends AbstractField{
 	@Override
 	public void landOnField(Player player) {
 		if(fieldNo==11){
-			player.setTimeInPrison(player.gettimeInPrison()+1);
+			player.setTimeInPrison(player.getTimeInPrison()+1);
 			setImprisoned(true, player);
 			initializeChoice(player);
 		}

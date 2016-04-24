@@ -57,12 +57,12 @@ public class Player {
 	public void deposit(int amount){
 		balance.deposit(amount);
 	}
-	public int gettimeInPrison() {
+	public int getTimeInPrison() {
 		return timeInPrison;
 	}
 	public void setTimeInPrison(int timeInPrison) {
-		this.timeInPrison=gettimeInPrison()+timeInPrison;
-		if(gettimeInPrison()==3){
+		this.timeInPrison=getTimeInPrison()+timeInPrison;
+		if(getTimeInPrison()==3){
 			this.timeInPrison=0;
 			this.withdraw(1000);
 			this.setImprisoned(false);
