@@ -71,7 +71,7 @@ public class Player {
 	public int getOutOfJailCard (){
 		return outOfJailCard;
 	}
-	public void setoutOfJailCard(int outOfJailCard)	{
+	public void setOutOfJailCard(int outOfJailCard)	{
 		this.outOfJailCard=getOutOfJailCard()+outOfJailCard;
 	}
 	public void setHousesOwned(int amount){

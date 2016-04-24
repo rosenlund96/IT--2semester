@@ -35,7 +35,7 @@ public class Prison extends AbstractField{
 		player.setTimeInPrison(timeInPrison);
 	}
 	public void setOutOfJailCard(int outOfJailCard, Player player){
-		player.setoutOfJailCard(outOfJailCard);
+		player.setOutOfJailCard(outOfJailCard);
 	}
 
 
