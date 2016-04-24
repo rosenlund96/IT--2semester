@@ -63,14 +63,14 @@ public class Prison extends AbstractField{
 
 			break; 
 		case 3:
-			if (player.getoutOfJailCard()==0)	{
+			if (player.getOutOfJailCard()==0)	{
 				output.showNoCardMessage(player.getName());
 				initializeChoice(player);
 			}
-			else if(player.getoutOfJailCard()>0) {
+			else if(player.getOutOfJailCard()>0) {
 				setImprisoned(false, player);
 				setTimeInPrison(0, player);
-				setOutOfJailCard(player.getoutOfJailCard()-1, player);
+				setOutOfJailCard(player.getOutOfJailCard()-1, player);
 			}
 			break;
 		case 4:

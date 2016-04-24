@@ -73,20 +73,20 @@ public class LuckyCardTest {
 		game.entities.fields.Prison prisonField = new game.entities.fields.Prison(fm, output, 11);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
 		assertEquals("Player instantiated, and not imprisoned", false, p1.getImprisoned());
-		assertEquals("Player has no prison card", 0, p1.getoutOfJailCard());
+		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
 		
 		//Act and asserts
 		prisonField.landOnField(p1);
 		assertEquals("Player should now be imprisoned", true, p1.getImprisoned());
 		prisonCard.drawCard(p1);
-		assertEquals("Player should now have a prison card", 1, p1.getoutOfJailCard());
+		assertEquals("Player should now have a prison card", 1, p1.getOutOfJailCard());
 	}
 	@Test
 	public void newPrisonCardTest(){
 		//setup
 		LuckyCard card = new LuckyCard(fm,output);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
-		assertEquals("Player has no prison card", 0, p1.getoutOfJailCard());
+		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
 		assertEquals("Cards instantiated, and array not empty", true,card.cards.length>0);
 		//Act
 		ChanceCard oldCard = card.drawCard();

@@ -68,11 +68,11 @@ public class Player {
 			this.setImprisoned(false);
 		}
 	}
-	public int getoutOfJailCard (){
+	public int getOutOfJailCard (){
 		return outOfJailCard;
 	}
 	public void setoutOfJailCard(int outOfJailCard)	{
-		this.outOfJailCard=getoutOfJailCard()+outOfJailCard;
+		this.outOfJailCard=getOutOfJailCard()+outOfJailCard;
 	}
 	public void setHousesOwned(int amount){
 		this.housesOwned=getHousesOwned()+amount;
