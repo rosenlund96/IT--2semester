@@ -10,7 +10,7 @@ import game.controllers.GameController;
 public class App {
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException{
 		
-		// instantiate GameControlelr and starts game.
+		// instantiate GameController and starts game.
 		GameController controller = new GameController();
 		controller.run();
 		
