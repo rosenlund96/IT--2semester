@@ -156,12 +156,6 @@ public class TestBoundary1 implements Outputable {
 	}
 
 	@Override
-	public void sellProperty() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void showNoCardMessage(String name) {
 		// TODO Auto-generated method stub
 		
@@ -198,12 +192,6 @@ public class TestBoundary1 implements Outputable {
 	}
 
 	@Override
-	public void showNotOwner(String name) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void setHotel(boolean hasHotel, int fieldNo) {
 		// TODO Auto-generated method stub
 		
@@ -228,20 +216,45 @@ public class TestBoundary1 implements Outputable {
 	}
 
 	@Override
-	public void showRollingDiceForPrison1(Player player, int die1, int die2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void showRollingDiceForPrison2(Player player, int die1, int die2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public int promptGameState() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void showImprisonedMessage(String name2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showCard(String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean promptSellFields(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void showHousesOnFieldMessage(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showDontSell(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showParkingMessage(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

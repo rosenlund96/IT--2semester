@@ -11,8 +11,8 @@ import org.junit.Test;
 import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
+import game.entities.cards.AbstractCard;
 import game.entities.cards.AbstractCard.CardType;
-import game.entities.cards.ChanceCard;
 import game.entities.cards.MovaActivePlayer;
 import game.entities.cards.Prison;
 import game.entities.cards.Refuge;
@@ -89,8 +89,8 @@ public class LuckyCardTest {
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
 		assertEquals("Cards instantiated, and array not empty", true,card.cards.length>0);
 		//Act
-		ChanceCard oldCard = card.drawCard();
-		ChanceCard newCard = card.drawCard();
+		AbstractCard oldCard = card.drawCard(p1);
+		AbstractCard newCard = card.drawCard(p1);
 
 		//Asserts
 		assertEquals("The two cards drawn, should not be the same, as cards are stored as a queue", false,oldCard==newCard);
