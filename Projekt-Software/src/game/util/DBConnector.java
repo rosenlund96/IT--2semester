@@ -10,10 +10,10 @@ import java.sql.Statement;
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */
 		private final String HOST     = "Localhost";
-		private final int    PORT     = 3306;
+		private final int    PORT     = 3307;
 		private final String DATABASE = "Projekt";
 		private final String USERNAME = "root"; 
-		private final String PASSWORD = "";
+		private final String PASSWORD = "usbw";
 		public Connection connection;
 
 
