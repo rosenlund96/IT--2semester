@@ -21,7 +21,7 @@ public class GameController {
 	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
-	//public Creator create = new Creator();
+	public Creator create = new Creator();
 
 	private int turnNumber = 0;
 	private Outputable output;			// Gui controller to change the gui
@@ -63,7 +63,7 @@ public class GameController {
 		//Make new game, and create DB.
 		if (choice==1){
 			try {
-				//create.createTables();
+				create.createTables();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
