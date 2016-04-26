@@ -30,10 +30,12 @@ public class Creator {
 	}
 	public void createGame(){
 		//Gemmer alt fra GameController.
-		String query = ("CREATE TABLE game" + 
+		String query = ("CREATE TABLE IF NOT EXISTS game " + 
 						"(game_id int (11) NOT NULL, " + 
 						"game_State varchar(45) NOT NULL, " +
 						"turnNumber int (11) NOT NULL, " +
+						"player_id int (11) NOT NULL, " +
+						"fieldNo int (11) NOT NULL, " +
 						"PRIMARY KEY (game_id));");
 		try {
 			con.doUpdate(query);
@@ -43,8 +45,9 @@ public class Creator {
 		}
 	}
 	public void createPlayersList(){
-		String query = ("CREATE TABLE player_list" +
-						"(player_id int (11) NOT NULL, " +
+		String query = ("CREATE TABLE IF NOT EXISTS player_list " +
+						"(game_id int(11) NOT NULL," +
+						"player_id int (11) NOT NULL," + 
 						"playerName varchar(45) NOT NULL, " + 
 						"playerBalance int (11) DEFAULT NULL, " +
 						"housesOwned int(2) DEFAULT NULL, " +
@@ -61,8 +64,9 @@ public class Creator {
 	}
 	public void createField(){
 		//Gemmer alt om felter.
-		String query = ("CREATE TABLE field" +
-						"(fieldNo int (11) NOT NULL, " +
+		String query = ("CREATE TABLE IF NOT EXISTS field " +
+						"(game_id int(11) NOT NULL, " +
+						"fieldNo int (11) NOT NULL," +
 						"fieldOwner varchar (45) DEFAULT NULL, " +
 						"houseOnField int(2) DEFAULT NULL, " + 
 						"hotelOnField tinyint(1) DEFAULT NULL, " +
