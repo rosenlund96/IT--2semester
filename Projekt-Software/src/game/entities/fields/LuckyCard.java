@@ -4,7 +4,7 @@ import game.entities.*;
 import game.entities.cards.AbstractCard;
 import game.resources.CardEffect;
 import game.util.XMLReader;
-import game.entities.cards.moveActivePlayer;
+import game.entities.cards.MoveActivePlayer;
 import game.boundaries.*;
 
 
@@ -33,7 +33,7 @@ public class LuckyCard extends AbstractField{
 		for (int i = 0; i < NUMBER_OF_CARDS; i++) {
 			switch(CardEffect.CardType_DATA[i]){
 			case MOVE:
-				cards[i] = new moveActivePlayer(gui, CardEffect.CardNo_DATA[i]);
+				cards[i] = new MoveActivePlayer(gui, CardEffect.CardNo_DATA[i]);
 				cards[i].setText(reader.getElement("cards", CardEffect.CardNo_DATA[i]-1));
 				break;
 			case PRISON:

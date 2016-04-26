@@ -5,14 +5,14 @@ import game.boundaries.Outputable;
 import game.entities.Player;
 import game.util.XMLReader;
 
-public class moveActivePlayer extends AbstractCard {
+public class MoveActivePlayer extends AbstractCard {
 	private int fieldNo;
 	private int cardNo;
 	private static String text;
 
 	
 	
-	public moveActivePlayer(Outputable output, int cardNo) {
+	public MoveActivePlayer(Outputable output, int cardNo) {
 		super(output, CardType.MOVE, text);
 		this.cardNo = cardNo;
 		
@@ -33,43 +33,43 @@ public class moveActivePlayer extends AbstractCard {
 			player.setPosition(Math.abs((currentPosition-3)) % 40);
 			
 			break;	
-		case (3)://Gå til fængsel
+		case (3)://Gï¿½ til fï¿½ngsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
 			
 			break;	
-		case (4)://Gå til fængsel
+		case (4)://Gï¿½ til fï¿½ngsel
 			fieldNo = 11;
 			player.setPosition(fieldNo);
 			
 			break;	
-		case (2)://Gå til start
+		case (2)://Gï¿½ til start
 			fieldNo=1;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference-1) % 40);
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
 			
 			break;	
-		case(14)://Gå til Grønningen
+		case(14)://Gï¿½ til Grï¿½nningen
 			fieldNo = 25;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference-1) % 40);
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
 			
 			break;	
-		case(15)://Nærmeste redderi
+		case(15)://Nï¿½rmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition +difference-1) % 40);	
 			
 			break;
-		case(16)://Nærmeste redderi
+		case(16)://Nï¿½rmeste redderi
 			fieldNo = closestRefuge(currentPosition);
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition + difference-1) % 40);
 			
 			break;	
-		case(17)://LB færgerne
+		case(17)://LB fï¿½rgerne
 			fieldNo=6;
 			difference = getCount(currentPosition, fieldNo);
 			player.setPosition((currentPosition +difference-1) % 40);
@@ -83,7 +83,7 @@ public class moveActivePlayer extends AbstractCard {
 			if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
 			
 			break;
-		case(23)://Rådhuspladsen
+		case(23)://Rï¿½dhuspladsen
 			player.setPosition(40);
 			
 			break;		
