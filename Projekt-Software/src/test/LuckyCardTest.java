@@ -13,7 +13,7 @@ import game.entities.FieldManager;
 import game.entities.Player;
 import game.entities.cards.AbstractCard;
 import game.entities.cards.AbstractCard.CardType;
-import game.entities.cards.MovaActivePlayer;
+import game.entities.cards.moveActivePlayer;
 import game.entities.cards.Prison;
 import game.entities.cards.Refuge;
 import game.entities.cards.Tax;
@@ -39,7 +39,7 @@ public class LuckyCardTest {
 		
 		//Setup
 		int cardNo = 15;
-		MovaActivePlayer card = new MovaActivePlayer(output, cardNo);
+		moveActivePlayer card = new moveActivePlayer(output, cardNo);
 		player = new Player("name", 5000, 5, false, false, 0, 0);
 		assertEquals("Player created at position 5",5, player.getPosition());
 		//Act

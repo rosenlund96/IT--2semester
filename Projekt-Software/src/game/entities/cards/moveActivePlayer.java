@@ -5,14 +5,14 @@ import game.boundaries.Outputable;
 import game.entities.Player;
 import game.util.XMLReader;
 
-public class MovaActivePlayer extends AbstractCard {
+public class moveActivePlayer extends AbstractCard {
 	private int fieldNo;
 	private int cardNo;
 	private static String text;
 
 	
 	
-	public MovaActivePlayer(Outputable output, int cardNo) {
+	public moveActivePlayer(Outputable output, int cardNo) {
 		super(output, CardType.MOVE, text);
 		this.cardNo = cardNo;
 		
