@@ -9,7 +9,7 @@ public class CardEffect {
 	private static int houses;
 	private static int hotels;
 	
-//Hvordan skal jeg vide ovenstående? 
+//Hvordan skal jeg vide ovenstï¿½ende? 
 
 	
 	
@@ -22,37 +22,37 @@ public class CardEffect {
 	public static final String[] CardText_DATA = {
 			"De modtager deres aktieudbytte. Modtag kr. 1000 af banken",
 			"Ryk frem til start.",
-			"Gå i fængsel. Ryk direkte til fængslet. Selvom de passere start, indkassere De ikke kr. 4000.",
-			"Gå i fængsel. Ryk direkte til fængslet. Selvom de passere start, indkassere De ikke kr. 4000.",
-			"De har været en tur i udlandet og har haft for mange cigaretter med hjem. Betal kr. 200 i told",
-			"De har modtaget deres tandlæge regning, betal kr. 2000.",
-			"De havde en række med 11 rigtige i tipning. Modtag kr. 1000",
-			"Deres præmieobligation er kommet ud. Modtag kr. 1000 af banken.",
-			"Deres præmieobligation er kommet ud. Modtag kr. 1000 af banken.",
-			"Det er deres fødselsdag. Modtag af hver spiller, kr. 200",
-			"Værdien af egen avl fra nyttehaven udgør 200kr. Modtag kr. 200 af banken.",
+			"GÃ¥ i fÃ¦ngsel. Ryk direkte til fÃ¦ngslet. Selvom de passere start, indkassere De ikke kr. 4000.",
+			"GÃ¥ i fÃ¦ngsel. Ryk direkte til fÃ¦ngslet. Selvom de passere start, indkassere De ikke kr. 4000.",
+			"De har vÃ¦ret en tur i udlandet og har haft for mange cigaretter med hjem. Betal kr. 200 i told",
+			"De har modtaget deres tandlÃ¦ge regning, betal kr. 2000.",
+			"De havde en rÃ¦kke med 11 rigtige i tipning. Modtag kr. 1000",
+			"Deres prÃ¦mieobligation er kommet ud. Modtag kr. 1000 af banken.",
+			"Deres prÃ¦mieobligation er kommet ud. Modtag kr. 1000 af banken.",
+			"Det er deres fÃ¸dselsdag. Modtag af hver spiller, kr. 200",
+			"VÃ¦rdien af egen avl fra nyttehaven udgÃ¸r 200kr. Modtag kr. 200 af banken.",
 			"Betal deres bilforsikring. Kr. 1000",
 			"Ejendomsskatterne er steget, ekstraudgifterne er: 800kr pr hus, 2300kr pr hotel.",
-			"Ryk frem til Grønningen, hvis De passere start. Indkasser da kr. 4000",
-			"Ryk brikken frem til det nærmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.",
-			"Ryk brikken frem til det nærmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.",
-			"Tag med LB-færgerne --- Flyt brikken frem, og hvis de passere start, indkasser da kr. 4000",
-			"I andledning af kongens fødselsdag benådes de herved for fængsel. Dette kort kan opbevares, indtil de får brug for det, eller de kan sælge det.",
-			"I andledning af kongens fødselsdag benådes de herved for fængsel. Dette kort kan opbevares, indtil de får brug for det, eller de kan sælge det.",
-			"Grundet dyrtiden har de fået gageforhøjelse. Modtag kr. 1000",
-			"Ryk frem til Frederiksberg Allé,. Hvis de passere start, indkasser da kr. 4000.",
+			"Ryk frem til GrÃ¸nningen, hvis De passere start. Indkasser da kr. 4000",
+			"Ryk brikken frem til det nï¿½rmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De kÃ¸be det af banken.",
+			"Ryk brikken frem til det nï¿½rmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De kÃ¸be det af banken.",
+			"Tag med LB-fÃ¦rgerne --- Flyt brikken frem, og hvis de passere start, indkasser da kr. 4000",
+			"I andledning af kongens fÃ¸dselsdag benÃ¥des de herved for fÃ¦ngsel. Dette kort kan opbevares, indtil de fÃ¥r brug for det, eller de kan sÃ¦lge det.",
+			"I andledning af kongens fÃ¸dselsdag benÃ¥des de herved for fÃ¦ngsel. Dette kort kan opbevares, indtil de fÃ¥r brug for det, eller de kan sÃ¦lge det.",
+			"Grundet dyrtiden har de fÃ¥et gageforhï¿½jelse. Modtag kr. 1000",
+			"Ryk frem til Frederiksberg AllÃ©,. Hvis de passere start, indkasser da kr. 4000.",
 			"De har vundet i klasselotteriet, modtag kr. 500.",
-			"Tag ind på Rådhuspladsen.",
+			"Tag ind pÃ¥ RÃ¥dhuspladsen.",
 			"Ryk tre felter tilbage.",
 			"Oliepriserne er steget, og De skal betale; kr. 500 pr hus, kr. 2000 pr hotel.",
 			"Betal kr. 3000 for reparation af deres vogn.",
 			"Betal kr. 3000 for reparation af deres vogn.",
-			"De modtager det store Matadorlegat for værdigt trængende, kr 40.000. Ved værdigt trængende forstås, at deres formue, dvs. deres kontakte penge, plus skøder, plus penge, ike overstiger kr. 15.000",
-			"Kommunen har eftergivet en kvartalsskat, hæv i banken kr. 3000.",
+			"De modtager det store Matadorlegat for vÃ¦rdigt trÃ¦ngende, kr 40.000. Ved vÃ¦rdigt trÃ¦ngende forstÃ¥s, at deres formue, dvs. deres kontakte penge, plus skÃ¸der, plus penge, ikke overstiger kr. 15.000",
+			"Kommunen har eftergivet en kvartalsskat, hÃ¦v i banken kr. 3000.",
 			"Modtag udbytte af deres aktier, kr. 1000",
 			"Modtag udbytte af deres aktier, kr. 1000",
-			"De er kørt frem for fuld stop, betal kr. 1000 i bøde. ",
-			"De har modtaget en parkeringsbåde, betal kr 200 i bøde.",
+			"De er kÃ¸rt frem for fuld stop, betal kr. 1000 i bÃ¸de. ",
+			"De har modtaget en parkeringsbÃ¸de, betal kr 200 i bÃ¸de.",
 			
 	};
 	
