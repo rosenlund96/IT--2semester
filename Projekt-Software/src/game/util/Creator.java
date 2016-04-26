@@ -77,6 +77,17 @@ public class Creator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
+	}
+	public void createDatabase(){
+		String query = ("CREATE DATABASE matador;");
+		
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

@@ -11,7 +11,7 @@ public class DBConnector {
 	/** @author Ronnie Dalsgaard */
 		private final String HOST     = "Localhost";
 		private final int    PORT     = 3307;
-		private final String DATABASE = "Projekt";
+		private final String DATABASE = "test";
 		private final String USERNAME = "root"; 
 		private final String PASSWORD = "usbw";
 		public Connection connection;
