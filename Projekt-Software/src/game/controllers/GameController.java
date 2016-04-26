@@ -1,10 +1,8 @@
 package game.controllers;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import game.boundaries.*;
 import game.entities.GameBoard;
 import game.util.Creator;
@@ -17,7 +15,7 @@ public class GameController {
 	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
-	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
 	public Creator create = new Creator();
 	public String gameName;
 	private int turnNumber = 0;
@@ -60,8 +58,9 @@ public class GameController {
 		//Make new game, and create DB.
 		if (choice==1){
 			try {
-				gameName = create.createGameDB(timeStamp);
+				this.gameName = create.createGameDB(timeStamp);
 				create.createTables(gameName);
+				
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -103,6 +102,7 @@ public class GameController {
 					names.add(name);
 					// Add player to gui
 					output.addPlayer(name, STARTING_BALANCE, i);
+					
 					break;
 				}				
 	}	
@@ -158,6 +158,7 @@ public class GameController {
 			turnNumber++;
 			
 			// Changes turn
+			create.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards());
 			board.nextTurn();
 			
 			// Check to see if we have a winner
