@@ -12,7 +12,6 @@ import game.util.DBConnector;
 
 public class DBTest {
 
-
 	@Test
 	public void ConncectionTest(){
 		//Setup and act
