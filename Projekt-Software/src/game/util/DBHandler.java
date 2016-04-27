@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 import game.controllers.GameController;
 
-public class Creator {
+public class DBHandler {
 	GameController controller;
 	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
 	String createDB = "CREATE DATABASE " + timeStamp;
