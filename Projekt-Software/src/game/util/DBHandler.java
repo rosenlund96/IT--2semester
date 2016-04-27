@@ -95,10 +95,15 @@ public class DBHandler {
 		
 		}
 	
+	public void updatePlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
+		String query = ("UPDATE "+ gameName+".player_list" +
+						"SET" + 
+						"WHERE playerName="+playerName);
+	}
 	
-	//Drops current game tables, when a winner is found
+	//Drops current Database , when a winner is found
 	public void dropCurrentGameTable(String gameName){
-		String query = ("DROP TABLE "+ gameName);
+		String query = ("DROP DATABASE "+ gameName);
 		
 		try {
 			con.doUpdate(query);
