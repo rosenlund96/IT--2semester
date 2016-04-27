@@ -56,6 +56,7 @@ public class Creator {
 				"housesOwned int(2) DEFAULT NULL, " +
 				"hotelsOwned tinyint (1) DEFAULT NULL, " + 
 				"prisonCards int (1) DEFAULT NULL, " +
+				"playerPosition int (2) DEFAULT NULL, " +
 				"PRIMARY KEY (playerName));");
 
 		try {
@@ -82,9 +83,9 @@ public class Creator {
 	}
 	
 	
-	public void updatePlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards){
-		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerBalance, housesOwned, hotelsOwned, prisonCards)" +
-						"VALUES('"+playerName+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"');");
+	public void addToPlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
+		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerBalance, housesOwned, hotelsOwned, prisonCards, playerPosition)" +
+						"VALUES('"+playerName+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"','"+playerPosition+"');");
 		try {
 			con.doUpdate(query);
 		} catch (SQLException e) {

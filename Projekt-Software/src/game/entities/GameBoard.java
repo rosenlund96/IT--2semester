@@ -3,6 +3,7 @@ package game.entities;
 import java.util.ArrayList;
 
 import game.boundaries.Outputable;
+import game.controllers.GameController;
 
 public class GameBoard {
 
