@@ -5,18 +5,23 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import game.boundaries.*;
 import game.entities.GameBoard;
-import game.util.Creator;
+import game.util.DBHandler;
 import game.util.DieCup;
 import game.util.Rollable;
 
 public class GameController {
 
 	private final int STARTING_BALANCE = 30000;
+	private final int STARTING_POSITION = 1;
+	private final int STARTING_PRISONCARDS = 0;
+	private final int STARTING_HOUSES = 0;
+	private final int STARTING_HOTELS = 0;
+	
 	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
-	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
-	public Creator create = new Creator();
+	public String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
+	public DBHandler handler = new DBHandler();
 	public String gameName;
 	private int turnNumber = 0;
 	private Outputable output;			// Gui controller to change the gui
@@ -58,8 +63,8 @@ public class GameController {
 		//Make new game, and create DB.
 		if (choice==1){
 			try {
-				this.gameName = create.createGameDB(timeStamp);
-				create.createTables(gameName);
+				this.gameName = handler.createGameDB(timeStamp);
+				handler.createTables(gameName);
 				
 				
 			} catch (Exception e) {
@@ -158,7 +163,7 @@ public class GameController {
 			turnNumber++;
 			
 			// Changes turn
-			create.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards());
+			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
 			board.nextTurn();
 			
 			// Check to see if we have a winner
@@ -176,7 +181,7 @@ public class GameController {
 		// Shows the winner
 		output.showWinner(board.getActivePlayerName());
 		//Drops the current game table, as the game is no longer active.
-		create.dropCurrentGameTable(gameName);
+		handler.dropCurrentGameTable(gameName);
 		
 		// Updates GUI to show the new scores and set position to the first
 		for(String name:names){
@@ -189,6 +194,9 @@ public class GameController {
 	
 	private void initBoard(){
 		board = new GameBoard(names,STARTING_BALANCE, output);
+		for (int i = 0; i < names.size(); i++) {
+			handler.addToPlayerTable(timeStamp, names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
+		}
 		output.removeAllOwners();
 		
 		
