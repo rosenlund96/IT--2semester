@@ -82,7 +82,7 @@ public class Creator {
 		}
 	}
 	
-	
+	//adds player to table when gameBoard is initialized
 	public void addToPlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
 		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerBalance, housesOwned, hotelsOwned, prisonCards, playerPosition)" +
 						"VALUES('"+playerName+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"','"+playerPosition+"');");
@@ -95,6 +95,8 @@ public class Creator {
 		
 		}
 	
+	
+	//Drops current game tables, when a winner is found
 	public void dropCurrentGameTable(String gameName){
 		String query = ("DROP TABLE "+ gameName);
 		
