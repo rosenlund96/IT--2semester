@@ -37,6 +37,15 @@ public class GameBoard {
 	public String getActivePlayerName(){
 		return players.get(playerTurn).getName();
 	}
+	public int getActivePlayerHouses(){
+		return players.get(playerTurn).getHousesOwned();
+	}
+	public int getActivePlayerHotels(){
+		return players.get(playerTurn).getHotelsOwned();
+	}
+	public int getActivePlayerPrisonCards(){
+		return players.get(playerTurn).getOutOfJailCard();
+	}
 
 	/**************************************
 	 * Returns true if there is a winner  *
