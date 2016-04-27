@@ -96,9 +96,16 @@ public class DBHandler {
 		}
 	
 	public void updatePlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
-		String query = ("UPDATE "+ gameName+".player_list" +
-						"SET" + 
-						"WHERE playerName="+playerName);
+		String query = ("UPDATE "+ gameName+".player_list " +
+						"SET playerBalance='"+balance+"', housesOwned='"+housesOwned+"', hotelsOwned='"+hotelsOwned+"', prisonCards='"+prisonCards+"', playerPosition='"+playerPosition+"' " + 
+						"WHERE playerName='"+playerName+"';");
+		
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	//Drops current Database , when a winner is found

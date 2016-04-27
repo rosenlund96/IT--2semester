@@ -163,7 +163,7 @@ public class GameController {
 			turnNumber++;
 			
 			// Changes turn
-			//create.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards());
+			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
 			board.nextTurn();
 			
 			// Check to see if we have a winner
