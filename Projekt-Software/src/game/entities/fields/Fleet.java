@@ -47,6 +47,10 @@ public class Fleet extends AbstractOwnable {
 		owner.deposit(withdrawAmount);
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
 	}
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 
 	
 	@Override

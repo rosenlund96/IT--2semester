@@ -29,7 +29,10 @@ public class Refuge extends AbstractField {
 	public int getBonus(){
 		return bonus;
 	}
-	
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	@Override
 	public String toString(){
 		return super.toString() + ", bonus=" + bonus;

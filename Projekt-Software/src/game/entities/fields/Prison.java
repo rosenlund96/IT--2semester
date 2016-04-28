@@ -28,6 +28,10 @@ public class Prison extends AbstractField{
 	public void setImprisoned(boolean isImprisoned, Player player){
 		player.setImprisoned(isImprisoned);
 	}
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	
 	/*******************************************************
 	 * Lets the player pay the fine, for getting imprisoned*

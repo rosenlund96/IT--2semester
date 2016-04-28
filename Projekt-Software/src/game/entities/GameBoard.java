@@ -10,6 +10,7 @@ public class GameBoard {
 	private ArrayList<Player> players;
 	public FieldManager fieldManager;
 	private int playerTurn;
+	private GameController controller;
 	private final int STARTING_POSITION = 0;
 
 	/************************************************************
@@ -24,13 +25,16 @@ public class GameBoard {
 			players.add(new Player(names.get(i), startingBalance, STARTING_POSITION,false, false,0,0));
 		}
 		fieldManager = new FieldManager(gui);
-	}
+	}		
 	
 	public int getActivePlayerPosition(){
 		return players.get(playerTurn).getPosition();
 	
 	}
 
+	public Player getActivePlayer(){
+		return players.get(playerTurn);
+	}
 	public int getActivePlayerBalance(){
 		return players.get(playerTurn).getBalance();
 	}
@@ -124,5 +128,7 @@ public class GameBoard {
 		if (playerTurn >= players.size()){
 			playerTurn = 0;
 		}	
+		
 	}
-}
+	}
+

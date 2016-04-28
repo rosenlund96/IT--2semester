@@ -18,6 +18,10 @@ public class Start extends AbstractField {
 		this.fieldNo = fieldNo;
 		
 	}
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 
 	public void landOnField(Player player) {
 		if(cardNo==1){

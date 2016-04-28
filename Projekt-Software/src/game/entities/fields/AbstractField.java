@@ -28,22 +28,21 @@ public abstract class AbstractField {
 	public FieldType getFieldType(){
 		return fieldType;
 	}
-	public int getFieldNo(){
-		return fieldNo;
-	}
 	public String getOwned(){
 		return abstractOwnable.owner.getName();
 	}
 	public int getHousesOnField(){
 		return territory.houseCount;
 	}
-	public boolean getHotelsOnField(){
+	public int getHotelsOnField(){
 		return territory.hotelsOnField;
 	}
 	
 
 	// Can be called for a player landing on the field
 	public abstract void landOnField(Player player);
+	
+	public abstract int getFieldNo();
 
 	@Override
 	public String toString(){

@@ -22,6 +22,9 @@ public abstract class AbstractOwnable extends AbstractField {
 	public int getPrice(){
 		return price;
 	}
+	public int getFieldNo(){
+		return fieldNo;
+	}
 
 	public Player getOwner(){
 		return owner; 

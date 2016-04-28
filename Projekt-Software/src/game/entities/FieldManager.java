@@ -1,6 +1,7 @@
 package game.entities;
 
 import game.boundaries.Outputable;
+import game.controllers.GameController;
 import game.entities.fields.AbstractField;
 import game.entities.fields.Fleet;
 import game.entities.fields.LaborCamp;
@@ -12,7 +13,9 @@ import game.entities.fields.Start;
 import game.entities.fields.Tax;
 import game.entities.fields.Territory;
 import game.entities.fields.AbstractField.FieldType;
+import game.resources.CardEffect;
 import game.resources.FieldData;
+import game.util.DBHandler;
 
 public class FieldManager {
 
@@ -20,6 +23,7 @@ public class FieldManager {
 	public AbstractField[] fields;
 	public int newPosAmount;
 	public int oldPos;
+
 	
 	/**************************************************
 	 * Construktor, takes a gui to pass to the fields *
@@ -48,6 +52,19 @@ public class FieldManager {
 		}
 		return count;
 	}
+	public String getFieldOwner(int fieldNumber, Player player){
+		if(fields[fieldNumber] instanceof AbstractOwnable){
+			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
+				return player.getName();
+			}
+		}
+		else{
+			return null;
+		}
+			
+		}
+	
+	
 	/*********************************************
 	 * Uses landOnField on a field with a player *
 	 *********************************************/
@@ -96,9 +113,7 @@ public class FieldManager {
 			}
 		}
 	}
-	public void saveFields(){
-		
-	}
+
 	 
 	
 	/************************************************************
@@ -131,7 +146,7 @@ public class FieldManager {
 				fields[i] = new LuckyCard(this, gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case START:
-				fields[i] = new Start(this, 4000,FieldData.FIELDNUMBER[i], gui,FieldData.FIELDNUMBER[i]);
+				fields[i] = new Start(this, 4000,CardEffect.CardNo_DATA[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
 			
 			}	

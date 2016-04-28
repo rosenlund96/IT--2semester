@@ -37,7 +37,10 @@ public class Tax extends AbstractField {
 				collectTax(taxAmount, player);
 		}
 	}
-
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	/************************************************************
 	 * Withdraws an amount of money from the players balance	*
 	 ***********************************************************/

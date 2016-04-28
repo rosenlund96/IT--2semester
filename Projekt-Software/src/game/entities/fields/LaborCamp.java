@@ -41,6 +41,10 @@ public class LaborCamp extends AbstractOwnable {
 
 		}
 	}
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	
 
 	// method to transfer money from the player to the owner of the field

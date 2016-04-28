@@ -8,7 +8,7 @@ import game.resources.FieldData;
 public class Territory extends AbstractOwnable {
 	
 	int houseCount;
-	boolean hotelsOnField;
+	int hotelsOnField;
 	int fieldNo;
 	
 
@@ -45,10 +45,10 @@ public class Territory extends AbstractOwnable {
 	}
 	private void getHotel(){
 		if(houseCount==5){
-			hotelsOnField = true;
+			hotelsOnField = 1;
 		}
 		else if(houseCount<5){
-			hotelsOnField = false;
+			hotelsOnField = 0;
 		}
 	}
 	
@@ -138,7 +138,10 @@ public class Territory extends AbstractOwnable {
 			}
 		}
 		}
-		
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	
 
 	/**

@@ -24,7 +24,10 @@ public class LuckyCard extends AbstractField{
 		initializeCards(output);
 		this.fieldNo = fieldNo;
 	}
-	
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	
 	
 	
