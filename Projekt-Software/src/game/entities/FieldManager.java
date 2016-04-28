@@ -17,7 +17,7 @@ import game.resources.FieldData;
 public class FieldManager {
 
 	public final int NUMBER_OF_FIELDS = 40;
-	private AbstractField[] fields;
+	public AbstractField[] fields;
 	public int newPosAmount;
 	public int oldPos;
 	
@@ -96,6 +96,9 @@ public class FieldManager {
 			}
 		}
 	}
+	public void saveFields(){
+		
+	}
 	 
 	
 	/************************************************************
@@ -110,25 +113,25 @@ public class FieldManager {
 				fields[i] = new Territory(this, FieldData.FIELDBUYPRICE_DATA[i],FieldData.FIELDRENT1_DATA[i], FieldData.FIELDNUMBER[i], gui);
 				break;
 			case LABOR_CAMP: 
-				fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i], FieldData.FIELDRENT1_DATA[i], gui);
+				fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i], FieldData.FIELDRENT1_DATA[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case FLEET: 
-				fields[i] = new Fleet(this, FieldData.FIELDBUYPRICE_DATA[i], gui);
+				fields[i] = new Fleet(this, FieldData.FIELDBUYPRICE_DATA[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case TAX: 
-				fields[i] = new Tax(this, FieldData.FIELDRENT1_DATA[i], gui);
+				fields[i] = new Tax(this, FieldData.FIELDRENT1_DATA[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case REFUGE: 
-				fields[i] = new Refuge(this, FieldData.FIELDRENT1_DATA[i], gui);
+				fields[i] = new Refuge(this, FieldData.FIELDRENT1_DATA[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case PRISON:
 				fields[i] = new Prison(this,gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case LUCKYCARD:
-				fields[i] = new LuckyCard(this, gui);
+				fields[i] = new LuckyCard(this, gui,FieldData.FIELDNUMBER[i]);
 				break;
 			case START:
-				fields[i] = new Start(this, 4000,FieldData.FIELDNUMBER[i], gui);
+				fields[i] = new Start(this, 4000,FieldData.FIELDNUMBER[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
 			
 			}	

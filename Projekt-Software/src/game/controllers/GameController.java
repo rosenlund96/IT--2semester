@@ -74,7 +74,7 @@ public class GameController {
 		}
 		//load old game.
 		else if(choice==2){
-			
+			int choice2 = output.promtLoadAction();
 		}
 	}
 	

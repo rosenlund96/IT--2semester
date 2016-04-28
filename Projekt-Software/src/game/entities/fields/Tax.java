@@ -7,10 +7,12 @@ import game.entities.Player;
 public class Tax extends AbstractField {
 	
 	private int taxAmount;
+	private int fieldNo;
 
-	public Tax(FieldManager fieldManager, int taxAmount, Outputable output) {
-		super(fieldManager, FieldType.TAX, output);
+	public Tax(FieldManager fieldManager, int taxAmount, Outputable output, int fieldNo) {
+		super(fieldManager, FieldType.TAX, output, fieldNo);
 		this.taxAmount = taxAmount;
+		this.fieldNo = fieldNo;
 	}
 
 	@Override
@@ -35,7 +37,7 @@ public class Tax extends AbstractField {
 				collectTax(taxAmount, player);
 		}
 	}
-	
+
 	/************************************************************
 	 * Withdraws an amount of money from the players balance	*
 	 ***********************************************************/
@@ -44,6 +46,10 @@ public class Tax extends AbstractField {
 
 		output.showWithdrawMessage(player.getName(), amount);
 	}
+	
+	/***********************************************
+	 * @return the taxamount for the specific field*
+	 ***********************************************/
 	
 	public int getTaxAmount(){
 		return this.taxAmount;

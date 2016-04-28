@@ -9,12 +9,14 @@ public abstract class AbstractOwnable extends AbstractField {
 	protected int price;
 	protected int rent; 
 	protected Player owner;
-
-	public AbstractOwnable(FieldManager fieldManager, FieldType fieldType, int price, int rent ,Outputable output) {
-		super(fieldManager, fieldType, output);
+	protected int fieldNo;
+	
+	public AbstractOwnable(FieldManager fieldManager, FieldType fieldType, int price, int rent ,Outputable output, int fieldNo) {
+		super(fieldManager, fieldType, output, fieldNo);
 		this.price = price;
 		this.rent = rent; 
 		this.owner = null;
+		this.fieldNo = fieldNo;
 	}
 
 	public int getPrice(){

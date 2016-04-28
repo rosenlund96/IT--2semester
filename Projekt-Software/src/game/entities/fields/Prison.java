@@ -15,16 +15,24 @@ public class Prison extends AbstractField{
 	GameBoard board;
 
 	public Prison(FieldManager fieldManager, Outputable output, int fieldNo) {
-		super(fieldManager,FieldType.PRISON, output);
+		super(fieldManager,FieldType.PRISON, output, fieldNo);
 		dices = new DieCup();
 		fine = 1000; 
 		this.fieldNo = fieldNo;
 
 	}
-
+	 /**********************************************************************
+	  * @param isImprisoned setting the boolean improsoned for the specific*
+	  * @param player the player to manipulate                              *
+	  **********************************************************************/
 	public void setImprisoned(boolean isImprisoned, Player player){
 		player.setImprisoned(isImprisoned);
 	}
+	
+	/*******************************************************
+	 * Lets the player pay the fine, for getting imprisoned*
+	 * @param player the imprisoned player                 *
+	 *******************************************************/
 	public void payFine(Player player){
 		player.withdraw(fine);
 		output.showWithdrawMessage(player.getName(), fine);
@@ -40,6 +48,10 @@ public class Prison extends AbstractField{
 
 
 
+	/**************************************************************
+	 * Initializes the player choice for landing on a prison field*
+	 * @param player the player, landing on the prison field      *
+	 **************************************************************/
 	public void initializeChoice(Player player){
 		int choice = output.PromptPrison(player.getName());
 		switch(choice){
@@ -80,6 +92,7 @@ public class Prison extends AbstractField{
 		}
 	}
 
+	
 
 	@Override
 	public void landOnField(Player player) {

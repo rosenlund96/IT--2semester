@@ -2,11 +2,9 @@ package game.util;
 
 public interface DBFunctions {
 
-	/************************************************************************
-	 * 																		*
-	 * Interface defining methods for SQL statements                		*
-	 * 																		*
-	 ************************************************************************/
+	/***************************************************
+	 * Interface defining methods for SQL statements   *
+	 ***************************************************/
 	
 	public String createGameDB(String timeStamp);
 	public void createTables(String gameName);

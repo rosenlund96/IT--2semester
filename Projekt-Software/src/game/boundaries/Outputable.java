@@ -93,6 +93,8 @@ public interface Outputable {
 	public void showDontSell(Player player);
 
 	public void showParkingMessage(Player player);
+
+	public int promtLoadAction();
 	
 	
 

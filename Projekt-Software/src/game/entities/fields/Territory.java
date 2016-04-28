@@ -8,18 +8,19 @@ import game.resources.FieldData;
 public class Territory extends AbstractOwnable {
 	
 	int houseCount;
+	boolean hotelsOnField;
 	int fieldNo;
 	
 
 	public Territory(FieldManager fieldManager, int price, int rent, int fieldNo, Outputable output) {
-		super(fieldManager, FieldType.TERRITORY, price, rent, output);
+		super(fieldManager, FieldType.TERRITORY, price, rent, output, fieldNo);
 		houseCount = 0;
 		this.fieldNo = fieldNo;
 	}	
 
 	@Override
 	public void landOnField(Player player){
-
+		getHotel();
 		// If owner is null, call Ownable.landonfield for option to buy the field
 		if (this.owner == null) {
 			super.landOnField(player);
@@ -42,6 +43,20 @@ public class Territory extends AbstractOwnable {
 			}
 		}
 	}
+	private void getHotel(){
+		if(houseCount==5){
+			hotelsOnField = true;
+		}
+		else if(houseCount<5){
+			hotelsOnField = false;
+		}
+	}
+	
+	
+	/*******************************************************
+	 * Asks the player to sell properties, if any is owned *
+	 * @param player the player landing on the field       *
+	 *******************************************************/
 
 	private void sellProperties(Player player) {
 		if(this.owner==player){
@@ -71,7 +86,10 @@ public class Territory extends AbstractOwnable {
 	}	
 	}
 
-	//Gives the player the ability to buy properties
+	/******************************************************************
+	 * Gives the player the ability to buy properties for owned fields*
+	 * @param player the player landing on the field                         *
+	 ******************************************************************/
 	private void buyProperties(Player player){
 		int price = FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1];
 		if(this.owner==player){
@@ -98,7 +116,10 @@ public class Territory extends AbstractOwnable {
 			output.showEnoughPropertys(player.getName());
 		}
 	}
-	
+	/******************************************************
+	 * Gives the player the ability to sell an owned field*
+	 * @param player the player owning the field          *
+	 ******************************************************/
 	public void sellField(Player player){
 		int price = FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1];
 		if(this.owner==player){

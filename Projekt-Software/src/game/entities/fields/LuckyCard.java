@@ -13,15 +13,19 @@ public class LuckyCard extends AbstractField{
 	public AbstractCard[] cards;
 	private final int NUMBER_OF_CARDS= 33;
 	private Outputable output;
+	private int fieldNo;
 	String userHome = System.getProperty("user.home");
 	XMLReader reader = new XMLReader(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
 	
 	
-	public LuckyCard(FieldManager fieldManager, Outputable output) {
-		super(fieldManager, FieldType.LUCKYCARD, output);
+	public LuckyCard(FieldManager fieldManager, Outputable output, int fieldNo) {
+		super(fieldManager, FieldType.LUCKYCARD, output, fieldNo);
 		this.output = output;
 		initializeCards(output);
+		this.fieldNo = fieldNo;
 	}
+	
+	
 	
 	
 	/************************************************************
