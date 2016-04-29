@@ -5,14 +5,13 @@ import game.entities.cards.AbstractCard;
 
 public class CardEffect {
 
-	private static int players;
 	private static int houses;
 	private static int hotels;
-	
-//Hvordan skal jeg vide ovenst�ende? 
 
-	
-	
+	//Hvordan skal jeg vide ovenst�ende? 
+
+
+
 	public static final int[] CardNo_DATA = {
 			1,2,3,4,5,6,7,8,9,10,11,12,
 			13,14,15,16,17,18,19,20,21,
@@ -53,18 +52,18 @@ public class CardEffect {
 			"Modtag udbytte af deres aktier, kr. 1000",
 			"De er kørt frem for fuld stop, betal kr. 1000 i bøde. ",
 			"De har modtaget en parkeringsbøde, betal kr 200 i bøde.",
-			
+
 	};
-	
+
 	public static final int[] CardEffect_DATA = {
 			1000,0,0,0,-200,-2000,1000,1000,
 			1000,200,200,-1000,-(800*houses)-(2300*hotels),
 			0,0,0,0,0,0,1000,0,500,0,0,-(500*houses)-(2000*hotels),
 			-3000,-3000,40000,3000,1000,1000,-1000,-200
-			
+
 	};
 	public static final int[] CardPositionEffect_Data = {
-			
+
 	};
 	public static final AbstractCard.CardType[] CardType_DATA = {
 			AbstractCard.CardType.REFUGE,
@@ -100,14 +99,14 @@ public class CardEffect {
 			AbstractCard.CardType.REFUGE,
 			AbstractCard.CardType.TAX,
 			AbstractCard.CardType.TAX
-			
-			
-			
-			
-			
-	};
-	
 
-	
-	
+
+
+
+
+	};
+
+
+
+
 }

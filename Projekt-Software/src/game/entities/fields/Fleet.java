@@ -10,9 +10,11 @@ public class Fleet extends AbstractOwnable {
 	private final int RENT_2 = 1000;
 	private final int RENT_3 = 2000;
 	private final int RENT_4 = 4000;
+	private int fieldNo;
 
-	public Fleet(FieldManager fieldManager, int price, Outputable output) {
-		super(fieldManager, FieldType.FLEET, price, 500, output);
+	public Fleet(FieldManager fieldManager, int price, Outputable output, int fieldNo) {
+		super(fieldManager, FieldType.FLEET, price, 500, output, fieldNo);
+		this.fieldNo = fieldNo;
 
 	}
 
@@ -45,7 +47,12 @@ public class Fleet extends AbstractOwnable {
 		owner.deposit(withdrawAmount);
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
 	}
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 
+	
 	@Override
 	public String toString(){
 		int fieldsOwned = 0;

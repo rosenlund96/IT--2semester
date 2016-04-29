@@ -9,10 +9,12 @@ public class LaborCamp extends AbstractOwnable {
 
 
 	private DieCup dices;		// for rent calculation 
+	private int fieldNo;
 
-	public LaborCamp(FieldManager fieldManager, int price, int baseRent, Outputable output ) {
-		super(fieldManager, FieldType.LABOR_CAMP, price, baseRent, output);
+	public LaborCamp(FieldManager fieldManager, int price, int baseRent, Outputable output, int fieldNo ) {
+		super(fieldManager, FieldType.LABOR_CAMP, price, baseRent, output, fieldNo);
 		dices = new DieCup();
+		this.fieldNo = fieldNo;
 	}
 	
 	@Override
@@ -39,8 +41,12 @@ public class LaborCamp extends AbstractOwnable {
 
 		}
 	}
+	@Override
+	public int getFieldNo(){
+		return fieldNo;
+	}
 	
-	
+
 	// method to transfer money from the player to the owner of the field
 	private void transferRent(int amountToPay, Player player){
 		// withdraws the due rent or the rest of the players balance if he/she can't afford it 

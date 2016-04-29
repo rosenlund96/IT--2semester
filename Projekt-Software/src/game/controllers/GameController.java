@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import game.boundaries.*;
+import game.entities.FieldManager;
 import game.entities.GameBoard;
 import game.util.DBHandler;
 import game.util.DieCup;
@@ -23,6 +24,7 @@ public class GameController {
 	public String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
 	public DBHandler handler = new DBHandler();
 	public String gameName;
+	private FieldManager fieldManager;
 	private int turnNumber = 0;
 	private Outputable output;			// Gui controller to change the gui
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
@@ -34,9 +36,9 @@ public class GameController {
 		String userHome = System.getProperty("user.home");
 		output = new GUIBoundary(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
 		this.gameName = null;
-		
 		dieCup = new DieCup();	
 		names = new ArrayList<String>();
+		fieldManager = new FieldManager(output);
 	}
 
 	/*********************************************
@@ -74,7 +76,7 @@ public class GameController {
 		}
 		//load old game.
 		else if(choice==2){
-			
+			int choice2 = output.promtLoadAction();
 		}
 	}
 	
@@ -164,6 +166,8 @@ public class GameController {
 			
 			// Changes turn
 			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
+			handler.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), 0, 0);
+			
 			board.nextTurn();
 			
 			// Check to see if we have a winner
@@ -172,8 +176,8 @@ public class GameController {
 				return;
 			}		
 		}
-	}
-
+	
+}
 	/************************************
 	 * Method used when winner is found *
 	 ************************************/
@@ -197,6 +201,10 @@ public class GameController {
 		for (int i = 0; i < names.size(); i++) {
 			handler.addToPlayerTable(timeStamp, names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
 		}
+		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
+			handler.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo(), 0, 0);
+		}
+		
 		output.removeAllOwners();
 		
 		

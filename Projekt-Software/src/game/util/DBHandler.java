@@ -81,6 +81,19 @@ public class DBHandler implements DBFunctions {
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public void addToFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField) {
+		String query = ("INSERT INTO " + gameName+".field(fieldNo, fieldOwner, houseOnField, hotelOnField)" +
+						"VALUES('"+fieldNo+"','"+playerName+"','"+housesOnField+"','"+hotelsOnField+"');");
+		
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	//adds player to table when gameBoard is initialized
 	public void addToPlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
@@ -118,6 +131,22 @@ public class DBHandler implements DBFunctions {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public void updateFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void addToGameTable(String gameName, String gameState, int turnNumber, int playerID, int fieldNo) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateGameTable(String gameName, String gameState, int turnNumber, int playerID, int fieldNo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

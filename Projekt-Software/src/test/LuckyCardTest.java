@@ -84,7 +84,7 @@ public class LuckyCardTest {
 	@Test
 	public void newPrisonCardTest(){
 		//setup
-		LuckyCard card = new LuckyCard(fm,output);
+		LuckyCard card = new LuckyCard(fm,output,0);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
 		assertEquals("Cards instantiated, and array not empty", true,card.cards.length>0);

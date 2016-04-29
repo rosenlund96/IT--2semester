@@ -38,6 +38,9 @@
 	<load>Vil du indlæse et gemt spil, eller starte et nyt?</load>
 	<load>Nyt spil</load>
 	<load>Hent gemt spil</load>
+	<load>Her kan du se dine gemte spil</load>
+	
+	
 	<protertiesHere>Du kan ikke sælge, da du har huse eller hotel på grunden!</protertiesHere>
 	<protertiesHere>Du har valgt, ikke at sælge.</protertiesHere>
 	<parking>Du er landet på parkering, nyd livet!</parking>

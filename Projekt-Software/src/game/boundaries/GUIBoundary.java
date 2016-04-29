@@ -416,6 +416,13 @@ public class GUIBoundary implements Outputable{
 			return 2;
 		}
 	}
+	
+	@Override
+	public int promtLoadAction(){
+		String s1 = reader.getElement("load", 3);
+		String result = GUI.getUserSelection(s1, "spil1","spil2");
+		return 0;
+	}
 
 	@Override
 	public boolean promptSellFields(Player player) {
