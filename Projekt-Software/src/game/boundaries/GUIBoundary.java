@@ -1,4 +1,4 @@
-package game.boundaries;
+ package game.boundaries;
 
 import java.awt.Color;
 import desktop_codebehind.Car;
@@ -38,12 +38,20 @@ public class GUIBoundary implements Outputable{
 
 
 	// Methods
+	
+    /***********************************************
+     * Displays the dices in the GUI for the player*
+     ***********************************************/
 
 	@Override
 	public void setDice(int[] dice){
 		GUI.setDice(dice[0], dice[1]);
 	}
-
+    /************************************************************************
+     * Sets a hotel on the gui, if the player has enough houses on the field*
+     * @param hasHotel boolean to show if a hotel i present                 *
+     * @param fieldNo fieldNo for the field to set a hotel                  *
+     ************************************************************************/
 	@Override
 	public void setHotel(boolean hasHotel, int fieldNo) {
 		if(hasHotel==false){
@@ -55,7 +63,11 @@ public class GUIBoundary implements Outputable{
 			GUI.setHotel(fieldNo, true);
 		}
 	}
-
+	/**********************************************************************
+	 * Displays a specific amount of houses on a specific field on the GUI*
+	 * @param houseCount the amount of houses to display                  *
+	 * @param fieldNo the specific field to show the houses on            *
+	 **********************************************************************/
 	@Override
 	public void setHouse(int houseCount, int fieldNo) {
 		GUI.setHotel(fieldNo, false);
