@@ -62,10 +62,9 @@ public class FieldManager {
 			
 		}
 	public int getHouseCount(int fieldNumber, Player player){
-		if(fields[fieldNumber] instanceof AbstractOwnable){
+		if(fields[fieldNumber] instanceof Territory){
 			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
-				System.out.println(((Territory)fields[fieldNumber]).houseCount);
-				return ((Territory)fields[fieldNumber]).houseCount;
+				return Territory.houseCount;
 			}
 		}
 		else{
