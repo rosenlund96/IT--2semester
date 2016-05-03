@@ -13,7 +13,6 @@ import desktop_fields.Street;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
 import game.entities.Player;
-import game.entities.fields.AbstractField.FieldType;
 import game.resources.FieldData;
 import game.util.XMLReader;
 
