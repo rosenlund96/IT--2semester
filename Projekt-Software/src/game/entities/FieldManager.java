@@ -68,10 +68,19 @@ public class FieldManager {
 			}
 		}
 		else{
-			System.out.println("Den rammer else, feltet er ikke territory");
-			System.out.println("Feltnummer" + fieldNumber);
 			return 0;
 		}
+	}
+	
+	public int getHotelCount(int fieldNumber, Player player){
+		if(fields[fieldNumber] instanceof Territory){
+			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
+				if (Territory.houseCount==5) {
+					return 1;
+				}
+			}
+		}
+		return 0;
 	}
 	
 	
