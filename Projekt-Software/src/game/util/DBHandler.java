@@ -135,12 +135,22 @@ public class DBHandler implements DBFunctions {
 	
 	@Override
 	public void updateFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField) {
-		// TODO Auto-generated method stub
+		String query = ("UPDATE "+ gameName+".field " + 
+						"SET fieldOwner='"+playerName+"', houseOnField='"+housesOnField+"', hotelOnField='"+hotelsOnField+"'" + 
+						"WHERE fieldNO='"+fieldNo+"';");
+		
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	@Override
 	public void addToGameTable(String gameName, String gameState, int turnNumber, int playerID, int fieldNo) {
-		// TODO Auto-generated method stub
+		String query = ("INSERT INTO " + gameName+".game(game_id, game_State, turnNumber, player_id, fieldNo)"+
+						"VALUES('"+gameName+"', '"+gameState+"', '"+turnNumber+"', '"+playerID+"', '"+fieldNo+"'");
 		
 	}
 	@Override
