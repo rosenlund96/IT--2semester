@@ -152,6 +152,13 @@ public class DBHandler implements DBFunctions {
 		String query = ("INSERT INTO " + gameName+".game(game_id, game_State, turnNumber, player_id, fieldNo)"+
 						"VALUES('"+gameName+"', '"+gameState+"', '"+turnNumber+"', '"+playerID+"', '"+fieldNo+"'");
 		
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	@Override
 	public void updateGameTable(String gameName, String gameState, int turnNumber, int playerID, int fieldNo) {
