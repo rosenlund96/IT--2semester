@@ -7,14 +7,13 @@ import game.resources.FieldData;
 
 public class Territory extends AbstractOwnable {
 	
-	int houseCount;
-	int hotelsOnField;
-	int fieldNo;
+	public int houseCount = 0;
+	public int hotelsOnField;
+	public int fieldNo;
 	
 
 	public Territory(FieldManager fieldManager, int price, int rent, int fieldNo, Outputable output) {
 		super(fieldManager, FieldType.TERRITORY, price, rent, output, fieldNo);
-		houseCount = 0;
 		this.fieldNo = fieldNo;
 	}	
 
@@ -141,6 +140,9 @@ public class Territory extends AbstractOwnable {
 	@Override
 	public int getFieldNo(){
 		return fieldNo;
+	}
+	public int getHouseCount(){
+		return houseCount;
 	}
 	
 

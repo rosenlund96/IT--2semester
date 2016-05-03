@@ -10,7 +10,6 @@ public abstract class AbstractField {
 
 	protected FieldManager fieldManager;
 	protected AbstractOwnable abstractOwnable;
-	protected Territory territory;
 	protected Outputable output;
 	private int fieldNo;
 
@@ -31,12 +30,7 @@ public abstract class AbstractField {
 	public String getOwned(){
 		return abstractOwnable.owner.getName();
 	}
-	public int getHousesOnField(){
-		return territory.houseCount;
-	}
-	public int getHotelsOnField(){
-		return territory.hotelsOnField;
-	}
+	
 	
 
 	// Can be called for a player landing on the field
