@@ -22,7 +22,7 @@ public class Prison extends AbstractField{
 
 	}
 	 /**********************************************************************
-	  * @param isImprisoned setting the boolean improsoned for the specific*
+	  * @param isImprisoned setting the boolean imprisoned for the specific*
 	  * @param player the player to manipulate                              *
 	  **********************************************************************/
 	public void setImprisoned(boolean isImprisoned, Player player){
