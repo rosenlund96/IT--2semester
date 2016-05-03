@@ -83,11 +83,13 @@ public class Player {
 	public void setHotelsOwned(int amount){
 		this.hotelsOwned=getHotelsOwned()+amount;
 	}
+	
+
 	public int getHotelsOwned(){
 		return hotelsOwned;
 	}
 
-	/*
+	/**
 	 * Removes the amount from balance set as a parameter.
 	 * If this is not possible it returns the amount which was
 	 * able to be withdrawn
