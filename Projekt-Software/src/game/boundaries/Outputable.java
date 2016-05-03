@@ -94,7 +94,7 @@ public interface Outputable {
 
 	public void showParkingMessage(Player player);
 
-	public int promtLoadAction();
+	public String promtLoadAction(String[] games);
 	
 	
 

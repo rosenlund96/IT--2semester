@@ -165,6 +165,13 @@ public class DBHandler implements DBFunctions {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public String[] loadGames(){
+		String query = ("SHOW DATABASES");
+		
+		return null;
+	}
 
 
 }

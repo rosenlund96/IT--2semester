@@ -18,5 +18,5 @@ public interface DBFunctions {
 	public void addToGameTable(String gameName, String gameState, int turnNumber, int playerID, int fieldNo);
 	public void updateGameTable(String gameName, String gameState, int turnNumber, int playerID, int fieldNo);
 	public void dropCurrentGameTable(String gameName);
-
+	public String[] loadGames();
 	}

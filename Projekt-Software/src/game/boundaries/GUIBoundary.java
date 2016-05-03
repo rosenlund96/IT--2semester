@@ -506,10 +506,10 @@ public class GUIBoundary implements Outputable{
 	}
 
 	@Override
-	public int promtLoadAction(){
+	public String promtLoadAction(String[] games){
 		String s1 = reader.getElement("load", 3);
-		String result = GUI.getUserSelection(s1, "spil1","spil2");
-		return 0;
+		String result = GUI.getUserSelection(s1, games);
+		return null;
 	}
 
 	@Override
