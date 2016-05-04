@@ -1,4 +1,4 @@
-package game.boundaries;
+ package game.boundaries;
 
 import java.awt.Color;
 import desktop_codebehind.Car;
@@ -20,30 +20,38 @@ import game.util.XMLReader;
  * Handles indirection between the supplied GUI and the game
  */
 public class GUIBoundary implements Outputable{
-	
+
 	// Fields and cards
 	XMLReader reader;
 	Field[] fields;
 	String[] cards;
-	
 
-	
-	
+
+
+
 	// Constructors
 	public GUIBoundary(String langFilePath) {
 		this.reader = new XMLReader(langFilePath);
 		this.fields = new Field[FieldData.FIELDNAME_DATA.length];
 		this.initializeBoard();
 	}
-	
-	
+
+
 	// Methods
 	
+    /***********************************************
+     * Displays the dices in the GUI for the player*
+     ***********************************************/
+
 	@Override
 	public void setDice(int[] dice){
 		GUI.setDice(dice[0], dice[1]);
 	}
-	
+    /************************************************************************
+     * Sets a hotel on the gui, if the player has enough houses on the field*
+     * @param hasHotel boolean to show if a hotel i present                 *
+     * @param fieldNo fieldNo for the field to set a hotel                  *
+     ************************************************************************/
 	@Override
 	public void setHotel(boolean hasHotel, int fieldNo) {
 		if(hasHotel==false){
@@ -51,11 +59,15 @@ public class GUIBoundary implements Outputable{
 			GUI.setHotel(fieldNo, false);
 		}
 		else if(hasHotel==true){
-		GUI.setHouses(fieldNo, 0);
-		GUI.setHotel(fieldNo, true);
+			GUI.setHouses(fieldNo, 0);
+			GUI.setHotel(fieldNo, true);
 		}
 	}
-	
+	/**********************************************************************
+	 * Displays a specific amount of houses on a specific field on the GUI*
+	 * @param houseCount the amount of houses to display                  *
+	 * @param fieldNo the specific field to show the houses on            *
+	 **********************************************************************/
 	@Override
 	public void setHouse(int houseCount, int fieldNo) {
 		GUI.setHotel(fieldNo, false);
@@ -79,7 +91,7 @@ public class GUIBoundary implements Outputable{
 		// Adding player car at updated position
 		GUI.setCar(pos+1, playerName);	
 	}
-	
+
 	/************************************************************************
 	 * Adds a new player to the board. using balance, name, and player #	*
 	 * 																		*
@@ -97,6 +109,9 @@ public class GUIBoundary implements Outputable{
 		GUI.setCar(1, playerName);
 	}
 
+	/************************************************************************
+	 * Clears all owners from the interactive gameboard.					*
+	 ***********************************************************************/
 	@Override
 	public void removeAllOwners(){
 		for(int i = 0; i < fields.length;i++){
@@ -106,11 +121,24 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+	/************************************************************************
+	 * Removes the owner of a specific field so that the field is empty		*
+	 * and can be bought by another player.									*
+	 * 																		*
+	 * @param fieldNumber The number of the field 1-40						*
+	 ***********************************************************************/
 	@Override
 	public void removeOwner(int fieldNumber){
 		fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1));
 	}
 
+	/************************************************************************
+	 * Shows a message in the interface which is the playername and the		*
+	 * position of that player												*
+	 * 																		*
+	 * @param playerName Name of active player who has moved				*
+	 * @param pos The position where the player is on the board				*		
+	 ***********************************************************************/
 	@Override
 	public void showUpdateMessage(String playerName, int pos){
 		String s1  = reader.getElement("positionUpdate", 0);
@@ -118,25 +146,46 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/************************************************************************
+	 * Shows a welcome message when the application have opened.			*
+	 ***********************************************************************/
 	@Override
 	public void showWelcome() {
 		GUI.showMessage(reader.getElement("welcome", 0));
 	}
 
+	/************************************************************************
+	 * Shows a message stating who is the starting player.					*
+	 * 																		*
+	 * @param playerName Name of player who is starting						*
+	 ***********************************************************************/
 	@Override
 	public void showStartingPlayer(String playerName){
 		String s1 = reader.getElement("starting", 0);
 		String msg = playerName + " " + s1;
 		GUI.showMessage(msg);
 	}
-	
+
+	/************************************************************************
+	 * Shows a message with the last player standing in the game and who	*
+	 * therefore is the winner of the game.									*
+	 * 																		*
+	 * @param playerName Name of player who won the game					*
+	 ***********************************************************************/
 	@Override
 	public void showWinner(String playerName) {
 		GUI.showMessage(playerName + " " + reader.getElement("winner", 0));
 
 	}
 
-	// Message used when money is taken from player
+	/************************************************************************
+	 * Shows a message in the interface with the amount of money that 		*
+	 * has been withdrawn from a players account for one of several			*
+	 * reasons.																*
+	 * 																		*
+	 * @param playerName Name of player whose account is withdrawn from		*
+	 * @param amount Amount of money that has been withdrawn				*
+	 ***********************************************************************/
 	@Override
 	public void showWithdrawMessage(String playerName, int amount) {
 		String s1 = reader.getElement("withdraw", 0);
@@ -144,8 +193,14 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1 + " " + amount + " " + s2;		
 		GUI.showMessage(msg);
 	}
-	
-	// Message used when money is given to player
+
+	/************************************************************************
+	 * Shows a massage in the interface with the amount of money that has	*
+	 * been deposit into a players account for one of several reasons. 		*
+	 * 																		*
+	 * @param playerName Name of player whose account is deposit into		*
+	 * @param amount Amount of money that has been deposit					*
+	 ***********************************************************************/
 	@Override
 	public void showDepositMessage(String playerName, int bonus) {
 		String s1 = reader.getElement("deposit", 0);
@@ -153,14 +208,29 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1 + " " + bonus + " " + s2;
 		GUI.showMessage(msg);
 	}
-	
+
+	/************************************************************************
+	 * Shows a message which says that there are not enough money in the	*
+	 * account to spend on a certain item.									*
+	 * 																		*
+	 * @param playerName Name of player that doesn't have enough money		*
+	 ***********************************************************************/
 	@Override
 	public void showNotEnoughBalanceMessage(String playerName) {
 		String s1 = reader.getElement("lowBalance", 0);
 		String msg = playerName + ": " + s1;
 		GUI.showMessage(msg);
 	}
-	
+
+	/************************************************************************
+	 * Shows a massage that money has been transferred from one players 	*
+	 * account to another players account									*
+	 * 																		*
+	 * @param playerName Name of player who's having money taken from him	*
+	 * @param ownerName Name of player who owns the field and is having		*
+	 * 			money transferred to his account.							*
+	 * @param amount Amount of money being transferred between the players	*
+	 ***********************************************************************/
 	@Override
 	public void showTransferMessage(String playerName, String ownerName, int amount) {
 		String s1 = reader.getElement("transfer", 0);
@@ -168,14 +238,26 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1 + " " + amount + " " + s2 + " " + ownerName;
 		GUI.showMessage(msg);
 	}
-	
+
+	/************************************************************************
+	 * Shows a message saying that the player who is trying to buy a field	*
+	 * didn't succeed in buying it.											*
+	 * 																		*
+	 * @param playerName Name of player not succeeding in buying a field	*
+	 ***********************************************************************/
 	@Override
 	public void showNotBoughtMessage(String playerName) {
 		String s1 = reader.getElement("declinedBuy", 0);
 		String msg = playerName + ": " + s1;
 		GUI.showMessage(msg);	
 	}
-	
+
+	/************************************************************************
+	 * Shows a message that a field has been bought.						*
+	 * 																		*
+	 * @param playerName Name of player that has just bought the field		*
+	 * @param fieldNumber The number of the field that has been bought		*
+	 ***********************************************************************/
 	@Override
 	public void showFieldBoughtMessage(String playerName, int fieldNumber) {
 		fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");
@@ -184,6 +266,13 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/************************************************************************
+	 * Shows a message that the player have to roll the dice to find out 	*
+	 * how much money he has to pay when he lands on another players 		*
+	 * LaborCamp field.														*
+	 * 														
+	 * @param playerName Name of player who has to roll the dice.			*
+	 ***********************************************************************/
 	@Override
 	public void showRollingDiceForRent(String playerName) {
 		String s1 = reader.getElement("rollForRent", 0);
@@ -200,7 +289,7 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1;
 		GUI.showMessage(msg);
 	}
-	
+
 	@Override
 	public void showNoCardMessage(String name) {
 		// TODO Auto-generated method stub
@@ -209,7 +298,7 @@ public class GUIBoundary implements Outputable{
 	@Override
 	public void showGetPrisonCardMessage(Player player) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -223,19 +312,19 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1;
 		GUI.displayChanceCard(msg);
 	}
-	
+
 	@Override
 	public void showEnoughPropertys(String name) {
 		String msg = name + ": " + reader.getElement("noMore", 0);
 		GUI.showMessage(msg);
 	}
-	
+
 	@Override
 	public void showNoPropertys(String name) {
 		String msg = name + ": " + reader.getElement("noMore", 1);
 		GUI.getUserButtonPressed(msg, "Ok");
 	}
-	
+
 	@Override
 	public void showImprisonedMessage(String name2) {
 		String s1 = reader.getElement("imprisoned", 0);
@@ -248,21 +337,21 @@ public class GUIBoundary implements Outputable{
 		GUI.displayChanceCard(text);
 		GUI.getUserButtonPressed("", "OK");
 	}
-	
+
 	@Override
 	public void showPlayerIsOwner(String playerName) {
 		String s1 = reader.getElement("isOwner", 0);
 		String msg = playerName + ": " + s1;
 		GUI.showMessage(msg);
 	}
-	
+
 	@Override
 	public void showHousesOnFieldMessage(Player player) {
 		String s1 = reader.getElement("protertiesHere", 0);
 		String msg = player + ": " + s1;
 		GUI.showMessage(msg);
 	}
-	
+
 	@Override
 	public void showDontSell(Player player) {
 		String s1 = reader.getElement("protertiesHere", 1);
@@ -308,13 +397,13 @@ public class GUIBoundary implements Outputable{
 		String btnPercent = reader.getElement("taxButton", 0) + "(" + percentAmount + ")";
 		String btnTaxAmount = String.valueOf(taxAmount);
 		String result = GUI.getUserButtonPressed(msg, btnPercent, btnTaxAmount);
-		
+
 		if(result.equals(btnPercent)){
 			return true;	
-			}
+		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean promptBuy(String playerName, int price) {
 		String s1 = reader.getElement("buy", 0);
@@ -323,7 +412,7 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1 + " " + price;
 		return GUI.getUserLeftButtonPressed(msg, yes, no);
 	}
-	
+
 	@Override
 	public int PromptPrison(String playerName) {
 		//choice for prisoncard
@@ -333,7 +422,7 @@ public class GUIBoundary implements Outputable{
 		String c3 = reader.getElement("prison", 3);
 		String c4 = reader.getElement("prison", 4);
 		String result = GUI.getUserButtonPressed(msg, c1,c2,c3,c4);
-		
+
 		if(result == c1){
 			return 1;
 		}
@@ -347,7 +436,7 @@ public class GUIBoundary implements Outputable{
 			return 4;
 		}
 	}
-	
+
 	@Override
 	public boolean promptBuyProperty(String name, int i) {
 		String s1 = reader.getElement("buy", 2);
@@ -360,10 +449,10 @@ public class GUIBoundary implements Outputable{
 			return true;
 		}
 		else {
-		return false;
+			return false;
 		}
 	}
-	
+
 	@Override
 	public boolean promptSellProperty(String name, int i) {
 		String s1 = reader.getElement("sell", 1);
@@ -372,15 +461,15 @@ public class GUIBoundary implements Outputable{
 		int price = i;
 		String msg = name + ": " + s1 + " " + price;
 		String result = GUI.getUserButtonPressed(msg, yes,no);
-		
+
 		if(result == yes){
 			return true;
 		}
 		else {
 			return false;
-			}
+		}
 	}
-	
+
 	@Override
 	public int promptAction(String name) {
 		String s1 = reader.getElement("action", 0);
@@ -389,7 +478,7 @@ public class GUIBoundary implements Outputable{
 		String c2 = reader.getElement("sell", 0);
 		String c3 = reader.getElement("nothing", 0);
 		String result = GUI.getUserButtonPressed(msg, c1,c2, c3);
-		
+
 		if(result==c1){
 			return 1;
 		}
@@ -407,7 +496,7 @@ public class GUIBoundary implements Outputable{
 		String c1 = reader.getElement("load", 1);
 		String c2 = reader.getElement("load", 2);
 		String result = GUI.getUserButtonPressed(s1, c1,c2);
-		
+
 		if (result == c1) {
 			return 1;
 		}
@@ -415,12 +504,12 @@ public class GUIBoundary implements Outputable{
 			return 2;
 		}
 	}
-	
+
 	@Override
-	public int promtLoadAction(){
+	public String promtLoadAction(String[] games){
 		String s1 = reader.getElement("load", 3);
-		String result = GUI.getUserSelection(s1, "spil1","spil2");
-		return 0;
+		String result = GUI.getUserSelection(s1, games);
+		return null;
 	}
 
 	@Override
@@ -430,7 +519,7 @@ public class GUIBoundary implements Outputable{
 		String c2 = reader.getElement("no", 0);
 		String msg = player + ": " + s1;
 		String result = GUI.getUserButtonPressed(msg, c1,c2);
-		
+
 		if(result==c1){
 			return true;
 		}
@@ -439,7 +528,7 @@ public class GUIBoundary implements Outputable{
 	//Initialize text on GUI
 	@Override
 	public void initializeBoard() {
-		
+
 		for(int i = 0; i < FieldData.FIELDNAME_DATA.length; i++){
 			switch(FieldData.FIELDTYPE_DATA[i]){
 			case REFUGE:
@@ -475,7 +564,7 @@ public class GUIBoundary implements Outputable{
 				fields[i] = new Start.Builder().build();
 				fields[i].setDescription(reader.getElement("bonus", 0) + " " + "Kr. 4000");
 				break;
-			
+
 			case LUCKYCARD:
 				fields[i] = new Chance.Builder().build();
 				fields[i].setDescription(reader.getElement("lucky", 0));

@@ -10,6 +10,7 @@ public abstract class AbstractOwnable extends AbstractField {
 	protected int rent; 
 	protected Player owner;
 	protected int fieldNo;
+	protected Territory territory;
 	
 	public AbstractOwnable(FieldManager fieldManager, FieldType fieldType, int price, int rent ,Outputable output, int fieldNo) {
 		super(fieldManager, fieldType, output, fieldNo);

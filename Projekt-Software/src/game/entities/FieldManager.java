@@ -1,7 +1,6 @@
 package game.entities;
 
 import game.boundaries.Outputable;
-import game.controllers.GameController;
 import game.entities.fields.AbstractField;
 import game.entities.fields.Fleet;
 import game.entities.fields.LaborCamp;
@@ -15,7 +14,6 @@ import game.entities.fields.Territory;
 import game.entities.fields.AbstractField.FieldType;
 import game.resources.CardEffect;
 import game.resources.FieldData;
-import game.util.DBHandler;
 
 public class FieldManager {
 
@@ -63,6 +61,27 @@ public class FieldManager {
 		}
 			
 		}
+	public int getHouseCount(int fieldNumber, Player player){
+		if(fields[fieldNumber] instanceof Territory){
+			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
+				return Territory.houseCount;
+			}
+		}
+		else{
+			return 0;
+		}
+	}
+	
+	public int getHotelCount(int fieldNumber, Player player){
+		if(fields[fieldNumber] instanceof Territory){
+			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
+				if (Territory.houseCount==5) {
+					return 1;
+				}
+			}
+		}
+		return 0;
+	}
 	
 	
 	/*********************************************

@@ -3,7 +3,13 @@ package app;
 
 import game.controllers.GameController;
 
-
+/********************************************************************
+ * the App function starts the application and will run it in a		*
+ * seperate window. Connects to the GameController to execute the	*
+ * command.															*
+ * @author adamleth													*
+ *																	*
+ *******************************************************************/
 
 public class App {
 	public static void main(String[] args) {

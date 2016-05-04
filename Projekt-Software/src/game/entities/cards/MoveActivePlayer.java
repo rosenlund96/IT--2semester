@@ -84,7 +84,7 @@ public class MoveActivePlayer extends AbstractCard {
 			
 			break;
 		case(23)://R�dhuspladsen
-			player.setPosition(40);
+			player.setPosition(39);
 			
 			break;		
 			//Denne klasse er meget ucharmerende, men den virker	
