@@ -22,15 +22,15 @@ public class FieldManager {
 	public int newPosAmount;
 	public int oldPos;
 
-	
+
 	/**************************************************
-	 * Construktor, takes a gui to pass to the fields *
+	 * Constructor, takes a GUI to pass to the fields *
 	 **************************************************/
 	public FieldManager(Outputable gui){
 		initializeFields(gui);
 
 	}
-	
+
 	public int getNumberOfFields(){
 		return NUMBER_OF_FIELDS;
 	}
@@ -50,6 +50,14 @@ public class FieldManager {
 		}
 		return count;
 	}
+
+	/****************************************************************************
+	 * This method will find out who owns a specific field.						*
+	 * 																			*
+	 * @param fieldNumber Identification of the field that has been landed on	*
+	 * @param player Player who has landed on a specific field					*
+	 * @return Returns the name of another player who owns the field			*
+	 ***************************************************************************/
 	public String getFieldOwner(int fieldNumber, Player player){
 		if(fields[fieldNumber] instanceof AbstractOwnable){
 			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
@@ -59,8 +67,16 @@ public class FieldManager {
 		else{
 			return null;
 		}
-			
-		}
+	}
+
+	/****************************************************************************
+	 * This method finds out how many houses are on specific field. Used later	*
+	 * for figuring out how much the active player must pay the owner.			*
+	 * 																			*
+	 * @param fieldNumber The identification of the field in question.			*
+	 * @param player Player who owns the field and therefore the houses.		*
+	 * @return Returns the amount of houses on a specific field.				*
+	 ***************************************************************************/
 	public int getHouseCount(int fieldNumber, Player player){
 		if(fields[fieldNumber] instanceof Territory){
 			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
@@ -71,7 +87,15 @@ public class FieldManager {
 			return 0;
 		}
 	}
-	
+
+	/****************************************************************************
+	 * This method finds out how many hotels are on specific field. Used later	*
+	 * for figuring out how much the active player must pay the owner.			*
+	 * 																			*
+	 * @param fieldNumber The identification of the field in question.			*
+	 * @param player Player who owns the field and therefore the hotels.		*
+	 * @return Returns the amount of hotels on a specific field.				*
+	 ***************************************************************************/	
 	public int getHotelCount(int fieldNumber, Player player){
 		if(fields[fieldNumber] instanceof Territory){
 			if (((AbstractOwnable)fields[fieldNumber]).getOwner()==player);{
@@ -82,15 +106,15 @@ public class FieldManager {
 		}
 		return 0;
 	}
-	
-	
+
+
 	/*********************************************
 	 * Uses landOnField on a field with a player *
 	 *********************************************/
 	public void landOnFieldByNumber(Player player, int fieldNumber){
 		fields[fieldNumber].landOnField(player);
 	}
-	
+
 	/****************************************
 	 * Returnes the field number of a field *
 	 ****************************************/
@@ -101,7 +125,7 @@ public class FieldManager {
 				number = i;
 		}
 		return number;
-	
+
 	}
 
 	/*********************************************************
@@ -120,10 +144,10 @@ public class FieldManager {
 		}
 		return value;
 	}
-	
-	/***************************************************************
-	 * Frees up all fields own by a player so others can buy them  *
-	 ***************************************************************/
+
+	/*****************************************************************
+	 * Frees up all fields owned by a player so others can buy them  *
+	 ****************************************************************/
 	public void freeFields(Player player){
 		for(AbstractField f: fields){
 			if(f instanceof AbstractOwnable){
@@ -133,10 +157,10 @@ public class FieldManager {
 		}
 	}
 
-	 
-	
-	/************************************************************
-	 * Creates the array of fields use from the FieldData class *
+
+
+	/*************************************************************
+	 * Creates the array of fields used from the FieldData class *
 	 ************************************************************/
 	private void initializeFields(Outputable gui){
 		fields = new AbstractField[NUMBER_OF_FIELDS];
@@ -167,7 +191,7 @@ public class FieldManager {
 			case START:
 				fields[i] = new Start(this, 4000,CardEffect.CardNo_DATA[i], gui,FieldData.FIELDNUMBER[i]);
 				break;
-			
+
 			}	
 		}	
 	}
