@@ -297,11 +297,15 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public void showNoCardMessage(String name) {
-		String s1 = reader.getElement("noCard", 0);
-		String msg = name + ": " + s1;
-		GUI.showMessage(msg);
+		
 	}
 
+	/************************************************************************
+	 * Shows a message that a player that has landed on a 'Prøv lykken'-	*
+	 * field and got a get-out-of-jail card.								*
+	 * 																		*
+	 * @param
+	 ***********************************************************************/
 	@Override
 	public void showGetPrisonCardMessage(Player player) {
 		// TODO Auto-generated method stub
@@ -313,6 +317,14 @@ public class GUIBoundary implements Outputable{
 		// TODO Auto-generated method stub	
 	}
 
+	/************************************************************************
+	 * Show a message with the 'Prøv Lykken' card and what it reads.		*
+	 * Also what effect it will have on the player.							*
+	 * 																		*
+	 * @param playerName Name of player landing on the 'Prøv Lykken' field.	*
+	 * @param cardNo What number the card has which is used to identify the	*
+	 * 			card and its effect.										*
+	 ***********************************************************************/
 	@Override
 	public void showCardMessage(Player playerName, int cardNo) {
 		String s1 = reader.getElement("cards", cardNo);
@@ -332,6 +344,11 @@ public class GUIBoundary implements Outputable{
 		GUI.getUserButtonPressed(msg, "Ok");
 	}
 
+	/************************************************************************
+	 * Shows a message that a player has been put in prison.				*
+	 * 																		*
+	 * @param																*
+	 ***********************************************************************/
 	@Override
 	public void showImprisonedMessage(String name2) {
 		String s1 = reader.getElement("imprisoned", 0);
@@ -339,12 +356,24 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/************************************************************************
+	 * Shows the 'Prøv Lykken' card in the interface and will 				*
+	 * display the effect and text of the card.								*
+	 * 																		*
+	 * @param text What is actually written on the card						*
+	 ***********************************************************************/
 	@Override
 	public void showCard(String text) {
 		GUI.displayChanceCard(text);
 		GUI.getUserButtonPressed("", "OK");
 	}
 
+	/************************************************************************
+	 * When a player lands on a field that is owned by himself this method	*
+	 * will display a message saying that he owns it already.				*
+	 * 																		*
+	 * @param playerName Name of player who lands on a field he owns.		*
+	 ***********************************************************************/
 	@Override
 	public void showPlayerIsOwner(String playerName) {
 		String s1 = reader.getElement("isOwner", 0);
@@ -352,6 +381,11 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/************************************************************************
+	 * Shows how many houses are on a field in the interface				*
+	 * 																		*
+	 * @param player The player who owns the houses and therefore the field	* 
+	 ***********************************************************************/
 	@Override
 	public void showHousesOnFieldMessage(Player player) {
 		String s1 = reader.getElement("protertiesHere", 0);
