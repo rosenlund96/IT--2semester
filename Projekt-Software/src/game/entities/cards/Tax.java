@@ -29,19 +29,18 @@ public class Tax extends AbstractCard {
 		switch (taxAmount) {
 		case 200:
 			collectTax(200, player);
-			
 			break;
+			
 		case 1000:
 			collectTax(1000, player);
-			
 			break;
+			
 		case 2000:
 			collectTax(2000, player);
-			
 			break;
+			
 		case 3000:
 			collectTax(3000, player);
-			
 			break;
 			
 			//Her mangler metoder for kort omkring olieskatter og ejendomsskatter
