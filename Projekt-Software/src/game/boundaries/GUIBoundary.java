@@ -48,7 +48,7 @@ public class GUIBoundary implements Outputable{
 		GUI.setDice(dice[0], dice[1]);
 	}
 	/************************************************************************
-	 * Sets a hotel on the gui, if the player has enough houses on the field*
+	 * Sets a hotel on the GUI, if the player has enough houses on the field*
 	 * 																		*
 	 * @param hasHotel boolean to show if a hotel i present                 *
 	 * @param fieldNo fieldNo for the field to set a hotel                  *
