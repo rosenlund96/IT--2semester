@@ -5,7 +5,7 @@ import game.controllers.GameController;
 
 /********************************************************************
  * the App function starts the application and will run it in a		*
- * seperate window. Connects to the GameController to execute the	*
+ * separate window. Connects to the GameController to execute the	*
  * command.															*
  * @author adamleth													*
  *																	*
