@@ -400,6 +400,12 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/************************************************************************
+	 * Shows a message that the active player has landed on the parking		*
+	 * field.																*
+	 * 																		*
+	 * @param player The player that has landed on the parking field		*
+	 ***********************************************************************/
 	@Override
 	public void showParkingMessage(Player player) {
 		String s1 = reader.getElement("parking", 0);
@@ -408,6 +414,12 @@ public class GUIBoundary implements Outputable{
 	}
 
 	//Player prompt methods
+	/************************************************************************
+	 * The player has to roll the dice to move on the gameboard and this	*
+	 * method will prompt that action on the interface.						*
+	 *																		*
+	 *	@param playerName Name of active player rolling the dice.			*
+	 ***********************************************************************/
 	@Override
 	public void promptRollDice(String playerName) {
 		String s1 = reader.getElement("rollDice", 0);
@@ -416,6 +428,14 @@ public class GUIBoundary implements Outputable{
 		GUI.getUserButtonPressed(msg, btnRoll);
 	}
 
+	/************************************************************************
+	 * This method will prompt the option to insert a playerName. It is		*
+	 * created with an if-else statement where you have to insert a name.	*
+	 * 																		*
+	 * @param playerNumber The number that defines each player.				*
+	 * @param error If there is an error with the insertion of name into	*
+	 * 			the name box in the interface. 								*
+	 ***********************************************************************/
 	@Override
 	public String promptPlayerName(int playerNumber, boolean error) {
 		String s1, s2, msg;
@@ -430,6 +450,16 @@ public class GUIBoundary implements Outputable{
 		return GUI.getUserString(msg);
 	}
 
+	/************************************************************************
+	 * This method will prompt a button on the interface when you land on 	*
+	 * a field of the type tax. You will have the option to pay a certain 	*
+	 * amount or a percentage of your account balance.						*
+	 * 																		*
+	 * @param playerName Name of player having to pay the tax.				*
+	 * @param taxAmount The certain amount that the player can choose to pay*
+	 * @param percentAmount The percentage amount of the balance the player	*
+	 * 			can choose to pay.											*
+	 ***********************************************************************/
 	@Override
 	public boolean promptTax(String playerName, int taxAmount, int percentAmount) {
 		String s1 = reader.getElement("taxChoice", 0);
@@ -445,6 +475,14 @@ public class GUIBoundary implements Outputable{
 		return false;
 	}
 
+	/************************************************************************
+	 * This method will prompt a button so that the active player can buy 	*
+	 * the field he has landed on, if it is not owned by another player.	*
+	 * 																		*
+	 * @param playerName Name of active player that wants to buy an 		*
+	 * 			available field.											*
+	 * @param price Amount of money that the field will cost to buy.		*
+	 ***********************************************************************/
 	@Override
 	public boolean promptBuy(String playerName, int price) {
 		String s1 = reader.getElement("buy", 0);
@@ -454,6 +492,11 @@ public class GUIBoundary implements Outputable{
 		return GUI.getUserLeftButtonPressed(msg, yes, no);
 	}
 
+	/************************************************************************
+	 * 
+	 * 
+	 * 
+	 ***********************************************************************/
 	@Override
 	public int PromptPrison(String playerName) {
 		//choice for prisoncard
