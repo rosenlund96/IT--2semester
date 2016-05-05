@@ -19,11 +19,13 @@ public class GameBoard {
 	public GameBoard(ArrayList<String> names, int startingBalance, Outputable gui){
 		
 		players =  new ArrayList<Player>();
+	
 		fieldManager = new FieldManager(gui);
 		// Makes a new ArrayList of the players
 		for (int i = 0; i < names.size(); i++) {
 			players.add(new Player(names.get(i), startingBalance, STARTING_POSITION,false, false,0,0));
 		}
+	
 		fieldManager = new FieldManager(gui);
 	}		
 	

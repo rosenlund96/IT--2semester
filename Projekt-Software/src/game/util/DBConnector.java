@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */
@@ -44,5 +45,20 @@ public class DBConnector {
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate(query);
 		}
-	}
+		public String[] doQueryToString(String query) throws SQLException {
+			ArrayList<String> list= new ArrayList<String>();
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			int i = 1;
+			while (rs.next()) {
+			    list.add(rs.getString(1));   
+			    
+			} 
+
+			String[] result = new String[list.size()];
+			result = list.toArray(result);
+
+			return result;
+			}
+		}
 
