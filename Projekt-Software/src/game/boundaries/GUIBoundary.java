@@ -1,4 +1,4 @@
- package game.boundaries;
+package game.boundaries;
 
 import java.awt.Color;
 import desktop_codebehind.Car;
@@ -38,20 +38,20 @@ public class GUIBoundary implements Outputable{
 
 
 	// Methods
-	
-    /***********************************************
-     * Displays the dices in the GUI for the player*
-     ***********************************************/
+
+	/***********************************************
+	 * Displays the dices in the GUI for the player*
+	 ***********************************************/
 
 	@Override
 	public void setDice(int[] dice){
 		GUI.setDice(dice[0], dice[1]);
 	}
-    /************************************************************************
-     * Sets a hotel on the gui, if the player has enough houses on the field*
-     * @param hasHotel boolean to show if a hotel i present                 *
-     * @param fieldNo fieldNo for the field to set a hotel                  *
-     ************************************************************************/
+	/************************************************************************
+	 * Sets a hotel on the gui, if the player has enough houses on the field*
+	 * @param hasHotel boolean to show if a hotel i present                 *
+	 * @param fieldNo fieldNo for the field to set a hotel                  *
+	 ************************************************************************/
 	@Override
 	public void setHotel(boolean hasHotel, int fieldNo) {
 		if(hasHotel==false){
@@ -270,7 +270,7 @@ public class GUIBoundary implements Outputable{
 	 * Shows a message that the player have to roll the dice to find out 	*
 	 * how much money he has to pay when he lands on another players 		*
 	 * LaborCamp field.														*
-	 * 														
+	 * 																		*
 	 * @param playerName Name of player who has to roll the dice.			*
 	 ***********************************************************************/
 	@Override
@@ -281,7 +281,12 @@ public class GUIBoundary implements Outputable{
 		GUI.getUserButtonPressed(msg, btnRoll);
 	}
 
-
+	/************************************************************************
+	 * Shows a message that the active player has got no more money in 		*
+	 * his account and therefore is broke.									*
+	 * 																		*
+	 * @param playerName Name of player who is broke						*
+	 ***********************************************************************/
 	@Override
 	public void showBrokeMessage(String playerName) {
 		GUI.removeAllCars(playerName);
@@ -292,7 +297,9 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public void showNoCardMessage(String name) {
-		// TODO Auto-generated method stub
+		String s1 = reader.getElement("noCard", 0);
+		String msg = name + ": " + s1;
+		GUI.showMessage(msg);
 	}
 
 	@Override
