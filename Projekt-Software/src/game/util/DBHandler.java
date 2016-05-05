@@ -189,6 +189,22 @@ public class DBHandler implements DBFunctions {
 		}
 		
 	}
+	@Override
+	public void addToCardsTable(String gameName, int cardNo, String cardOwner, String cardText){
+		String query = ("INSERT INTO " + gameName+".cards(CardNo, CardOwner, CardText)" +
+						"VALUES('"+cardNo+"', '"+cardOwner+"', '"+cardText+"');");
+		
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void updateCardsTable(){
+		
+	}
 	
 	@Override
 	public String[] loadGames(){

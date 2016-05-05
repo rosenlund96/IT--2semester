@@ -6,6 +6,7 @@ import java.util.Calendar;
 import game.boundaries.*;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
+import game.entities.fields.LuckyCard;
 import game.util.DBHandler;
 import game.util.DieCup;
 import game.util.Rollable;
@@ -204,6 +205,9 @@ public class GameController {
 		}
 		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
 			handler.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0);
+		}
+		for (int i = 0; i < 32; i++) {
+			handler.addToCardsTable(gameName, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 		}
 		
 		output.removeAllOwners();

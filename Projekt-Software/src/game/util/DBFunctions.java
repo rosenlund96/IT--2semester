@@ -18,6 +18,8 @@ public interface DBFunctions {
 	public void updateFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField);
 	public void addToGameTable(String gameName, String gameState, int turnNumber, String playerTurn);
 	public void updateGameTable(String gameName, String gameState, int turnNumber, String playerTurn);
+	public void addToCardsTable(String gameName, int cardNo, String cardOwner, String cardText);
+	public void updateCardsTable();
 	public void dropCurrentGameTable(String gameName);
 	public String[] loadGames();
 	}
