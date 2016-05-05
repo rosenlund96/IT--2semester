@@ -17,6 +17,12 @@ public class Prison extends AbstractOwnable {
 	public int getCardNo(){
 		return cardNo;
 	}
+	
+	/********************************************************************
+	 * This method will make the active player who has drawn a get-out-	*
+	 * of-jail-card the owner of the card.								*
+	 * @param player The player who has drawn the card from the stack.	*
+	 *******************************************************************/
 	@Override
 	public void drawCard(Player player) {
 		this.setOwner(player);
