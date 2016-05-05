@@ -167,7 +167,7 @@ public class GameController {
 			// Changes turn
 			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
 			handler.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
-			
+			handler.updateGameTable(gameName, state.name(), this.turnNumber, board.getActivePlayerName());
 			board.nextTurn();
 			
 			// Check to see if we have a winner
@@ -192,12 +192,13 @@ public class GameController {
 			output.update(dieCup.getDice(), 0, STARTING_BALANCE, name);
 		}
 		initBoard();
-		turnNumber = 0;
+		turnNumber = 0; 
 		state = GameState.PLAY_STATE;
 	}
 	
 	private void initBoard(){
 		board = new GameBoard(names,STARTING_BALANCE, output);
+		handler.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
 		for (int i = 0; i < names.size(); i++) {
 			handler.addToPlayerTable(timeStamp, names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
 		}
