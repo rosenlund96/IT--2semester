@@ -630,7 +630,7 @@ public class GUIBoundary implements Outputable{
 	public String promptLoadAction(String[] games){
 		String s1 = reader.getElement("load", 3);
 		String result = GUI.getUserSelection(s1, games);
-		return null;
+		return result;
 	}
 
 	/************************************************************************

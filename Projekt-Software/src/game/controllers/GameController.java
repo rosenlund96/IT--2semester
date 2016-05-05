@@ -84,12 +84,14 @@ public class GameController {
 		}
 		//load old game.
 		else if(choice==2){
+			String game = null;
 			try {
-				output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
+				game = output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			System.out.println(game);
 		}
 	}
 
