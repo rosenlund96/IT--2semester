@@ -49,6 +49,7 @@ public class GUIBoundary implements Outputable{
 	}
 	/************************************************************************
 	 * Sets a hotel on the gui, if the player has enough houses on the field*
+	 * 																		*
 	 * @param hasHotel boolean to show if a hotel i present                 *
 	 * @param fieldNo fieldNo for the field to set a hotel                  *
 	 ************************************************************************/
@@ -65,6 +66,7 @@ public class GUIBoundary implements Outputable{
 	}
 	/**********************************************************************
 	 * Displays a specific amount of houses on a specific field on the GUI*
+	 * 																	  *	
 	 * @param houseCount the amount of houses to display                  *
 	 * @param fieldNo the specific field to show the houses on            *
 	 **********************************************************************/
@@ -74,11 +76,9 @@ public class GUIBoundary implements Outputable{
 		GUI.setHouses(fieldNo, houseCount);
 	}
 
-
-
 	/****************************************************************
 	 * Updating active player balance and position and displays 	*
-	 *  the dice rolled by the player								*
+	 * the dice rolled by the player								*
 	 ***************************************************************/
 	@Override
 	public void update(int[] dice, int pos, int balance, String playerName) {
@@ -393,6 +393,11 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/***********************************************************************
+	 * 
+	 * 
+	 * 
+	 **********************************************************************/
 	@Override
 	public void showDontSell(Player player) {
 		String s1 = reader.getElement("protertiesHere", 1);
@@ -521,6 +526,15 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+	/************************************************************************
+	 * This method will prompt a button in the interface where the active 	*
+	 * player will have the opportunity to buy houses or a hotel for a		*
+	 * specific field he owns.												*													*
+	 * 																		*
+	 * @param name															*
+	 * @param i A price that varies from one field to another. Different 	*
+	 * 			prices for all different fields.							*
+	 ***********************************************************************/
 	@Override
 	public boolean promptBuyProperty(String name, int i) {
 		String s1 = reader.getElement("buy", 2);
@@ -537,6 +551,14 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+	/************************************************************************
+	 * This method will prompt a button which is used to sell property to 	*
+	 * gain money to put in your account.									*
+	 * 																		*
+	 * @param name															*
+	 * @param i The amount of money you will receive for selling the		*
+	 * 			property on your field.										*			*
+	 ***********************************************************************/
 	@Override
 	public boolean promptSellProperty(String name, int i) {
 		String s1 = reader.getElement("sell", 1);
@@ -554,6 +576,11 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+	/************************************************************************
+	 * 
+	 * 
+	 * 
+	 ***********************************************************************/
 	@Override
 	public int promptAction(String name) {
 		String s1 = reader.getElement("action", 0);
@@ -574,6 +601,10 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+	/************************************************************************	
+	 * This method will initiate the GameState after the names has been 	*
+	 * entered in the NameState.											*
+	 ***********************************************************************/
 	@Override
 	public int promptGameState() {
 		String s1 = reader.getElement("load", 0);
@@ -589,13 +620,25 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
+	/************************************************************************
+	 * This method will load a saved game if there is one. It is loaded		*
+	 * from an array of strings from the database.							*
+	 * 																		*
+	 * @param games An array of strings from the database games				*
+	 ***********************************************************************/
 	@Override
-	public String promtLoadAction(String[] games){
+	public String promptLoadAction(String[] games){
 		String s1 = reader.getElement("load", 3);
 		String result = GUI.getUserSelection(s1, games);
 		return null;
 	}
 
+	/************************************************************************
+	 * This method will prompt an option to sell an active players owned	*
+	 * field and will deposit the amount into the active players account.	*
+	 * 																		*
+	 * @param player The active player who is selling one of his fields		*
+	 ***********************************************************************/
 	@Override
 	public boolean promptSellFields(Player player) {
 		String s1 = reader.getElement("sell", 2);
@@ -610,6 +653,11 @@ public class GUIBoundary implements Outputable{
 		return false;
 	}
 	//Initialize text on GUI
+	/************************************************************************
+	 * This method will initiate the gameboard in the interface. It will	*
+	 * create the fields so that they are visible for the user. This method	*
+	 * is essential for the entire visual experience of the game.			*
+	 ***********************************************************************/
 	@Override
 	public void initializeBoard() {
 
