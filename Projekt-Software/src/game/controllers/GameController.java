@@ -18,7 +18,7 @@ public class GameController {
 	private final int STARTING_PRISONCARDS = 0;
 	private final int STARTING_HOUSES = 0;
 	private final int STARTING_HOTELS = 0;
-	
+
 	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
@@ -61,6 +61,10 @@ public class GameController {
 		}
 	}
 
+	/****************************************************************
+	 * This method will load a saved game from a database or create	*
+	 * a new database for a new game depending on the users choice.	*
+	 ***************************************************************/
 	private void loadState(){
 		int choice = output.promptGameState();
 		//Make new game, and create DB.
@@ -68,8 +72,8 @@ public class GameController {
 			try {
 				this.gameName = handler.createGameDB(timeStamp);
 				handler.createTables(gameName);
-				
-				
+
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -80,22 +84,20 @@ public class GameController {
 			//int choice2 = output.promtLoadAction(null);
 		}
 	}
-	
-	
-	
+
 	/*********************************************
 	 * Method used to get the players names 	 *
 	 ********************************************/
 	private void nameState(){
 		// Shows a welcome message in the GUI
 		//output.showWelcome();
-		
+
 		// Adds names to string array
 		for (int i = 0; i < 6; i++){
 			boolean error = false;
 			// Checks if names are long enough and saves them in array
 			while (true){
-			
+
 				String name = output.promptPlayerName(i+1, error);
 				if (name.length() == 0){
 					if(i>=3){
@@ -110,10 +112,10 @@ public class GameController {
 					names.add(name);
 					// Add player to gui
 					output.addPlayer(name, STARTING_BALANCE, i);
-					
+
 					break;
 				}				
-	}	
+			}	
 		}
 
 		// Creates the gameboard
@@ -137,48 +139,48 @@ public class GameController {
 			}
 			String name = board.isActivePlayerImprisoned();
 			if(name != null){
-			output.showImprisonedMessage(name);
-			board.nextTurn();
+				output.showImprisonedMessage(name);
+				board.nextTurn();
 			}
-			
+
 			// Prompts the GUI to show active player and get him to roll
 			output.promptRollDice(board.getActivePlayerName());
 
 			// Moves the active player on the board
 			board.moveActivePlayer(dieCup.roll());
-			
-			
+
+
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 			output.showUpdateMessage(board.getActivePlayerName(),  board.getActivePlayerPosition());
 			board.activePlayerFieldAction();
-			
+
 			// Update GUI again.
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
-			
+
 			// Check if active player is broke
 			String name1 =board.isActivePlayerBroke();
 			if(name1 != null){
 				output.showBrokeMessage(name1);				
 			}
-			
-			
+
+
 			turnNumber++;
-			
+
 			// Changes turn
 			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
 			handler.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
 			handler.updateGameTable(gameName, state.name(), this.turnNumber, board.getActivePlayerName());
 			board.nextTurn();
-			
+
 			// Check to see if we have a winner
 			if (board.getWinner()){
 				state = GameState.WIN_STATE;
 				return;
 			}		
 		}
-	
-}
+
+	}
 	/************************************
 	 * Method used when winner is found *
 	 ************************************/
@@ -187,7 +189,7 @@ public class GameController {
 		output.showWinner(board.getActivePlayerName());
 		//Drops the current game table, as the game is no longer active.
 		handler.dropCurrentGameTable(gameName);
-		
+
 		// Updates GUI to show the new scores and set position to the first
 		for(String name:names){
 			output.update(dieCup.getDice(), 0, STARTING_BALANCE, name);
@@ -196,7 +198,10 @@ public class GameController {
 		turnNumber = 0; 
 		state = GameState.PLAY_STATE;
 	}
-	
+
+	/************************************************************
+	 * Method that will initialize the interactive gameboard.	*
+	 ***********************************************************/
 	private void initBoard(){
 		board = new GameBoard(names,STARTING_BALANCE, output);
 		handler.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
@@ -206,12 +211,16 @@ public class GameController {
 		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
 			handler.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0);
 		}
+<<<<<<< HEAD
 		for (int i = 0; i < 32; i++) {
 			handler.addToCardsTable(gameName, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 		}
 		
+=======
+
+>>>>>>> branch 'master' of https://github.com/rosenlund96/IT--2semester.git
 		output.removeAllOwners();
-		
-		
+
+
 	}
 }
