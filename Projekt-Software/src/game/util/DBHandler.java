@@ -52,12 +52,13 @@ public class DBHandler implements DBFunctions {
 	public void createPlayersList(String gameName){
 		String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".player_list " +
 				"(playerName varchar(45) NOT NULL, " + 
+				"playerIndex int (11) NOT NULL, " +
 				"playerBalance int (11) DEFAULT NULL, " +
 				"housesOwned int(2) DEFAULT NULL, " +
 				"hotelsOwned tinyint (1) DEFAULT NULL, " + 
 				"prisonCards int (1) DEFAULT NULL, " +
 				"playerPosition int (2) DEFAULT NULL, " +
-				"PRIMARY KEY (playerName));");
+				"PRIMARY KEY (playerIndex));");
 
 		try {
 			con.doUpdate(query);
@@ -85,9 +86,10 @@ public class DBHandler implements DBFunctions {
 	public void createCards(String gameName){
 		String query =("CREATE TABLE IF NOT EXISTS " + gameName+".cards " +
 				"(CardNo int (11) NOT NULL," +
+				"CardIndex int (11) DEFAULT NULL, " +
 				"CardOwner varchar (45) DEFAULT NULL, " + 
 				"CardText varchar (4096) NOT NULL, " +
-				"PRIMARY KEY (CardNo));");
+				"PRIMARY KEY (CardIndex));");
 		
 		try {
 			con.doUpdate(query);
@@ -111,9 +113,9 @@ public class DBHandler implements DBFunctions {
 	}
 	
 	//adds player to table when gameBoard is initialized
-	public void addToPlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
-		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerBalance, housesOwned, hotelsOwned, prisonCards, playerPosition)" +
-						"VALUES('"+playerName+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"','"+playerPosition+"');");
+	public void addToPlayerTable(String gameName, int playerIndex,String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
+		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerIndex,playerBalance, housesOwned, hotelsOwned, prisonCards, playerPosition)" +
+						"VALUES('"+playerName+"','"+playerIndex+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"','"+playerPosition+"');");
 		try {
 			con.doUpdate(query);
 		} catch (SQLException e) {
@@ -190,9 +192,9 @@ public class DBHandler implements DBFunctions {
 		
 	}
 	@Override
-	public void addToCardsTable(String gameName, int cardNo, String cardOwner, String cardText){
-		String query = ("INSERT INTO " + gameName+".cards(CardNo, CardOwner, CardText)" +
-						"VALUES('"+cardNo+"', '"+cardOwner+"', '"+cardText+"');");
+	public void addToCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText){
+		String query = ("INSERT INTO " + gameName+".cards(CardNo,CardIndex, CardOwner, CardText)" +
+						"VALUES('"+cardNo+"', '"+cardIndex+"', '"+cardOwner+"', '"+cardText+"');");
 		
 		try {
 			con.doUpdate(query);
@@ -202,8 +204,16 @@ public class DBHandler implements DBFunctions {
 		}
 	}
 	@Override
-	public void updateCardsTable(){
-		
+	public void updateCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText){
+		String query = ("UPDATE "+ gameName+".cards " +
+						"SET CardNo='"+cardNo+"', CardOwner='"+cardOwner+"', CardText='"+cardText+"'" +
+						"WHERE CardIndex='"+cardIndex+"';");
+		try {
+			con.doUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

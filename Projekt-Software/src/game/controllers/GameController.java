@@ -171,6 +171,11 @@ public class GameController {
 			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
 			handler.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
 			handler.updateGameTable(gameName, state.name(), this.turnNumber, board.getActivePlayerName());
+			if(board.fieldManager.fields[board.getActivePlayerPosition()] instanceof LuckyCard){
+				for (int i = 0; i < 32; i++) {
+					handler.updateCardsTable(timeStamp, i, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
+				}
+			}
 			board.nextTurn();
 
 			// Check to see if we have a winner
@@ -206,17 +211,17 @@ public class GameController {
 		board = new GameBoard(names,STARTING_BALANCE, output);
 		handler.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
 		for (int i = 0; i < names.size(); i++) {
-			handler.addToPlayerTable(timeStamp, names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
+			handler.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
 		}
 		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
 			handler.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0);
 		}
 
 		for (int i = 0; i < 32; i++) {
-			handler.addToCardsTable(gameName, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
+			handler.addToCardsTable(gameName, i,LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 		}
 		
-
+ 
 
 
 		output.removeAllOwners();
