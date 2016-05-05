@@ -60,6 +60,13 @@ public class Player {
 	public int getTimeInPrison() {
 		return timeInPrison;
 	}
+	
+	/************************************************************************
+	 * This method will set the time in prison which a player will sentence	*
+	 * If the player has been imprisoned for 3 rounds he is free but has to	* 
+	 * pay 1000 from his account.											*
+	 * @param timeInPrison Rounds in which the player cannot participate	*
+	 ***********************************************************************/
 	public void setTimeInPrison(int timeInPrison) {
 		this.timeInPrison=getTimeInPrison()+timeInPrison;
 		if(getTimeInPrison()==3){
@@ -83,17 +90,15 @@ public class Player {
 	public void setHotelsOwned(int amount){
 		this.hotelsOwned=getHotelsOwned()+amount;
 	}
-	
-
 	public int getHotelsOwned(){
 		return hotelsOwned;
 	}
 
-	/**
-	 * Removes the amount from balance set as a parameter.
-	 * If this is not possible it returns the amount which was
-	 * able to be withdrawn
-	 */
+	/************************************************************
+	 * Removes the amount from balance set as a parameter.		*
+	 * If this is not possible it returns the amount which was	*
+	 * able to be withdrawn										*
+	 ***********************************************************/
 	public int withdraw(int amount){
 		int withdrawen = balance.withdraw(amount);
 
