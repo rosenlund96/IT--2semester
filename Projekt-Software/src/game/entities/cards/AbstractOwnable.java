@@ -24,10 +24,9 @@ public abstract class AbstractOwnable extends AbstractCard{
 	}
 	
 	/****************************************************************************
-	 * Function can only be called by an inheriting class						*
-	 * If Card has no owner. Player can save the card                           *
+	 * Function can only be called by an inheriting class if card 				*
+	 * has no owner. Player can save the card                   				*
 	 ***************************************************************************/
-
 	@Override
 	public String toString(){
 		String str = super.toString();
