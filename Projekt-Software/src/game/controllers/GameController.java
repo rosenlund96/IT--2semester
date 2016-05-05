@@ -1,5 +1,6 @@
 package game.controllers;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,6 +8,7 @@ import game.boundaries.*;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
 import game.entities.fields.LuckyCard;
+import game.util.DBConnector;
 import game.util.DBHandler;
 import game.util.DieCup;
 import game.util.Rollable;
@@ -30,6 +32,7 @@ public class GameController {
 	private Outputable output;			// Gui controller to change the gui
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
 	public ArrayList<String> names;
+	private DBConnector con = new DBConnector();
 
 	private GameState state = GameState.LOAD_STATE;
 
@@ -81,7 +84,12 @@ public class GameController {
 		}
 		//load old game.
 		else if(choice==2){
-			//int choice2 = output.promtLoadAction(null);
+			try {
+				output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

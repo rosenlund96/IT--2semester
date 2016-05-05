@@ -2,6 +2,7 @@ package game.util;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import game.controllers.GameController;
@@ -218,8 +219,6 @@ public class DBHandler implements DBFunctions {
 	
 	@Override
 	public String[] loadGames(){
-		String query = ("SHOW DATABASES");
-		
 		return null;
 	}
 
