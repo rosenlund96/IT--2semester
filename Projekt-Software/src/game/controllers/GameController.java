@@ -34,6 +34,7 @@ public class GameController {
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
 	public ArrayList<String> names;
 	public ArrayList<Player> players;
+	public ArrayList<String> gameTable;
 	private DBConnector con = new DBConnector();
 
 	private GameState state = GameState.LOAD_STATE;
@@ -88,16 +89,18 @@ public class GameController {
 		else if(choice==2){
 			String game = null;
 			players = new ArrayList<Player>();
+			gameTable = new ArrayList<String>();
 			try {
 				game = output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
 				con.doQuery("USE "+game);
 				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
+				this.gameTable = con.loadGameToArray("SELECT * FROM game ");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			this.turnNumber = Integer.parseInt(gameTable.get(1));
 			loadBoard();
-			
 			// Set state back to play state
 			state = GameState.PLAY_STATE;
 		}

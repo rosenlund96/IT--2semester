@@ -76,14 +76,21 @@ public class DBConnector {
 		        int PlayerPosition = rs.getInt("playerPosition");
 		       Player player = new Player(PlayerName, PlayerBalance, PlayerPosition, false, false, 0, PrisonCards);
 		       list.add(player);
-		         
-		        // print the results
-		        
-		        
 		      }
-			
 				return list;
-		  
+		}
+		public ArrayList<String> loadGameToArray(String query) throws SQLException{
+			ArrayList<String> list= new ArrayList<String>();
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			 while (rs.next())
+		      {
+		        String PlayerName = rs.getString("player_turn");
+		        int TurnNumber = rs.getInt("turnNumber");
+		       list.add(PlayerName);
+		       list.add(String.valueOf(TurnNumber));
+		      }
+				return list;
 		}
 		
 		}
