@@ -49,7 +49,6 @@ public class DBConnector {
 			ArrayList<String> list= new ArrayList<String>();
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-			int i = 1;
 			while (rs.next()) {
 			    list.add(rs.getString(1));   
 			    

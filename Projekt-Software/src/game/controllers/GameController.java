@@ -204,11 +204,11 @@ public class GameController {
 		output.showWinner(board.getActivePlayerName());
 		//Drops the current game table, as the game is no longer active.
 		handler.dropCurrentGameTable(gameName);
-
 		// Updates GUI to show the new scores and set position to the first
 		for(String name:names){
 			output.update(dieCup.getDice(), 0, STARTING_BALANCE, name);
 		}
+		handler.createTables(gameName);
 		initBoard();
 		turnNumber = 0; 
 		state = GameState.PLAY_STATE;
