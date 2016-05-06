@@ -253,6 +253,7 @@ public class GameController {
 			board.players.get(j).setPosition(players.get(j).getPosition());
 			board.players.get(j).setOutOfJailCard(players.get(j).getOutOfJailCard());
 			output.addPlayer(board.players.get(j).getName(), board.players.get(j).getBalance(), j);
+			output.update(dieCup.getDice(), board.players.get(j).getPosition(), board.players.get(j).getBalance(), board.players.get(j).getName());
 		}
 
 		
