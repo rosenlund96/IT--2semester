@@ -10,7 +10,6 @@ import game.entities.GameBoard;
 import game.entities.Player;
 import game.entities.fields.LuckyCard;
 import game.util.DBConnector;
-import game.util.DBHandler;
 import game.util.DieCup;
 import game.util.Rollable;
 
@@ -26,7 +25,7 @@ public class GameController {
 
 	public GameBoard board;
 	public String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
-	public DBHandler handler = new DBHandler();
+
 	public String gameName;
 	private FieldManager fieldManager;
 	private int turnNumber = 0;
@@ -76,8 +75,8 @@ public class GameController {
 		//Make new game, and create DB.
 		if (choice==1){
 			try {
-				this.gameName = handler.createGameDB(timeStamp);
-				handler.createTables(gameName);
+				this.gameName = con.createGameDB(timeStamp);
+				con.createTables(gameName);
 
 
 			} catch (Exception e) {
@@ -190,12 +189,12 @@ public class GameController {
 			turnNumber++;
 
 			// Changes turn
-			handler.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
-			handler.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
-			handler.updateGameTable(gameName, state.name(), this.turnNumber, board.getActivePlayerName());
+			con.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
+			con.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
+			con.updateGameTable(gameName, state.name(), this.turnNumber, board.getActivePlayerName());
 			if(board.fieldManager.fields[board.getActivePlayerPosition()] instanceof LuckyCard){
 				for (int i = 0; i < 32; i++) {
-					handler.updateCardsTable(timeStamp, i, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
+					con.updateCardsTable(timeStamp, i, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 				}
 			}
 			board.nextTurn();
@@ -215,12 +214,12 @@ public class GameController {
 		// Shows the winner
 		output.showWinner(board.getActivePlayerName());
 		//Drops the current game table, as the game is no longer active.
-		handler.dropCurrentGameTable(gameName);
+		con.dropCurrentGameTable(gameName);
 		// Updates GUI to show the new scores and set position to the first
 		for(String name:names){
 			output.update(dieCup.getDice(), 0, STARTING_BALANCE, name);
 		}
-		handler.createTables(gameName);
+		con.createTables(gameName);
 		initBoard();
 		turnNumber = 0; 
 		state = GameState.PLAY_STATE;
@@ -231,16 +230,16 @@ public class GameController {
 	 ***********************************************************/
 	private void initBoard(){
 		board = new GameBoard(names,STARTING_BALANCE, output);
-		handler.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
+		con.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
 		for (int i = 0; i < names.size(); i++) {
-			handler.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
+			con.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
 		}
 		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
-			handler.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0);
+			con.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0);
 		}
 
 		for (int i = 0; i < 32; i++) {
-			handler.addToCardsTable(gameName, i,LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
+			con.addToCardsTable(gameName, i,LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 		}
 		output.removeAllOwners();
 

@@ -6,7 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import game.entities.Player;
 
@@ -17,6 +19,8 @@ public class DBConnector {
 		private final String DATABASE = "test";
 		private final String USERNAME = "root"; 
 		private final String PASSWORD = "usbw";
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
+		String createDB = "CREATE DATABASE " + timeStamp;
 		public Connection connection;
 
 
@@ -92,6 +96,205 @@ public class DBConnector {
 		      }
 				return list;
 		}
+		public void createGame(String gameName){
+			//Gemmer alt fra GameController.
+			String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".game " + 
+					"(game_id varchar (255) NOT NULL, " + 
+					"game_State varchar(45) NOT NULL, " +
+					"turnNumber int (11) NOT NULL, " +
+					"player_turn varchar (45) DEFAULT NULL, " +
+					"PRIMARY KEY (game_id));");
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		public void createPlayersList(String gameName){
+			String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".player_list " +
+					"(playerName varchar(45) NOT NULL, " + 
+					"playerIndex int (11) NOT NULL, " +
+					"playerBalance int (11) DEFAULT NULL, " +
+					"housesOwned int(2) DEFAULT NULL, " +
+					"hotelsOwned tinyint (1) DEFAULT NULL, " + 
+					"prisonCards int (1) DEFAULT NULL, " +
+					"playerPosition int (2) DEFAULT NULL, " +
+					"PRIMARY KEY (playerIndex));");
+
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		public void createField(String gameName){
+			//Gemmer alt om felter.
+			String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".field " +
+					"(fieldNo int (11) NOT NULL," +
+					"fieldOwner varchar (45) DEFAULT NULL, " +
+					"houseOnField int(2) DEFAULT NULL, " + 
+					"hotelOnField tinyint(1) DEFAULT NULL, " +
+					"PRIMARY KEY (fieldNo));");
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
+		public void createCards(String gameName){
+			String query =("CREATE TABLE IF NOT EXISTS " + gameName+".cards " +
+					"(CardNo int (11) NOT NULL," +
+					"CardIndex int (11) DEFAULT NULL, " +
+					"CardOwner varchar (45) DEFAULT NULL, " + 
+					"CardText varchar (4096) NOT NULL, " +
+					"PRIMARY KEY (CardIndex));");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	
+		public void addToFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField) {
+			String query = ("INSERT INTO " + gameName+".field(fieldNo, fieldOwner, houseOnField, hotelOnField)" +
+							"VALUES('"+fieldNo+"','"+playerName+"','"+housesOnField+"','"+hotelsOnField+"');");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		//adds player to table when gameBoard is initialized
+		public void addToPlayerTable(String gameName, int playerIndex,String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
+			String query = ("INSERT INTO " + gameName+".player_list(playerName, playerIndex,playerBalance, housesOwned, hotelsOwned, prisonCards, playerPosition)" +
+							"VALUES('"+playerName+"','"+playerIndex+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"','"+playerPosition+"');");
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			}
+		
+		public void updatePlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
+			String query = ("UPDATE "+ gameName+".player_list " +
+							"SET playerBalance='"+balance+"', housesOwned='"+housesOwned+"', hotelsOwned='"+hotelsOwned+"', prisonCards='"+prisonCards+"', playerPosition='"+playerPosition+"' " + 
+							"WHERE playerName='"+playerName+"';");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		//Drops current Database , when a winner is found
+		public void dropCurrentGameTable(String gameName){
+			String query = ("DROP DATABASE "+ gameName);
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		public void updateFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField) {
+			String query = ("UPDATE "+ gameName+".field " + 
+							"SET fieldOwner='"+playerName+"', houseOnField='"+housesOnField+"', hotelOnField='"+hotelsOnField+"'" + 
+							"WHERE fieldNO='"+fieldNo+"';");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		public void addToGameTable(String gameName, String gameState, int turnNumber, String playerTurn) {
+			String query = ("INSERT INTO " + gameName+".game(game_id, game_State, turnNumber, player_turn)"+
+							"VALUES('"+gameName+"', '"+gameState+"', '"+turnNumber+"', '"+playerTurn+"');");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	
+		public void updateGameTable(String gameName, String gameState, int turnNumber, String playerTurn) {
+			String query = ("UPDATE " + gameName+".game " +
+							"SET game_State='" + gameState + "', turnNumber='" + turnNumber + "', player_turn='" + playerTurn + "'" +
+							"WHERE game_id='"+gameName+"';");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		public void addToCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText){
+			String query = ("INSERT INTO " + gameName+".cards(CardNo,CardIndex, CardOwner, CardText)" +
+							"VALUES('"+cardNo+"', '"+cardIndex+"', '"+cardOwner+"', '"+cardText+"');");
+			
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public void updateCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText){
+			String query = ("UPDATE "+ gameName+".cards " +
+							"SET CardNo='"+cardNo+"', CardOwner='"+cardOwner+"', CardText='"+cardText+"'" +
+							"WHERE CardIndex='"+cardIndex+"';");
+			try {
+				doUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	
+		public String[] loadGames(){
+			return null;
+		}
+		public void createTables(String gameName){
+			createGame(gameName);
+			createField(gameName);
+			createPlayersList(gameName);
+			createCards(gameName);
+		}
+		public String createGameDB(String timeStamp){
+			try {
+				doUpdate(createDB);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return timeStamp;
 		}
 
+	}
