@@ -7,7 +7,7 @@ import game.controllers.GameController;
 
 public class GameBoard {
 
-	private ArrayList<Player> players;
+	public ArrayList<Player> players;
 	public FieldManager fieldManager;
 	private int playerTurn;
 	private GameController controller;

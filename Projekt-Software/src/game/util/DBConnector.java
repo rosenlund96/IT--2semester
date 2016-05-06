@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import game.entities.Player;
+
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */
 		private final String HOST     = "Localhost";
@@ -59,5 +61,30 @@ public class DBConnector {
 
 			return result;
 			}
+		public ArrayList<Player> loadPlayersToArray(String query) throws SQLException{
+			ArrayList<Player> list= new ArrayList<Player>();
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			 while (rs.next())
+		      {
+		        String PlayerName = rs.getString("playerName");
+		        int PlayerIndex = rs.getInt("playerIndex");
+		        int PlayerBalance = rs.getInt("playerBalance");
+		        int HousesOwned = rs.getInt("housesOwned");
+		        int HotelsOwned = rs.getInt("hotelsOwned");
+		        int PrisonCards = rs.getInt("prisonCards");
+		        int PlayerPosition = rs.getInt("playerPosition");
+		       Player player = new Player(PlayerName, PlayerBalance, PlayerPosition, false, false, 0, PrisonCards);
+		       list.add(player);
+		         
+		        // print the results
+		        
+		        
+		      }
+			
+				return list;
+		  
+		}
+		
 		}
 

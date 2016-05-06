@@ -17,6 +17,9 @@ public class Balance {
 	public int getBalance(){
 		return balance;
 	}
+	public void setBalance(int amount){
+		this.balance = amount;
+	}
 
 	public void deposit(int amount){
 		this.balance += amount;

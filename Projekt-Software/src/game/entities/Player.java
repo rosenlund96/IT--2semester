@@ -51,11 +51,15 @@ public class Player {
 	}
 
 	public int getBalance(){
+		
 		return balance.getBalance();
 	}
 
 	public void deposit(int amount){
 		balance.deposit(amount);
+	}
+	public void setBalance(int amount){
+		balance.setBalance(amount);
 	}
 	public int getTimeInPrison() {
 		return timeInPrison;
@@ -93,6 +97,7 @@ public class Player {
 	public int getHotelsOwned(){
 		return hotelsOwned;
 	}
+	
 
 	/************************************************************
 	 * Removes the amount from balance set as a parameter.		*

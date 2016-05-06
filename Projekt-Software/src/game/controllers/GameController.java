@@ -7,6 +7,7 @@ import java.util.Calendar;
 import game.boundaries.*;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
+import game.entities.Player;
 import game.entities.fields.LuckyCard;
 import game.util.DBConnector;
 import game.util.DBHandler;
@@ -32,6 +33,7 @@ public class GameController {
 	private Outputable output;			// Gui controller to change the gui
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
 	public ArrayList<String> names;
+	public ArrayList<Player> players;
 	private DBConnector con = new DBConnector();
 
 	private GameState state = GameState.LOAD_STATE;
@@ -85,14 +87,21 @@ public class GameController {
 		//load old game.
 		else if(choice==2){
 			String game = null;
+			players = new ArrayList<Player>();
 			try {
 				game = output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
+				con.doQuery("USE "+game);
+				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(game);
+			loadBoard();
+			
+			// Set state back to play state
+			state = GameState.PLAY_STATE;
 		}
+		
 	}
 
 	/*********************************************
@@ -230,12 +239,22 @@ public class GameController {
 		for (int i = 0; i < 32; i++) {
 			handler.addToCardsTable(gameName, i,LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 		}
-		
- 
-
-
 		output.removeAllOwners();
 
 
+	}
+	public void loadBoard(){
+		for (int i = 0; i < players.size(); i++) {
+		names.add(players.get(i).getName());
+		}
+		board = new GameBoard(names, STARTING_BALANCE, output);
+		for (int j = 0; j < players.size(); j++) {
+			board.players.get(j).setBalance(players.get(j).getBalance());
+			board.players.get(j).setPosition(players.get(j).getPosition());
+			board.players.get(j).setOutOfJailCard(players.get(j).getOutOfJailCard());
+			output.addPlayer(board.players.get(j).getName(), board.players.get(j).getBalance(), j);
+		}
+
+		
 	}
 }
