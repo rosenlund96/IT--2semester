@@ -238,7 +238,7 @@ public class GameController {
 			con.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
 		}
 		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
-			con.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0);
+			con.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0, fieldManager.fields[i].getFieldType().toString());
 		}
 
 		for (int i = 0; i < 32; i++) {

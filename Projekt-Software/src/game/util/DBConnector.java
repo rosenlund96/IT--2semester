@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import game.entities.Player;
+import game.entities.fields.AbstractField;
 
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */
@@ -96,6 +97,20 @@ public class DBConnector {
 		      }
 				return list;
 		}
+		public ArrayList<String> loadFieldsToArray(String query) throws SQLException{
+			ArrayList<String> list= new ArrayList<String>();
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			 while (rs.next())
+		      {
+		        int fieldNo = rs.getInt("fieldNo");
+		        String fieldOwner = rs.getString("fieldOwner");
+		        int housesOnField = rs.getInt("housesOnField");
+		        int hotelOnField = rs.getInt("hotelOnField");
+		   
+		      }
+			    return null;
+		}
 		public void createGame(String gameName){
 			//Gemmer alt fra GameController.
 			String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".game " + 
@@ -133,6 +148,7 @@ public class DBConnector {
 			//Gemmer alt om felter.
 			String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".field " +
 					"(fieldNo int (11) NOT NULL," +
+					"fieldType varchar (45) NOT NULL," + 
 					"fieldOwner varchar (45) DEFAULT NULL, " +
 					"houseOnField int(2) DEFAULT NULL, " + 
 					"hotelOnField tinyint(1) DEFAULT NULL, " +
@@ -161,9 +177,9 @@ public class DBConnector {
 			}
 		}
 	
-		public void addToFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField) {
-			String query = ("INSERT INTO " + gameName+".field(fieldNo, fieldOwner, houseOnField, hotelOnField)" +
-							"VALUES('"+fieldNo+"','"+playerName+"','"+housesOnField+"','"+hotelsOnField+"');");
+		public void addToFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField, String fieldType) {
+			String query = ("INSERT INTO " + gameName+".field(fieldNo, fieldType, fieldOwner, houseOnField, hotelOnField)" +
+							"VALUES('"+fieldNo+"','"+fieldType+"', '"+playerName+"','"+housesOnField+"','"+hotelsOnField+"');");
 			
 			try {
 				doUpdate(query);
