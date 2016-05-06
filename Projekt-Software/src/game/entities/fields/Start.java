@@ -24,12 +24,10 @@ public class Start extends AbstractField {
 	}
 
 	public void landOnField(Player player) {
-		if(cardNo==1){
 		player.deposit(bonus);
-		}
-		if(cardNo==21){
-			output.showParkingMessage(player);
-		}
+		output.showPassStartMessage(player.getName());
+		
+		
 		
 	}
 	

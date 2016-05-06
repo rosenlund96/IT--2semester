@@ -177,6 +177,11 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(playerName + " " + reader.getElement("winner", 0));
 
 	}
+	public void showNextPlayerTurn(String name){
+		String s1 = reader.getElement("doNothing", 0);
+		String msg = name + ": " + s1;
+		GUI.showMessage(msg);
+	}
 
 	/************************************************************************
 	 * Shows a message in the interface with the amount of money that 		*
@@ -265,6 +270,9 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1;
 		GUI.showMessage(msg);
 	}
+	public void setFieldOwners(String playerName, int fieldNumber){
+		fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");
+	}
 
 	/************************************************************************
 	 * Shows a message that the player have to roll the dice to find out 	*
@@ -279,6 +287,12 @@ public class GUIBoundary implements Outputable{
 		String btnRoll = reader.getElement("roll", 0);
 		String msg = playerName + ": " + s1;
 		GUI.getUserButtonPressed(msg, btnRoll);
+	}
+	@Override 
+	public void showPassStartMessage(String name){
+		String s1 = reader.getElement("pass", 0);
+		String msg = name + ": " + s1;
+		GUI.showMessage(msg);
 	}
 
 	/************************************************************************
@@ -297,7 +311,9 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public void showNoCardMessage(String name) {
-		
+		String s1 = reader.getElement("imprisoned", 2);
+		String msg = name + ": " + s1;
+		GUI.showMessage(msg);
 	}
 
 	/************************************************************************
@@ -307,14 +323,18 @@ public class GUIBoundary implements Outputable{
 	 * @param
 	 ***********************************************************************/
 	@Override
-	public void showGetPrisonCardMessage(Player player) {
-		// TODO Auto-generated method stub
+	public void showGetPrisonCardMessage(String player) {
+		String s1 = reader.getElement("imprisoned", 3);
+		String msg = player + ": " + s1;
+		GUI.showMessage(msg);
 
 	}
 
 	@Override
-	public void showDoTimeMessage(Player player) {
-		// TODO Auto-generated method stub	
+	public void showDoTimeMessage(String player) {
+		String s1 = reader.getElement("imprisoned", 1);
+		String msg = player + ": " + s1;
+		GUI.showMessage(msg);
 	}
 
 	/************************************************************************
@@ -326,7 +346,7 @@ public class GUIBoundary implements Outputable{
 	 * 			card and its effect.										*
 	 ***********************************************************************/
 	@Override
-	public void showCardMessage(Player playerName, int cardNo) {
+	public void showCardMessage(String playerName, int cardNo) {
 		String s1 = reader.getElement("cards", cardNo);
 		String msg = playerName + ": " + s1;
 		GUI.displayChanceCard(msg);

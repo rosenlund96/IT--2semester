@@ -24,8 +24,8 @@ public class GameController {
 	public enum GameState {LOAD_STATE, NAME_STATE , PLAY_STATE, WIN_STATE};
 
 	public GameBoard board;
-	public String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
-
+	public String time = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
+	public String timeStamp = String.valueOf(time);
 	public String gameName;
 	private FieldManager fieldManager;
 	private int turnNumber = 0;
@@ -91,6 +91,8 @@ public class GameController {
 			gameTable = new ArrayList<String>();
 			try {
 				game = output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
+				this.timeStamp = game;
+				System.out.println(timeStamp);
 				con.doQuery("USE "+game);
 				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
 				this.gameTable = con.loadGameToArray("SELECT * FROM game ");
@@ -100,6 +102,7 @@ public class GameController {
 			}
 			this.turnNumber = Integer.parseInt(gameTable.get(1));
 			loadBoard();
+			
 			// Set state back to play state
 			state = GameState.PLAY_STATE;
 		}
@@ -191,7 +194,7 @@ public class GameController {
 			// Changes turn
 			con.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
 			con.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
-			con.updateGameTable(gameName, state.name(), this.turnNumber, board.getActivePlayerName());
+			con.updateGameTable(timeStamp, state.name(), this.turnNumber, board.getActivePlayerName());
 			if(board.fieldManager.fields[board.getActivePlayerPosition()] instanceof LuckyCard){
 				for (int i = 0; i < 32; i++) {
 					con.updateCardsTable(timeStamp, i, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());

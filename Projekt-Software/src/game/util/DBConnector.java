@@ -276,7 +276,7 @@ public class DBConnector {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		} 
 		public void createTables(String gameName){
 			createGame(gameName);
 			createField(gameName);

@@ -62,11 +62,11 @@ public interface Outputable {
 	
 	public void showNoCardMessage(String name);
 
-	public void showGetPrisonCardMessage(Player player);//AbstractCard
+	public void showGetPrisonCardMessage(String player);//AbstractCard
 
-	public void showDoTimeMessage(Player player);
+	public void showDoTimeMessage(String player);
     
-	void showCardMessage(Player player, int cardNo);//AbstractCard
+	void showCardMessage(String player, int cardNo);//AbstractCard
 
 	public boolean promptBuyProperty(String name, int i);
 
@@ -95,6 +95,12 @@ public interface Outputable {
 	public void showParkingMessage(Player player);
 
 	public String promptLoadAction(String[] games);
+
+	public void showPassStartMessage(String name);
+
+	public void showNextPlayerTurn(String name);
+	
+	public void setFieldOwners(String playerName, int fieldNumber);
 	
 	
 

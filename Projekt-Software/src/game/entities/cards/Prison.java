@@ -27,6 +27,7 @@ public class Prison extends AbstractOwnable {
 	public void drawCard(Player player) {
 		this.setOwner(player);
 		player.setOutOfJailCard(player.getOutOfJailCard()+1);
+		output.showGetPrisonCardMessage(player.getName());
 	}
 	
 

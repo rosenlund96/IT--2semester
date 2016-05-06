@@ -26,21 +26,27 @@ public class Tax extends AbstractCard {
 	@Override
 	public void drawCard(Player player) {
 		
-		switch (taxAmount) {
-		case 200:
+		switch (cardNo) {
+		case 5:
 			collectTax(200, player);
 			break;
 			
-		case 1000:
+		case 12:
 			collectTax(1000, player);
 			break;
 			
-		case 2000:
+		case 6:
 			collectTax(2000, player);
 			break;
 			
-		case 3000:
+		case 26:
 			collectTax(3000, player);
+			break;
+		case 32:
+			collectTax(1000, player);
+			break;
+		case 33:
+			collectTax(200, player);
 			break;
 			
 			//Her mangler metoder for kort omkring olieskatter og ejendomsskatter

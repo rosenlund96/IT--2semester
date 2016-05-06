@@ -40,7 +40,6 @@ public class Prison extends AbstractField{
 	public void payFine(Player player){
 		player.withdraw(fine);
 		output.showWithdrawMessage(player.getName(), fine);
-		setImprisoned(false, player);
 
 	}
 	public void setTimeInPrison(int timeInPrison, Player player) {
@@ -74,7 +73,7 @@ public class Prison extends AbstractField{
 
 
 			}
-			else setTimeInPrison(player.getTimeInPrison()+1, player);
+			else setTimeInPrison(1, player);
 
 
 			break; 
@@ -86,12 +85,13 @@ public class Prison extends AbstractField{
 			else if(player.getOutOfJailCard()>0) {
 				setImprisoned(false, player);
 				setTimeInPrison(0, player);
-				setOutOfJailCard(player.getOutOfJailCard()-1, player);
+				setOutOfJailCard(-1, player);
 			}
 			break;
 		case 4:
-			setTimeInPrison(player.getTimeInPrison()+1, player);
-			output.showDoTimeMessage(player);
+			setTimeInPrison(1, player);
+			setImprisoned(true, player);
+			output.showDoTimeMessage(player.getName());
 			break;
 		}
 	}

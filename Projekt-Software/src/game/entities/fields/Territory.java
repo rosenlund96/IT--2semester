@@ -40,6 +40,7 @@ public class Territory extends AbstractOwnable {
 					sellProperties(player);
 			}
 			else if(choice==3){
+				output.showNextPlayerTurn(player.getName());
 			}
 		}
 	}

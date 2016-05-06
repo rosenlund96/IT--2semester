@@ -39,6 +39,8 @@
 	<load>Nyt spil</load>
 	<load>Hent gemt spil</load>
 	<load>Her kan du se dine gemte spil</load>
+	<doNothing>Du har valgt ikke at gøre noget.</doNothing>
+	
 	
 	
 	<protertiesHere>Du kan ikke sælge, da du har huse eller hotel på grunden!</protertiesHere>
@@ -64,6 +66,10 @@
 	<prison>Brug fængselskort</prison>
 	<prison>Sid tiden ud.</prison>
 	<imprisoned>Du er i fængsel, næste spillers tur!</imprisoned>
+	<imprisoned>Du har valgt at sidde tiden ud</imprisoned>
+	<imprisoned>Du har ingen fængselskort, vælg igen</imprisoned>
+	<imprisoned>Du har fået et fængselskort - Kortet gemmes og kan bruges senere.</imprisoned>
+	<pass>Du har passeret start og får kr. 4000.</pass>
 	
 	<Start>Start</Start>
 	<Rodovrevej>Rødovrevej</Rodovrevej>

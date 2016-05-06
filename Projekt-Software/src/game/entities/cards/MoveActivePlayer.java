@@ -51,15 +51,15 @@ public class MoveActivePlayer extends AbstractCard {
 		case (2)://Gå til start
 			fieldNo=1;
 		difference = getCount(currentPosition, fieldNo);
-		player.setPosition((currentPosition + difference-1) % 40);
-		if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+		player.setPosition((currentPosition + difference-3) % 40);
+		if(passStart(currentPosition,fieldNo)==true){player.deposit(4000);output.showPassStartMessage(player.getName());}
 		break;	
 
 		case(14)://Gå til Grønningen
 			fieldNo = 25;
 		difference = getCount(currentPosition, fieldNo);
 		player.setPosition((currentPosition + difference-1) % 40);
-		if(passStart(currentPosition,fieldNo)==true){ player.deposit(4000);}
+		if(passStart(currentPosition,fieldNo)==true){player.deposit(4000);output.showPassStartMessage(player.getName());}
 		break;	
 
 		case(15)://Nærmeste redderi
