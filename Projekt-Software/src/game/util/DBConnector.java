@@ -277,11 +277,6 @@ public class DBConnector {
 				e.printStackTrace();
 			}
 		}
-		
-	
-		public String[] loadGames(){
-			return null;
-		}
 		public void createTables(String gameName){
 			createGame(gameName);
 			createField(gameName);
