@@ -1,9 +1,9 @@
 package game.entities.cards;
 
-import desktop_resources.GUI;
+
 import game.boundaries.Outputable;
 import game.entities.Player;
-import game.util.XMLReader;
+
 
 public class MoveActivePlayer extends AbstractCard {
 	private int fieldNo;

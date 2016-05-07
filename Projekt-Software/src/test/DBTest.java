@@ -1,11 +1,7 @@
 package test;
 
 import static org.junit.Assert.*;
-
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import game.util.DBConnector;

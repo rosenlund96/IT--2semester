@@ -1,17 +1,14 @@
 package game.entities.cards;
 
-import desktop_resources.GUI;
 import game.boundaries.Outputable;
-import game.controllers.GameController;
-import game.entities.FieldManager;
+
 import game.entities.Player;
-import game.util.XMLReader;
+
 
 public class Refuge extends AbstractCard {
 
 	private int bonus;
 	private int cardNo;
-	private FieldManager fieldManager;
 	private static String text;
 
 

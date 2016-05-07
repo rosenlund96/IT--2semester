@@ -11,7 +11,7 @@ public abstract class AbstractField {
 	protected FieldManager fieldManager;
 	protected AbstractOwnable abstractOwnable;
 	protected Outputable output;
-	private int fieldNo;
+
 
 	protected FieldType fieldType;
 
@@ -20,7 +20,7 @@ public abstract class AbstractField {
 		this.fieldManager = fieldManager;
 		this.output = output;
 		this.fieldType = fieldType;
-		this.fieldNo = fieldNo;
+		
 
 	} 
 
@@ -30,6 +30,7 @@ public abstract class AbstractField {
 	public String getOwned(){
 		return abstractOwnable.owner.getName();
 	}
+	
 	
 	
 

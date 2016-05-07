@@ -9,13 +9,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import game.entities.Player;
-import game.entities.fields.AbstractField;
-import game.entities.fields.Start;
-import game.entities.fields.Territory;
-import game.resources.CardEffect;
-import game.resources.FieldData;
 
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */

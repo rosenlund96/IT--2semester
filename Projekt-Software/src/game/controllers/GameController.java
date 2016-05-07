@@ -10,7 +10,6 @@ import game.entities.GameBoard;
 import game.entities.Player;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.LuckyCard;
-import game.entities.fields.Territory;
 import game.util.DBConnector;
 import game.util.DieCup;
 import game.util.Rollable;

@@ -3,14 +3,12 @@ package game.entities;
 import java.util.ArrayList;
 
 import game.boundaries.Outputable;
-import game.controllers.GameController;
 
 public class GameBoard {
 
 	public ArrayList<Player> players;
 	public FieldManager fieldManager;
 	private int playerTurn;
-	private GameController controller;
 	private final int STARTING_POSITION = 0;
 
 	/************************************************************

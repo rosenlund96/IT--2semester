@@ -1,23 +1,15 @@
 package test;
 
 import static org.junit.Assert.*;
-
-import java.util.Iterator;
-
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
 import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 import game.entities.cards.AbstractCard;
-import game.entities.cards.AbstractCard.CardType;
 import game.entities.cards.MoveActivePlayer;
 import game.entities.cards.Prison;
 import game.entities.cards.Refuge;
-import game.entities.cards.Tax;
-import game.entities.fields.AbstractField.FieldType;
 import game.entities.fields.LuckyCard;
 import test.mockClasses.TestBoundary1;
 
@@ -87,7 +79,7 @@ public class LuckyCardTest {
 		LuckyCard card = new LuckyCard(fm,output,0);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0);
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
-		assertEquals("Cards instantiated, and array not empty", true,card.cards.length>0);
+		assertEquals("Cards instantiated, and array not empty", true,LuckyCard.cards.length>0);
 		//Act
 		AbstractCard oldCard = card.drawCard(p1);
 		AbstractCard newCard = card.drawCard(p1);
