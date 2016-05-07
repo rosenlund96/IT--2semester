@@ -162,19 +162,19 @@ public class TestBoundary1 implements Outputable {
 	}
 
 	@Override
-	public void showGetPrisonCardMessage(Player player) {
+	public void showGetPrisonCardMessage(String player) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void showDoTimeMessage(Player player) {
+	public void showDoTimeMessage(String player) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void showCardMessage(Player player, int cardNo) {
+	public void showCardMessage(String player, int cardNo) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -257,4 +257,29 @@ public class TestBoundary1 implements Outputable {
 		
 	}
 
+	@Override
+	public String promptLoadAction(String[] games) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void showPassStartMessage(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showNextPlayerTurn(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setFieldOwners(String playerName, int fieldNumber) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+
+	

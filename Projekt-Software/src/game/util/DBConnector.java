@@ -77,7 +77,6 @@ public class DBConnector {
 			 while (rs.next())
 		      {
 		        String PlayerName = rs.getString("playerName");
-		        int PlayerIndex = rs.getInt("playerIndex");
 		        int PlayerBalance = rs.getInt("playerBalance");
 		        int HousesOwned = rs.getInt("housesOwned");
 		        int HotelsOwned = rs.getInt("hotelsOwned");
