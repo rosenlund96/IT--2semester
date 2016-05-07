@@ -8,7 +8,9 @@ import game.boundaries.*;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
 import game.entities.Player;
+import game.entities.fields.AbstractOwnable;
 import game.entities.fields.LuckyCard;
+import game.entities.fields.Territory;
 import game.util.DBConnector;
 import game.util.DieCup;
 import game.util.Rollable;
@@ -33,6 +35,7 @@ public class GameController {
 	private Rollable dieCup;		// dieCup through the Rollable interface for easy change of dice
 	public ArrayList<String> names;
 	public ArrayList<Player> players;
+	public Player tempPlayer;
 	public ArrayList<String> gameTable;
 	public ArrayList<String> fieldTable;
 	private DBConnector con = new DBConnector();
@@ -271,6 +274,16 @@ public class GameController {
 			int houseOnField = Integer.valueOf(fieldData[2]);
 			int hotelOnField = Integer.valueOf(fieldData[3]);
 			String fieldType =  fieldData[4];
+			for (int i = 0; i < players.size(); i++) {
+				if (fieldOwner.startsWith(players.get(i).getName())) {
+				this.tempPlayer = players.get(i);
+				}
+			}
+			if(board.fieldManager.fields[x] instanceof AbstractOwnable){
+					((AbstractOwnable)board.fieldManager.fields[x]).setOwner(tempPlayer);
+					this.tempPlayer=null;
+					}
+				
 			if(!fieldOwner.startsWith("null")){
 			output.setFieldOwners(fieldOwner, fieldNumber);
 			}

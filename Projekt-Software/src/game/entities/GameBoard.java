@@ -65,6 +65,7 @@ public class GameBoard {
 		}
 		return false;
 	}
+	
 	/******************************************************
 	 * Moves the player an int amount from where he is    *
 	 ******************************************************/

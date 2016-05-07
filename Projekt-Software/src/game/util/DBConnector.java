@@ -112,7 +112,7 @@ public class DBConnector {
 		        int housesOnField = rs.getInt("houseOnField");
 		        int hotelOnField = rs.getInt("hotelOnField");
 		        String fieldType= rs.getString("fieldType");
-		       list.add(""+fieldNo+","+fieldOwner+","+housesOnField+","+hotelOnField+","+fieldType);
+		       list.add(fieldNo+","+fieldOwner+","+housesOnField+","+hotelOnField+","+fieldType);
 		      
 		      }
 			    return list;

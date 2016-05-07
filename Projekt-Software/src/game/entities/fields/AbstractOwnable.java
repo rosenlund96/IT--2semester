@@ -30,6 +30,9 @@ public abstract class AbstractOwnable extends AbstractField {
 	public Player getOwner(){
 		return owner; 
 	}
+	public void setOwner(Player owner){
+		this.owner = owner;
+	}
 
 	public int getRent(){
 		return rent;
