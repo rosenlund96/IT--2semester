@@ -34,6 +34,7 @@ public class GameController {
 	public ArrayList<String> names;
 	public ArrayList<Player> players;
 	public ArrayList<String> gameTable;
+	public ArrayList<String> fieldTable;
 	private DBConnector con = new DBConnector();
 
 	private GameState state = GameState.LOAD_STATE;
@@ -96,11 +97,14 @@ public class GameController {
 				con.doQuery("USE "+game);
 				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
 				this.gameTable = con.loadGameToArray("SELECT * FROM game ");
+				this.fieldTable = con.loadFieldsToArray("SELECT * FROM field");
+			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			this.turnNumber = Integer.parseInt(gameTable.get(1));
+			
 			loadBoard();
 			
 			// Set state back to play state
@@ -259,6 +263,17 @@ public class GameController {
 			board.players.get(j).setOutOfJailCard(players.get(j).getOutOfJailCard());
 			output.addPlayer(board.players.get(j).getName(), board.players.get(j).getBalance(), j);
 			output.update(dieCup.getDice(), board.players.get(j).getPosition(), board.players.get(j).getBalance(), board.players.get(j).getName());
+		}
+		for (int x = 0; x < fieldTable.size(); x++) {
+			String[] fieldData = this.fieldTable.get(x).split(",");
+			int fieldNumber = Integer.valueOf(fieldData[0]);
+			String fieldOwner = fieldData[1];
+			int houseOnField = Integer.valueOf(fieldData[2]);
+			int hotelOnField = Integer.valueOf(fieldData[3]);
+			String fieldType =  fieldData[4];
+			if(!fieldOwner.startsWith("null")){
+			output.setFieldOwners(fieldOwner, fieldNumber);
+			}
 		}
 
 		

@@ -271,7 +271,8 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 	public void setFieldOwners(String playerName, int fieldNumber){
-		fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");
+			fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");
+		
 	}
 
 	/************************************************************************

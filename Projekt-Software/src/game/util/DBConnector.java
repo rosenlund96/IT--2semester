@@ -12,6 +12,10 @@ import java.util.Calendar;
 
 import game.entities.Player;
 import game.entities.fields.AbstractField;
+import game.entities.fields.Start;
+import game.entities.fields.Territory;
+import game.resources.CardEffect;
+import game.resources.FieldData;
 
 public class DBConnector {
 	/** @author Ronnie Dalsgaard */
@@ -105,11 +109,13 @@ public class DBConnector {
 		      {
 		        int fieldNo = rs.getInt("fieldNo");
 		        String fieldOwner = rs.getString("fieldOwner");
-		        int housesOnField = rs.getInt("housesOnField");
+		        int housesOnField = rs.getInt("houseOnField");
 		        int hotelOnField = rs.getInt("hotelOnField");
-		   
+		        String fieldType= rs.getString("fieldType");
+		       list.add(""+fieldNo+","+fieldOwner+","+housesOnField+","+hotelOnField+","+fieldType);
+		      
 		      }
-			    return null;
+			    return list;
 		}
 		public void createGame(String gameName){
 			//Gemmer alt fra GameController.
