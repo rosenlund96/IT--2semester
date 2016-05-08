@@ -95,7 +95,7 @@ public class GameController {
 			try {
 				game = output.promptLoadAction(con.doQueryToString("SHOW DATABASES LIKE '20%'"));
 				this.timeStamp = game;
-				System.out.println(timeStamp);
+				System.out.println("Database loaded: "+timeStamp);
 				con.doQuery("USE "+game);
 				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
 				this.gameTable = con.loadGameToArray("SELECT * FROM game ");
@@ -267,7 +267,9 @@ public class GameController {
 			board.players.get(j).setHotelsOwned(players.get(j).getHotelsOwned());
 			output.addPlayer(board.players.get(j).getName(), board.players.get(j).getBalance(), j);
 			output.update(dieCup.getDice(), board.players.get(j).getPosition(), board.players.get(j).getBalance(), board.players.get(j).getName());
+			
 		}
+		System.out.println("Players loaded");
 		for (int x = 0; x < fieldTable.size(); x++) {
 			String[] fieldData = this.fieldTable.get(x).split(",");
 			int fieldNumber = Integer.valueOf(fieldData[0]);
@@ -287,9 +289,11 @@ public class GameController {
 				
 			if(!fieldOwner.startsWith("null")){
 			output.setFieldOwners(fieldOwner, fieldNumber);
+			
 			}
+		
 		}
-
+		System.out.println("Fields loaded");
 		
 	}
 }
