@@ -263,6 +263,8 @@ public class GameController {
 			board.players.get(j).setBalance(players.get(j).getBalance());
 			board.players.get(j).setPosition(players.get(j).getPosition());
 			board.players.get(j).setOutOfJailCard(players.get(j).getOutOfJailCard());
+			board.players.get(j).setHousesOwned(players.get(j).getHousesOwned());
+			board.players.get(j).setHotelsOwned(players.get(j).getHotelsOwned());
 			output.addPlayer(board.players.get(j).getName(), board.players.get(j).getBalance(), j);
 			output.update(dieCup.getDice(), board.players.get(j).getPosition(), board.players.get(j).getBalance(), board.players.get(j).getName());
 		}

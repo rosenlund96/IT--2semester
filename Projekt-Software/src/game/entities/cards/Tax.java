@@ -25,7 +25,8 @@ public class Tax extends AbstractCard {
 
 	@Override
 	public void drawCard(Player player) {
-		
+		int houses = player.getHousesOwned();
+		int hotels = player.getHotelsOwned();
 		switch (cardNo) {
 		case 5:
 			collectTax(200, player);
@@ -48,7 +49,12 @@ public class Tax extends AbstractCard {
 		case 33:
 			collectTax(200, player);
 			break;
-			
+		case 13:
+			collectTax((800*houses)+(2300*hotels),player);
+			break;
+		case 25: 
+			collectTax((500*houses)+(2000*hotels),player);
+			break;
 			//Her mangler metoder for kort omkring olieskatter og ejendomsskatter
 		}
 		

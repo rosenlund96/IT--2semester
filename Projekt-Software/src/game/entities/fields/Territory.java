@@ -15,7 +15,7 @@ public class Territory extends AbstractOwnable {
 	public Territory(FieldManager fieldManager, int price, int rent, int fieldNo, Outputable output) {
 		super(fieldManager, FieldType.TERRITORY, price, rent, output, fieldNo);
 		this.fieldNo = fieldNo;
-		this.houseCount = 0;
+		Territory.houseCount = 0;
 	}	
 
 	@Override
@@ -52,9 +52,11 @@ public class Territory extends AbstractOwnable {
 			hotelsOnField = 0;
 		}
 	}
-	private  void setHouseCount(int amount){
+	private  void setHouseCount(int amount, Player player){
 		int oldValue = Territory.houseCount;
 		Territory.houseCount = oldValue + amount;
+		player.setHousesOwned(amount);
+		
 	}
 	
 	/*******************************************************
@@ -73,7 +75,7 @@ public class Territory extends AbstractOwnable {
 			if(houseCount<=4){
 				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
 			if(choice==true){
-				setHouseCount(-1);	
+				setHouseCount(-1, player);	
 				output.setHouse(houseCount,fieldNo);
 				this.landOnField(player);
 			}
@@ -81,7 +83,8 @@ public class Territory extends AbstractOwnable {
 			else if(houseCount==5){
 				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
 				if(choice==true){
-					setHouseCount(-1);	
+					setHouseCount(-1, player);	
+					player.setHotelsOwned(1);
 					output.setHotel(false,fieldNo);
 					this.landOnField(player);
 				}
@@ -101,7 +104,7 @@ public class Territory extends AbstractOwnable {
 				boolean choice = output.promptBuyProperty(player.getName(), price);
 			if(choice==true){
 				player.withdraw(price);
-				setHouseCount(1);
+				setHouseCount(1, player);
 				output.setHouse(houseCount,fieldNo);
 				this.landOnField(player);
 			}
@@ -110,7 +113,7 @@ public class Territory extends AbstractOwnable {
 				boolean choice = output.promptBuyProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
 				if(choice==true){
 					
-					setHouseCount(1);	
+					setHouseCount(1, player);	
 					output.setHotel(true, fieldNo);
 				}
 				
