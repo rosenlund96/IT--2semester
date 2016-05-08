@@ -50,12 +50,13 @@ public class Refuge extends AbstractCard {
 			player.deposit(3000);
 			break;
 
-		default:
+		case 1337:
 			//Træk 200 fra hvermodspiller
 			for (int j = 0; j < board.players.size(); j++) {
 				board.players.get(j).withdraw(200);
 			}
 			player.deposit(200*board.players.size());
+			break;
 			
 
 		}
