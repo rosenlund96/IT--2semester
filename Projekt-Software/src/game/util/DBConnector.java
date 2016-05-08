@@ -76,7 +76,7 @@ public class DBConnector {
 		        int HotelsOwned = rs.getInt("hotelsOwned");
 		        int PrisonCards = rs.getInt("prisonCards");
 		        int PlayerPosition = rs.getInt("playerPosition");
-		       Player player = new Player(PlayerName, PlayerBalance, PlayerPosition, false, false, 0, PrisonCards);
+		       Player player = new Player(PlayerName, PlayerBalance, PlayerPosition, false, false, 0, PrisonCards, HousesOwned, HotelsOwned);
 		       list.add(player);
 		      }
 				return list;

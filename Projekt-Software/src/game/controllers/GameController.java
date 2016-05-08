@@ -17,7 +17,8 @@ import game.util.Rollable;
 public class GameController {
 
 	private final int STARTING_BALANCE = 30000;
-	private final int STARTING_POSITION = 1;
+	private final int STARTING_POSITION = 0;
+	private final int STARTING_PRISONTIME = 0;
 	private final int STARTING_PRISONCARDS = 0;
 	private final int STARTING_HOUSES = 0;
 	private final int STARTING_HOTELS = 0;
@@ -120,7 +121,7 @@ public class GameController {
 	 ********************************************/
 	private void nameState(){
 		// Shows a welcome message in the GUI
-		//output.showWelcome();
+		output.showWelcome();
 
 		// Adds names to string array
 		for (int i = 0; i < 6; i++){
@@ -238,7 +239,7 @@ public class GameController {
 	 * Method that will initialize the interactive gameboard.	*
 	 ***********************************************************/
 	private void initBoard(){
-		board = new GameBoard(names,STARTING_BALANCE, output);
+		board = new GameBoard(names,STARTING_BALANCE,STARTING_POSITION,STARTING_HOUSES,STARTING_HOTELS,STARTING_PRISONTIME, STARTING_PRISONCARDS, output);
 		con.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
 		for (int i = 0; i < names.size(); i++) {
 			con.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
@@ -258,7 +259,7 @@ public class GameController {
 		for (int i = 0; i < players.size(); i++) {
 		names.add(players.get(i).getName());
 		}
-		board = new GameBoard(names, STARTING_BALANCE, output);
+		board = new GameBoard(names,STARTING_BALANCE,STARTING_POSITION,STARTING_HOUSES,STARTING_HOTELS,STARTING_PRISONTIME, STARTING_PRISONCARDS, output);
 		for (int j = 0; j < players.size(); j++) {
 			board.players.get(j).setBalance(players.get(j).getBalance());
 			board.players.get(j).setPosition(players.get(j).getPosition());
@@ -276,7 +277,7 @@ public class GameController {
 			String fieldOwner = fieldData[1];
 			int houseOnField = Integer.valueOf(fieldData[2]);
 			int hotelOnField = Integer.valueOf(fieldData[3]);
-			String fieldType =  fieldData[4];
+			String fieldType =  fieldData[4];//skal fjernes fra DB
 			for (int i = 0; i < players.size(); i++) {
 				if (fieldOwner.startsWith(players.get(i).getName())) {
 				this.tempPlayer = players.get(i);

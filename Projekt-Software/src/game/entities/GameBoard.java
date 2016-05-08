@@ -9,19 +9,19 @@ public class GameBoard {
 	public ArrayList<Player> players;
 	public FieldManager fieldManager;
 	private int playerTurn;
-	private final int STARTING_POSITION = 0;
+	
 
 	/************************************************************
 	 * Constructor, takes names starting balance and a gui      *
 	 ************************************************************/
-	public GameBoard(ArrayList<String> names, int startingBalance, Outputable gui){
+	public GameBoard(ArrayList<String> names, int startingBalance, int startingPosition,int startingHouses,int startingHotels,int startingPrisonCards, int startingPrisonTime, Outputable gui){
 		
 		players =  new ArrayList<Player>();
 	
 		fieldManager = new FieldManager(gui);
 		// Makes a new ArrayList of the players
 		for (int i = 0; i < names.size(); i++) {
-			players.add(new Player(names.get(i), startingBalance, STARTING_POSITION,false, false,0,0));
+			players.add(new Player(names.get(i), startingBalance, startingPosition,false, false,startingPrisonTime,startingPrisonCards,startingHouses,startingHotels));
 		}
 	
 		fieldManager = new FieldManager(gui);

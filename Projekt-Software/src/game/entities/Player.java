@@ -12,7 +12,7 @@ public class Player {
 
 	// Constructors
 
-	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isImprisoned, int timeInPrison, int outOfJailCard){
+	public Player(String name, int startingBalance, int position, boolean isBroke, boolean isImprisoned, int timeInPrison, int outOfJailCard, int housesOwned, int hotelsOwned){
 		this.name = name;
 		this.balance = new Balance(startingBalance);
 		this.isBroke = false; 
@@ -20,6 +20,8 @@ public class Player {
 		this.isImprisoned = false;
 		this.timeInPrison = 0;
 		this.outOfJailCard = 0;
+		this.housesOwned = housesOwned;
+		this.hotelsOwned = hotelsOwned;
 	}
 
 	// Mutators
