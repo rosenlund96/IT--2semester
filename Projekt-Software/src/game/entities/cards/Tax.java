@@ -55,7 +55,7 @@ public class Tax extends AbstractCard {
 		case 25: 
 			collectTax((500*houses)+(2000*hotels),player);
 			break;
-			//Her mangler metoder for kort omkring olieskatter og ejendomsskatter
+			
 		}
 		
 		

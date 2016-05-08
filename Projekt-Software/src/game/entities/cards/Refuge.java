@@ -1,7 +1,7 @@
 package game.entities.cards;
 
 import game.boundaries.Outputable;
-
+import game.entities.GameBoard;
 import game.entities.Player;
 
 
@@ -9,6 +9,7 @@ public class Refuge extends AbstractCard {
 
 	private int bonus;
 	private int cardNo;
+	private GameBoard board;
 	private static String text;
 
 
@@ -51,6 +52,11 @@ public class Refuge extends AbstractCard {
 
 		default:
 			//Træk 200 fra hvermodspiller
+			for (int j = 0; j < board.players.size(); j++) {
+				board.players.get(j).withdraw(200);
+			}
+			player.deposit(200*board.players.size());
+			
 
 		}
 
