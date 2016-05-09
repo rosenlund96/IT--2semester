@@ -290,6 +290,13 @@ public class GameController {
 				
 			if(!fieldOwner.startsWith("null")){
 			output.setFieldOwners(fieldOwner, fieldNumber);
+			output.setHouse(houseOnField, fieldNumber);
+			if (hotelOnField == 1){
+				output.setHotel(true, fieldNumber);
+			}
+			else{
+				output.setHotel(false, fieldNumber);
+			}
 			
 			}
 		
