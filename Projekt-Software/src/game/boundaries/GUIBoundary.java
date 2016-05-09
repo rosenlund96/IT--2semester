@@ -177,6 +177,13 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(playerName + " " + reader.getElement("winner", 0));
 
 	}
+	
+	/************************************************************************
+	 * Shows a message with the player whose turn it is next. This 			*
+	 * method doesn't have any real function other than that.				*
+	 * 																		*
+	 * @param name Name of the player who is next in throwing the dice.		*
+	 ***********************************************************************/
 	public void showNextPlayerTurn(String name){
 		String s1 = reader.getElement("doNothing", 0);
 		String msg = name + ": " + s1;
@@ -213,6 +220,13 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1 + " " + bonus + " " + s2;
 		GUI.showMessage(msg);
 	}
+	
+	/************************************************************************
+	 * Shows a message saying that a player hit a double if the two 
+	 * dice shows identical number of eyes.
+	 * 
+	 * @param name Name of player rolling the double.
+	 ***********************************************************************/
 	@Override
 	public void showIsDoublesMessage(String name){
 		String s1 = reader.getElement("doubles", 0);
@@ -276,9 +290,16 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1;
 		GUI.showMessage(msg);
 	}
+	
+	/************************************************************************
+	 * This method will change the status of a field if it changes owner	*
+	 * or is bought by a player.											*
+	 * 																		*
+	 * @param playerName Name of player getting ownership of the field.		*
+	 * @param fieldNumber Identification number of field changing ownership	* 
+	 ***********************************************************************/
 	public void setFieldOwners(String playerName, int fieldNumber){
-			fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");
-		
+			fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");	
 	}
 
 	/************************************************************************
@@ -295,6 +316,13 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1;
 		GUI.getUserButtonPressed(msg, btnRoll);
 	}
+	
+	/************************************************************************
+	 * Shows a message saying that the active player has passed 'start' and	*
+	 * therefore will receive an amount of money.							*
+	 * 																		*
+	 * @param name Name of player passing the 'start'-field					*
+	 ***********************************************************************/
 	@Override 
 	public void showPassStartMessage(String name){
 		String s1 = reader.getElement("pass", 0);
@@ -316,6 +344,12 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/************************************************************************
+	 * Shows a message saying that the player is still imprisoned as a 		*
+	 * result of not having a get-out-of-jail card.							*
+	 * 																		*
+	 * @param name Name of player who is still imprisoned.					*
+	 ***********************************************************************/
 	@Override
 	public void showNoCardMessage(String name) {
 		String s1 = reader.getElement("imprisoned", 2);
@@ -327,7 +361,7 @@ public class GUIBoundary implements Outputable{
 	 * Shows a message that a player that has landed on a 'Prøv lykken'-	*
 	 * field and got a get-out-of-jail card.								*
 	 * 																		*
-	 * @param
+	 * @param player The player who has received a get-out-of-jail card		*
 	 ***********************************************************************/
 	@Override
 	public void showGetPrisonCardMessage(String player) {
@@ -337,6 +371,11 @@ public class GUIBoundary implements Outputable{
 
 	}
 
+	/************************************************************************
+	 * Shows a message that the player has to go to prison.					*
+	 * 																		*
+	 * @param player The player that has been imprisoned.					*
+	 ***********************************************************************/
 	@Override
 	public void showDoTimeMessage(String player) {
 		String s1 = reader.getElement("imprisoned", 1);
@@ -420,11 +459,7 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
-	/***********************************************************************
-	 * 
-	 * 
-	 * 
-	 **********************************************************************/
+	
 	@Override
 	public void showDontSell(Player player) {
 		String s1 = reader.getElement("protertiesHere", 1);
@@ -524,11 +559,7 @@ public class GUIBoundary implements Outputable{
 		return GUI.getUserLeftButtonPressed(msg, yes, no);
 	}
 
-	/************************************************************************
-	 * 
-	 * 
-	 * 
-	 ***********************************************************************/
+	
 	@Override
 	public int PromptPrison(String playerName) {
 		//choice for prisoncard
@@ -603,11 +634,7 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
-	/************************************************************************
-	 * 
-	 * 
-	 * 
-	 ***********************************************************************/
+	
 	@Override
 	public int promptAction(String name) {
 		String s1 = reader.getElement("action", 0);
