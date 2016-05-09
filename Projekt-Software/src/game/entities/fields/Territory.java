@@ -6,11 +6,11 @@ import game.entities.Player;
 import game.resources.FieldData;
 
 public class Territory extends AbstractOwnable {
-	
+
 	public static int houseCount;
 	public int hotelsOnField;
 	public int fieldNo;
-	
+
 
 	public Territory(FieldManager fieldManager, int price, int rent, int fieldNo, Outputable output) {
 		super(fieldManager, FieldType.TERRITORY, price, rent, output, fieldNo);
@@ -18,6 +18,10 @@ public class Territory extends AbstractOwnable {
 		Territory.houseCount = 0;
 	}	
 
+	/************************************************************************
+	 * This method will be used whenever a player lands on a territory field*
+	 * and will complete all purchases of territory fields. 				*
+	 ***********************************************************************/
 	@Override
 	public void landOnField(Player player){
 		getHotel();
@@ -37,13 +41,18 @@ public class Territory extends AbstractOwnable {
 				buyProperties(player);
 			}
 			else if(choice==2){
-					sellProperties(player);
+				sellProperties(player);
 			}
 			else if(choice==3){
 				output.showNextPlayerTurn(player.getName());
 			}
 		}
 	}
+
+	/************************************************************************
+	 * This method will be used when you want to buy hotels for your fields	*
+	 * and will put a hotel on the field if it is the 5th house bought.		*
+	 ***********************************************************************/
 	private void getHotel(){
 		if(houseCount==5){
 			hotelsOnField = 1;
@@ -52,34 +61,33 @@ public class Territory extends AbstractOwnable {
 			hotelsOnField = 0;
 		}
 	}
+
 	private  void setHouseCount(int amount, Player player){
 		int oldValue = Territory.houseCount;
 		Territory.houseCount = oldValue + amount;
-		player.setHousesOwned(amount);
-		
+		player.setHousesOwned(amount);	
 	}
-	
+
 	/*******************************************************
 	 * Asks the player to sell properties, if any is owned *
 	 * @param player the player landing on the field       *
 	 *******************************************************/
-
 	private void sellProperties(Player player) {
 		if(this.owner==player){
 			if(houseCount==0){
-			output.showNoPropertys(player.getName());
-			this.landOnField(player);
-			}
-			
-			
-			if(houseCount<=4){
-				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
-			if(choice==true){
-				setHouseCount(-1, player);	
-				output.setHouse(houseCount,fieldNo);
+				output.showNoPropertys(player.getName());
 				this.landOnField(player);
 			}
-		}
+
+
+			if(houseCount<=4){
+				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
+				if(choice==true){
+					setHouseCount(-1, player);	
+					output.setHouse(houseCount,fieldNo);
+					this.landOnField(player);
+				}
+			}
 			else if(houseCount==5){
 				boolean choice = output.promptSellProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]/2);
 				if(choice==true){
@@ -88,9 +96,9 @@ public class Territory extends AbstractOwnable {
 					output.setHotel(false,fieldNo);
 					this.landOnField(player);
 				}
-				
+
 			}
-	}	
+		}	
 	}
 
 	/******************************************************************
@@ -102,27 +110,28 @@ public class Territory extends AbstractOwnable {
 		if(this.owner==player){
 			if(houseCount<=3){
 				boolean choice = output.promptBuyProperty(player.getName(), price);
-			if(choice==true){
-				player.withdraw(price);
-				setHouseCount(1, player);
-				output.setHouse(houseCount,fieldNo);
-				this.landOnField(player);
+				if(choice==true){
+					player.withdraw(price);
+					setHouseCount(1, player);
+					output.setHouse(houseCount,fieldNo);
+					this.landOnField(player);
+				}
 			}
-		}
 			else if(houseCount==4){
 				boolean choice = output.promptBuyProperty(player.getName(), FieldData.FIELDPROPERTYBUY_DATA[fieldNo-1]);
 				if(choice==true){
-					
+
 					setHouseCount(1, player);	
 					output.setHotel(true, fieldNo);
 				}
-				
+
 			}
-	}
+		}
 		else{
 			output.showEnoughPropertys(player.getName());
 		}
 	}
+
 	/******************************************************
 	 * Gives the player the ability to sell an owned field*
 	 * @param player the player owning the field          *
@@ -144,20 +153,20 @@ public class Territory extends AbstractOwnable {
 				}
 			}
 		}
-		}
+	}
 	@Override
 	public int getFieldNo(){
 		return fieldNo;
 	}
+	
 	public int getHouseCount(){
 		return houseCount;
 	}
-	
 
-	/**
-	 * Transfer rent from player to owner
-	 * @param player the player which should transfer the money to the owner
-	 */
+	/************************************************************************
+	 * Transfer rent from player to owner									*
+	 * @param player the player which should transfer the money to the owner*
+	 ***********************************************************************/
 	private void transferRent(Player player){
 		switch (houseCount) {
 		case 1:
@@ -172,14 +181,14 @@ public class Territory extends AbstractOwnable {
 			owner.deposit(withdrawAmount2);
 			output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount2);
 			break;
-			
+
 		case 3:
 			int withdrawAmount3 = FieldData.FIELDRENT4_DATA[fieldNo-1];
 			player.withdraw(withdrawAmount3);
 			owner.deposit(withdrawAmount3);
 			output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount3);
 			break;
-			
+
 		case 4:
 			int withdrawAmount4 = FieldData.FIELDRENT5_DATA[fieldNo-1];
 			player.withdraw(withdrawAmount4);
@@ -213,10 +222,10 @@ public class Territory extends AbstractOwnable {
 		}
 		else if(houseCount==4){
 			return super.toString() + ", rent =" + FieldData.FIELDRENT5_DATA[fieldNo-1];
-}
+		}
 		else if(houseCount==5){
 			return super.toString() + ", rent =" + FieldData.FIELDRENT6_DATA[fieldNo-1];
-}
+		}
 		return super.toString()+ ", rent=" + rent;
 	}
 }
