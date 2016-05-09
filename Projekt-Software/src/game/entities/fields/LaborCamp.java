@@ -17,6 +17,10 @@ public class LaborCamp extends AbstractOwnable {
 		this.fieldNo = fieldNo;
 	}
 	
+	/************************************************************************
+	 * Method that will recognize the amount of rent you have to pay		*
+	 * if you land on another players labor camp.							*
+	 ***********************************************************************/
 	@Override
 	public void landOnField(Player player){
 		
@@ -46,8 +50,11 @@ public class LaborCamp extends AbstractOwnable {
 		return fieldNo;
 	}
 	
-
-	// method to transfer money from the player to the owner of the field
+	/************************************************************************
+	 * Method to transfer money from the player to the owner of the field	*
+	 * @param amountToPay The amount of money the player has to pay in rent	*
+	 * @param player The player who has to pay the rent						*
+	 ***********************************************************************/
 	private void transferRent(int amountToPay, Player player){
 		// withdraws the due rent or the rest of the players balance if he/she can't afford it 
 		int withdrawAmount = player.withdraw(amountToPay);

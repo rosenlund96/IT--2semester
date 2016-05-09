@@ -18,6 +18,10 @@ public class Fleet extends AbstractOwnable {
 
 	}
 
+	/********************************************************************
+	 * Method that will recognize the amount of rent you have to pay	*
+	 * if you land on another players fleet.							*
+	 *******************************************************************/
 	@Override
 	public void landOnField (Player player) {
 		if (owner == null)
@@ -42,6 +46,13 @@ public class Fleet extends AbstractOwnable {
 		}
 	}
 
+	/************************************************************************
+	 * Method that will transfer rent from one account to another.			*
+	 * 																		*
+	 * @param rentAmount The amount of rent the player has to pay the owner	*
+	 * @param player The player that has landed on a field where he has to	* 
+	 * 			pay rent.													*
+	 ***********************************************************************/
 	private void transferRent(int rentAmount, Player player){
 		int withdrawAmount = player.withdraw(rentAmount);
 		owner.deposit(withdrawAmount);
