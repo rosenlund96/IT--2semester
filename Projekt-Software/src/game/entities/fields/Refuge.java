@@ -15,14 +15,19 @@ public class Refuge extends AbstractField {
 		this.fieldNo = fieldNo;
 	}
 
+	/************************************************************************
+	 * This method will transfer money to the player who lands on a refuge	*
+	 * field.																*
+	 ***********************************************************************/
 	@Override
 	public void landOnField(Player player) {
-		// deposits amount specified in bonus the the player landed on this field
+		// deposits amount specified in bonus the player landed on this field
 		player.deposit(bonus);		
 		
 		// outputs result of deposit
 		output.showDepositMessage(player.getName(), bonus);
 	}
+	
 	/*******************************************
 	 * @return the specific bonus for the field*
 	 *******************************************/

@@ -16,8 +16,8 @@ public class LuckyCard extends AbstractField{
 	private int fieldNo;
 	String userHome = System.getProperty("user.home");
 	XMLReader reader = new XMLReader(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
-	
-	
+
+
 	public LuckyCard(FieldManager fieldManager, Outputable output, int fieldNo) {
 		super(fieldManager, FieldType.LUCKYCARD, output, fieldNo);
 		this.output = output;
@@ -28,9 +28,9 @@ public class LuckyCard extends AbstractField{
 	public int getFieldNo(){
 		return fieldNo;
 	}
-	
-	
-	
+
+
+
 	/************************************************************
 	 * Creates the array of fields use from the FieldData class *
 	 ************************************************************/
@@ -65,20 +65,20 @@ public class LuckyCard extends AbstractField{
 		}
 		return cards;
 	}
-	
+
 	//Draw a card like in a queue
-			public AbstractCard drawCard(Player player){
-				AbstractCard drawnCard;
-				drawnCard=cards[0];
-				drawnCard.drawCard(player);
-				for(int i = 0; i < (cards.length-1); i++){
-					cards[i]=cards[i+1];
-				}
-				cards[cards.length-1]=drawnCard;	
-				output.showCard(drawnCard.getText());
-				return drawnCard;
-			}
-	public void landOnField(Player player){
-	drawCard(player);
+	public AbstractCard drawCard(Player player){
+		AbstractCard drawnCard;
+		drawnCard=cards[0];
+		drawnCard.drawCard(player);
+		for(int i = 0; i < (cards.length-1); i++){
+			cards[i]=cards[i+1];
 		}
+		cards[cards.length-1]=drawnCard;	
+		output.showCard(drawnCard.getText());
+		return drawnCard;
+	}
+	public void landOnField(Player player){
+		drawCard(player);
+	}
 }

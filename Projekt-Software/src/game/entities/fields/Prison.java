@@ -21,10 +21,10 @@ public class Prison extends AbstractField{
 		this.fieldNo = fieldNo;
 
 	}
-	 /**********************************************************************
-	  * @param isImprisoned setting the boolean imprisoned for the specific*
-	  * @param player the player to manipulate                              *
-	  **********************************************************************/
+	/***********************************************************************
+	 * @param isImprisoned setting the boolean imprisoned for the specific	*
+	 * @param player the player to manipulate                              *
+	 **********************************************************************/
 	public void setImprisoned(boolean isImprisoned, Player player){
 		player.setImprisoned(isImprisoned);
 	}
@@ -32,7 +32,7 @@ public class Prison extends AbstractField{
 	public int getFieldNo(){
 		return fieldNo;
 	}
-	
+
 	/*******************************************************
 	 * Lets the player pay the fine, for getting imprisoned*
 	 * @param player the imprisoned player                 *
@@ -40,16 +40,20 @@ public class Prison extends AbstractField{
 	public void payFine(Player player){
 		player.withdraw(fine);
 		output.showWithdrawMessage(player.getName(), fine);
-
 	}
+
+	/************************************************************************
+	 * Method that will lock the player in prison for rounds to come.		*
+	 * @param timeInPrison How many rounds the player has to be imprisoned	*
+	 * @param player Player that is set to be imprisoned					*
+	 ***********************************************************************/
 	public void setTimeInPrison(int timeInPrison, Player player) {
 		player.setTimeInPrison(timeInPrison);
 	}
+
 	public void setOutOfJailCard(int outOfJailCard, Player player){
 		player.setOutOfJailCard(outOfJailCard);
 	}
-
-
 
 	/**************************************************************
 	 * Initializes the player choice for landing on a prison field*
@@ -96,8 +100,11 @@ public class Prison extends AbstractField{
 		}
 	}
 
-	
 
+	/********************************************************************
+	 * This method will imprison the active player if he lands on field	*
+	 * number 11 which is the prison field.								*
+	 *******************************************************************/
 	@Override
 	public void landOnField(Player player) {
 		if(fieldNo==11){
