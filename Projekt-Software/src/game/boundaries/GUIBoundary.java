@@ -213,6 +213,12 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1 + " " + bonus + " " + s2;
 		GUI.showMessage(msg);
 	}
+	@Override
+	public void showIsDoublesMessage(String name){
+		String s1 = reader.getElement("doubles", 0);
+		String msg = name + ": " + s1;
+		GUI.showMessage(msg);
+	}
 
 	/************************************************************************
 	 * Shows a message which says that there are not enough money in the	*

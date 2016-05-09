@@ -101,6 +101,8 @@ public interface Outputable {
 	public void showNextPlayerTurn(String name);
 	
 	public void setFieldOwners(String playerName, int fieldNumber);
+
+	public void showIsDoublesMessage(String name);
 	
 	
 

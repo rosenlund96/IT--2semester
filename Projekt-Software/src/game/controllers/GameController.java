@@ -207,13 +207,22 @@ public class GameController {
 					con.updateCardsTable(timeStamp, i, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
 				}
 			}
-			board.nextTurn();
+			if (dieCup.isDoubles()!= 0) {
+				turnNumber--;
+				output.showIsDoublesMessage(board.getActivePlayer().getName());
+				continue;
+	
+			}
+			else{
+				board.nextTurn();
 
-			// Check to see if we have a winner
-			if (board.getWinner()){
-				state = GameState.WIN_STATE;
-				return;
-			}		
+				// Check to see if we have a winner
+				if (board.getWinner()){
+					state = GameState.WIN_STATE;
+					return;
+				}		
+			}
+			
 		}
 
 	}
