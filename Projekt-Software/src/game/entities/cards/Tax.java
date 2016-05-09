@@ -23,6 +23,10 @@ public class Tax extends AbstractCard {
 		return cardNo;
 	}
 
+	/********************************************************************
+	 * Method that will collect tax following different scenarios from 	*
+	 * 'prøv lykken' cards												*
+	 *******************************************************************/
 	@Override
 	public void drawCard(Player player) {
 		int houses = player.getHousesOwned();
@@ -57,15 +61,8 @@ public class Tax extends AbstractCard {
 			break;
 			
 		}
-		
-		
-		
-		
-		
-		
 	}
 
-	
 	/************************************************************
 	 * Withdraws an amount of money from the players balance	*
 	 ***********************************************************/
@@ -82,7 +79,3 @@ public class Tax extends AbstractCard {
 		return super.toString() + ", tax=" + taxAmount;
 	}
 }
-
-	
-	
-

@@ -58,11 +58,8 @@ public class Refuge extends AbstractCard {
 			player.deposit(200*board.players.size());
 			break;
 			
-
 		}
-
 	}
-
 
 	public int getBonus(){
 		return bonus;
@@ -72,6 +69,5 @@ public class Refuge extends AbstractCard {
 	public String toString(){
 		return super.toString() + ", bonus=" + bonus;
 	}
-
 
 }
