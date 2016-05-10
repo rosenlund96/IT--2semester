@@ -1,6 +1,9 @@
 package game.entities;
 
+import java.util.ArrayList;
+
 import game.boundaries.Outputable;
+import game.controllers.GameController;
 import game.entities.cards.AbstractCard;
 import game.entities.cards.MoveActivePlayer;
 import game.entities.fields.AbstractField;
@@ -25,6 +28,7 @@ public class FieldManager {
 	public int newPosAmount;
 	public int oldPos;
 	public static AbstractCard[] cards;
+	public static AbstractCard[] loadedCards;
 	private final int NUMBER_OF_CARDS= 33;
 	String userHome = System.getProperty("user.home");
 	XMLReader reader = new XMLReader(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
@@ -160,13 +164,6 @@ public class FieldManager {
 			if(f instanceof AbstractOwnable){
 				if(((AbstractOwnable)f).getOwner() == player)
 					((AbstractOwnable)f).clearOwner();
-			}
-		}
-	}
-	public void loadCards(int fieldNumber, String[] cards){
-		for (int i = 0; i < fields.length; i++) {
-			if (fields[i] instanceof LuckyCard) {
-				
 			}
 		}
 	}

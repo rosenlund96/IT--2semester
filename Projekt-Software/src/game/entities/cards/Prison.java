@@ -7,15 +7,20 @@ import game.entities.Player;
 
 public class Prison extends AbstractOwnable {
 
+	protected Player owner; 
 	
 	public Prison(Outputable output, int cardNo) {
 		super(output, CardType.PRISON);
 		this.cardNo=cardNo;
+		this.owner = null;
 	}
 
 	
 	public int getCardNo(){
 		return cardNo;
+	}
+	public void setOwner(Player owner){
+		this.owner = owner;
 	}
 	
 	/********************************************************************

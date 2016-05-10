@@ -8,8 +8,11 @@ import game.boundaries.*;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
 import game.entities.Player;
+import game.entities.cards.AbstractCard;
+import game.entities.cards.MoveActivePlayer;
 import game.entities.fields.AbstractOwnable;
 import game.entities.fields.LuckyCard;
+import game.resources.CardEffect;
 import game.util.DBConnector;
 import game.util.DieCup;
 import game.util.Rollable;
@@ -38,6 +41,8 @@ public class GameController {
 	public Player tempPlayer;
 	public ArrayList<String> gameTable;
 	public ArrayList<String> fieldTable;
+	public ArrayList<String> cardTable;
+	public AbstractCard[] loadedCards;
 	private DBConnector con = new DBConnector();
 
 	private GameState state = GameState.LOAD_STATE;
@@ -101,6 +106,7 @@ public class GameController {
 				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
 				this.gameTable = con.loadGameToArray("SELECT * FROM game ");
 				this.fieldTable = con.loadFieldsToArray("SELECT * FROM field");
+				this.cardTable = con.loadCardstoArray("SELECT * FROM cards");
 			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -258,7 +264,7 @@ public class GameController {
 		}
 
 		for (int i = 0; i < 32; i++) {
-			con.addToCardsTable(gameName, i,FieldManager.cards[i].getCardNo(), null, FieldManager.cards[i].getText());
+			con.addToCardsTable(gameName, i,FieldManager.cards[i].getCardNo(), null, FieldManager.cards[i].getText(), FieldManager.cards[i].getCardType().toString());
 		}
 		output.removeAllOwners();
 
@@ -286,7 +292,6 @@ public class GameController {
 			String fieldOwner = fieldData[1];
 			int houseOnField = Integer.valueOf(fieldData[2]);
 			int hotelOnField = Integer.valueOf(fieldData[3]);
-			String fieldType =  fieldData[4];//skal fjernes fra DB
 			for (int i = 0; i < players.size(); i++) {
 				if (fieldOwner.startsWith(players.get(i).getName())) {
 				this.tempPlayer = players.get(i);
@@ -295,8 +300,7 @@ public class GameController {
 			if(board.fieldManager.fields[x] instanceof AbstractOwnable){
 					((AbstractOwnable)board.fieldManager.fields[x]).setOwner(tempPlayer);
 					this.tempPlayer=null;
-					}
-				
+					}	
 			if(!fieldOwner.startsWith("null")){
 			output.setFieldOwners(fieldOwner, fieldNumber);
 			output.setHouse(houseOnField, fieldNumber);
@@ -306,11 +310,49 @@ public class GameController {
 			else{
 				output.setHotel(false, fieldNumber);
 			}
-			
 			}
-		
 		}
 		System.out.println("Fields loaded");
+		loadedCards = new AbstractCard[FieldManager.cards.length-1];
+		for (int i = 0; i < FieldManager.cards.length-1; i++) {
+			String[] CardData = this.cardTable.get(i).split(";;");
+			int cardNo = Integer.valueOf(CardData[0]);
+			String cardOwner = CardData[1];
+			String cardText = CardData[2];
+			String cardType = CardData[3];
+			switch (cardType) {
+			case "REFUGE":
+				loadedCards[i] = new game.entities.cards.Refuge(output, CardEffect.CardEffect_DATA[cardNo-1], cardNo);
+				loadedCards[i].setText(cardText);
+				break;
+
+			case "TAX":
+				loadedCards[i] = new game.entities.cards.Tax(output, CardEffect.CardEffect_DATA[cardNo-1], cardNo);
+				loadedCards[i].setText(cardText);
+				break;
+				
+			case "PRISON":
+				loadedCards[i] = new game.entities.cards.Prison(output, cardNo);
+				loadedCards[i].setText(cardText);
+				break;
+				
+			case "MOVE":
+				loadedCards[i] = new MoveActivePlayer(output, cardNo);
+				loadedCards[i].setText(cardText);
+				break;
+			}
+			for (int x = 0; x < players.size(); x++) {
+				if (cardOwner.startsWith(players.get(x).getName())) {
+				this.tempPlayer = players.get(i);
+			if(loadedCards[i] instanceof game.entities.cards.AbstractOwnable){
+				((game.entities.cards.AbstractOwnable)loadedCards[i]).setOwner(tempPlayer);
+				this.tempPlayer = null;
+			}
+		}
 		
 	}
 }
+		FieldManager.cards=this.loadedCards;
+		System.out.println("Cards loaded");
+	}
+	}

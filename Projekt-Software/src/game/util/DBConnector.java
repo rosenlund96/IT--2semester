@@ -148,7 +148,19 @@ public class DBConnector {
 		}
 		return list;
 	}
-
+	public ArrayList<String> loadCardstoArray(String query) throws SQLException{
+		ArrayList<String> list= new ArrayList<String>();
+		Statement stmt = connection.createStatement();
+		ResultSet rs = stmt.executeQuery(query);
+		while(rs.next()){
+			int cardNo = rs.getInt("CardNo");
+			String cardOwner = rs.getString("CardOwner");
+			String cardText = rs.getString("CardText");
+			String cardType = rs.getString("CardType");
+			list.add(cardNo+";;"+cardOwner+";;"+cardText+";;"+cardType);
+		}
+		return list;
+	}
 	/************************************************************************
 	 * SQL method to create a schema of games. It saves everything from the	*
 	 * GameController so that it is stored for when you come back.			*
@@ -221,6 +233,7 @@ public class DBConnector {
 	public void createCards(String gameName){
 		String query =("CREATE TABLE IF NOT EXISTS " + gameName+".cards " +
 				"(CardNo int (11) NOT NULL," +
+				"CardType varchar (45) NOT NULL, " +
 				"CardIndex int (11) DEFAULT NULL, " +
 				"CardOwner varchar (45) DEFAULT NULL, " + 
 				"CardText varchar (4096) NOT NULL, " +
@@ -383,9 +396,9 @@ public class DBConnector {
 
 	}
 
-	public void addToCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText){
-		String query = ("INSERT INTO " + gameName+".cards(CardNo,CardIndex, CardOwner, CardText)" +
-				"VALUES('"+cardNo+"', '"+cardIndex+"', '"+cardOwner+"', '"+cardText+"');");
+	public void addToCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText, String cardType){
+		String query = ("INSERT INTO " + gameName+".cards(CardNo, CardType ,CardIndex, CardOwner, CardText)" +
+				"VALUES('"+cardNo+"', '"+cardType+"', '"+cardIndex+"', '"+cardOwner+"', '"+cardText+"');");
 
 		try {
 			doUpdate(query);
