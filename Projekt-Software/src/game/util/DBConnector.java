@@ -15,7 +15,6 @@ public class DBConnector {
 	/** @author Ronnie Dalsgaard */
 	private final String HOST     = "Localhost";
 	private final int    PORT     = 3307;
-	private final String DATABASE = "test";
 	private final String USERNAME = "root"; 
 	private final String PASSWORD = "usbw";
 	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
@@ -30,7 +29,7 @@ public class DBConnector {
 	public DBConnector() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+			String url = "jdbc:mysql://" + HOST + ":" + PORT + "/";
 			connection = DriverManager.getConnection(url, USERNAME, PASSWORD);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
