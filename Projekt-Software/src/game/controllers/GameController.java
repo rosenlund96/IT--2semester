@@ -204,7 +204,7 @@ public class GameController {
 			con.updateGameTable(timeStamp, state.name(), this.turnNumber, board.getActivePlayerName());
 			if(board.fieldManager.fields[board.getActivePlayerPosition()] instanceof LuckyCard){
 				for (int i = 0; i < 32; i++) {
-					con.updateCardsTable(timeStamp, i, LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
+					con.updateCardsTable(timeStamp, i, FieldManager.cards[i].getCardNo(), null, FieldManager.cards[i].getText());
 				}
 			}
 			if (dieCup.isDoubles()!= 0) {

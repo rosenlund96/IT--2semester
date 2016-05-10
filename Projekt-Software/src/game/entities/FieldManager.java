@@ -1,6 +1,8 @@
 package game.entities;
 
 import game.boundaries.Outputable;
+import game.entities.cards.AbstractCard;
+import game.entities.cards.MoveActivePlayer;
 import game.entities.fields.AbstractField;
 import game.entities.fields.Fleet;
 import game.entities.fields.LaborCamp;
@@ -14,6 +16,7 @@ import game.entities.fields.Territory;
 import game.entities.fields.AbstractField.FieldType;
 import game.resources.CardEffect;
 import game.resources.FieldData;
+import game.util.XMLReader;
 
 public class FieldManager {
 
@@ -21,13 +24,17 @@ public class FieldManager {
 	public AbstractField[] fields;
 	public int newPosAmount;
 	public int oldPos;
-
+	public static AbstractCard[] cards;
+	private final int NUMBER_OF_CARDS= 33;
+	String userHome = System.getProperty("user.home");
+	XMLReader reader = new XMLReader(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
 
 	/**************************************************
 	 * Constructor, takes a GUI to pass to the fields *
 	 **************************************************/
 	public FieldManager(Outputable gui){
 		initializeFields(gui);
+		initializeCards(gui);
 
 	}
 
@@ -156,8 +163,48 @@ public class FieldManager {
 			}
 		}
 	}
+	public void loadCards(int fieldNumber, String[] cards){
+		for (int i = 0; i < fields.length; i++) {
+			if (fields[i] instanceof LuckyCard) {
+				
+			}
+		}
+	}
+	/**********************************************************************
+	 * Creates the luckyCards and places them in a AbstractCard array     *
+	 * @param gui the outputable interface, for communication with the gui*
+	 **********************************************************************/
+	
+	public void initializeCards(Outputable gui){
+		cards = new AbstractCard[NUMBER_OF_CARDS];
 
-
+		for (int i = 0; i < NUMBER_OF_CARDS; i++) {
+			switch(CardEffect.CardType_DATA[i]){
+			case MOVE:
+				cards[i] = new MoveActivePlayer(gui, CardEffect.CardNo_DATA[i]);
+				cards[i].setText(reader.getElement("cards", CardEffect.CardNo_DATA[i]-1));
+				break;
+			case PRISON:
+				cards[i] = new game.entities.cards.Prison(gui, CardEffect.CardNo_DATA[i]);
+				cards[i].setText(reader.getElement("cards", CardEffect.CardNo_DATA[i]-1));
+				break;
+			case REFUGE:
+				cards[i] = new game.entities.cards.Refuge(gui, CardEffect.CardEffect_DATA[i], CardEffect.CardNo_DATA[i]);
+				cards[i].setText(reader.getElement("cards", CardEffect.CardNo_DATA[i]-1));
+				break;
+			case TAX:
+				cards[i] = new game.entities.cards.Tax(gui, CardEffect.CardEffect_DATA[i], CardEffect.CardNo_DATA[i]);
+				cards[i].setText(reader.getElement("cards", CardEffect.CardNo_DATA[i]-1));
+				break;
+			}	
+		}	
+		for(int i = 0; i < cards.length; i++) {
+			int j = (int) (Math.random()*cards.length);
+			AbstractCard tmpCard = cards[i];
+			cards[i] = cards[j];
+			cards[j] = tmpCard;
+		}
+	}
 
 	/*************************************************************
 	 * Creates the array of fields used from the FieldData class *
