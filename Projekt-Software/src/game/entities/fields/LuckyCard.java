@@ -10,9 +10,7 @@ import game.boundaries.*;
 
 public class LuckyCard extends AbstractField{
 
-	public static AbstractCard[] cards;
 	public AbstractCard drawnCard;
-	private final int NUMBER_OF_CARDS= 33;
 	private Outputable output;
 	private int fieldNo;
 	

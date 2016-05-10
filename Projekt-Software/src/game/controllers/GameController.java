@@ -258,7 +258,7 @@ public class GameController {
 		}
 
 		for (int i = 0; i < 32; i++) {
-			con.addToCardsTable(gameName, i,LuckyCard.cards[i].getCardNo(), null, LuckyCard.cards[i].getText());
+			con.addToCardsTable(gameName, i,FieldManager.cards[i].getCardNo(), null, FieldManager.cards[i].getText());
 		}
 		output.removeAllOwners();
 

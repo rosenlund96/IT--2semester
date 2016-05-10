@@ -76,10 +76,11 @@ public class LuckyCardTest {
 	@Test
 	public void newPrisonCardTest(){
 		//setup
+		FieldManager manager = new FieldManager(output);
 		LuckyCard card = new LuckyCard(fm,output,0);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0,0,0);
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
-		assertEquals("Cards instantiated, and array not empty", true,LuckyCard.cards.length>0);
+		assertEquals("Cards instantiated, and array not empty", true,FieldManager.cards.length>0);
 		//Act
 		AbstractCard oldCard = card.drawCard(p1);
 		AbstractCard newCard = card.drawCard(p1);
