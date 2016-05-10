@@ -147,7 +147,6 @@ public class DBConnector {
 			//Gemmer alt om felter.
 			String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".field " +
 					"(fieldNo int (11) NOT NULL," +
-					"fieldType varchar (45) NOT NULL," + 
 					"fieldOwner varchar (45) DEFAULT NULL, " +
 					"houseOnField int(2) DEFAULT NULL, " + 
 					"hotelOnField tinyint(1) DEFAULT NULL, " +
@@ -177,8 +176,8 @@ public class DBConnector {
 		}
 	
 		public void addToFieldTable(String gameName, String playerName, int fieldNo, int housesOnField, int hotelsOnField, String fieldType) {
-			String query = ("INSERT INTO " + gameName+".field(fieldNo, fieldType, fieldOwner, houseOnField, hotelOnField)" +
-							"VALUES('"+fieldNo+"','"+fieldType+"', '"+playerName+"','"+housesOnField+"','"+hotelsOnField+"');");
+			String query = ("INSERT INTO " + gameName+".field(fieldNo, fieldOwner, houseOnField, hotelOnField)" +
+							"VALUES('"+fieldNo+"', '"+playerName+"','"+housesOnField+"','"+hotelsOnField+"');");
 			
 			try {
 				doUpdate(query);

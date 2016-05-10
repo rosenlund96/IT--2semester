@@ -397,13 +397,17 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ": " + s1;
 		GUI.displayChanceCard(msg);
 	}
-
+	/*******************************************************************************
+	 * The player already has a hotel, and cannot buy more properties for the field*
+	 *******************************************************************************/
 	@Override
 	public void showEnoughPropertys(String name) {
 		String msg = name + ": " + reader.getElement("noMore", 0);
 		GUI.showMessage(msg);
 	}
-
+	/***********************************************************
+	 * The player has no properties, and can derfefore not sell*
+	 ***********************************************************/
 	@Override
 	public void showNoPropertys(String name) {
 		String msg = name + ": " + reader.getElement("noMore", 1);
@@ -559,6 +563,14 @@ public class GUIBoundary implements Outputable{
 		return GUI.getUserLeftButtonPressed(msg, yes, no);
 	}
 
+	/********************************************************
+	 * Prompts the player to take a choice, when imprisoned.*
+	 * Either pay the fine                                  *
+	 * Roll the dice                                        *
+	 * Use a jailcard                                       *
+	 * or wait 3 rounds                                     *
+	 * @param playerName the player on the field            *
+	 ********************************************************/
 	
 	@Override
 	public int PromptPrison(String playerName) {
@@ -634,7 +646,9 @@ public class GUIBoundary implements Outputable{
 		}
 	}
 
-	
+	/************************************************************************************************
+	 * Prompts the player to take a choice whether he wants to sell, buy or do nothing on his field.*
+	 ************************************************************************************************/
 	@Override
 	public int promptAction(String name) {
 		String s1 = reader.getElement("action", 0);
