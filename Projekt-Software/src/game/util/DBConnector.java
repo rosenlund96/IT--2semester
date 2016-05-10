@@ -148,6 +148,13 @@ public class DBConnector {
 		}
 		return list;
 	}
+	
+	/****************************************************************************
+	 * Method that will create an arraylist of the cards in the database		*
+	 * and will create the columns listed under in the Cards schema.			*
+	 * @param query The SQL command we want to complete is defined by the query	*
+	 * @return The list of cards that all have the same columns in the schema	*
+	 ***************************************************************************/
 	public ArrayList<String> loadCardstoArray(String query) throws SQLException{
 		ArrayList<String> list= new ArrayList<String>();
 		Statement stmt = connection.createStatement();
@@ -183,7 +190,7 @@ public class DBConnector {
 	}
 
 	/************************************************************************
-	 * SQL method to create a schema of players. It saves everything about 	*
+	 * SQL method to create a table of players. It saves everything about 	*
 	 * the players so that it is stored for when you come back.				*
 	 * @param gameName Name of the game that is being played. This will be	*
 	 * 			the time and date of the play initiation.					*
@@ -208,7 +215,7 @@ public class DBConnector {
 	}
 
 	/************************************************************************
-	 * SQL method to create a schema of fields. It saves everything about 	*
+	 * SQL method to create a table of fields. It saves everything about 	*
 	 * the fields so that it is stored for when you come back. Ex. how many *
 	 * houses/hotels are on the different fields.							*
 	 * @param gameName Name of the game that is being played. This will be	*
@@ -230,6 +237,12 @@ public class DBConnector {
 		}
 	}
 
+	/************************************************************************
+	 * SQL method to create a table of the cardstack. It saves everything 	*
+	 * about the cards so that it is stored for when you come back. 		*					*
+	 * @param gameName Name of the game that is being played. This will be	*
+	 * 			the time and date of the play initiation.					*
+	 ***********************************************************************/
 	public void createCards(String gameName){
 		String query =("CREATE TABLE IF NOT EXISTS " + gameName+".cards " +
 				"(CardNo int (11) NOT NULL," +
@@ -269,15 +282,15 @@ public class DBConnector {
 
 	}
 
-	/***
-	 * Adds player to table when gameBoard is initialized.
+	/****************************************************************
+	 * Adds player to table when gameBoard is initialized.			*
 	 * @param gameName Name of the game that is being played. 		*
-	 * @param playerIndex 
-	 * @param playerName Name of the player being added.
-	 * @param balance The balance of the player being added.
-	 * @param housesOwned How many houses the player owns.
-	 * @param hotelsOwned How many hotels the player owns.
-	 * @param prisonCards If the player has any prisoncards.
+	 * @param playerIndex Keeps order of the players.				*
+	 * @param playerName Name of the player being added.			*
+	 * @param balance The balance of the player being added.		*
+	 * @param housesOwned How many houses the player owns.			*
+	 * @param hotelsOwned How many hotels the player owns.			*
+	 * @param prisonCards If the player has any prisoncards.		*
 	 * @param playerPosition Where the player is on the gameBoard.	*
 	 ***************************************************************/
 	public void addToPlayerTable(String gameName, int playerIndex,String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
@@ -396,6 +409,15 @@ public class DBConnector {
 
 	}
 
+	/****************************************************************
+	 * Adds cards to the card table.								*
+	 * @param gameName Name of the game being played.				*
+	 * @param cardIndex Keeps order of the cards in the stack.		*
+	 * @param cardNo Card identification of the card being added. 	*
+	 * @param cardOwner Owner of the card being owned.				*
+	 * @param cardText Text that is written on the card.			*
+	 * @param cardType Type of card that is being added.			*
+	 ***************************************************************/
 	public void addToCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText, String cardType){
 		String query = ("INSERT INTO " + gameName+".cards(CardNo, CardType ,CardIndex, CardOwner, CardText)" +
 				"VALUES('"+cardNo+"', '"+cardType+"', '"+cardIndex+"', '"+cardOwner+"', '"+cardText+"');");
@@ -408,6 +430,14 @@ public class DBConnector {
 		}
 	}
 
+	/********************************************************************
+	 * Updates the card table whenever there are changes to the stack.	*
+	 * @param gameName Name of the game that is being updated.			*
+	 * @param cardIndex Keeps order of the cards in the stack.			*
+	 * @param cardNo Card identification of the card being updated.		*
+	 * @param cardOwner Owner of the card being updated.				*
+	 * @param cardText Text that is written on the card.				*
+	 *******************************************************************/
 	public void updateCardsTable(String gameName, int cardIndex,int cardNo, String cardOwner, String cardText){
 		String query = ("UPDATE "+ gameName+".cards " +
 				"SET CardNo='"+cardNo+"', CardOwner='"+cardOwner+"', CardText='"+cardText+"'" +
@@ -419,12 +449,25 @@ public class DBConnector {
 			e.printStackTrace();
 		}
 	} 
+	
+	/********************************************************************
+	 * Creates the three tables that are in the database once the game	*
+	 * is initiated.													*
+	 * @param gameName Name of the game being created.					*
+	 *******************************************************************/
 	public void createTables(String gameName){
 		createGame(gameName);
 		createField(gameName);
 		createPlayersList(gameName);
 		createCards(gameName);
 	}
+	
+	/************************************************************************
+	 * Creates the game database and gives the database a unique name		*
+	 * using a timestamp.													*
+	 * @param timeStamp The exact time and date of the creation of the DB.	*
+	 * @return Returns the exact time and date for when the DB was created.	*
+	 ***********************************************************************/
 	public String createGameDB(String timeStamp){
 		try {
 			doUpdate(createDB);
