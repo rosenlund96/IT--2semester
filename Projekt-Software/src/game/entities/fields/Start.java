@@ -23,14 +23,15 @@ public class Start extends AbstractField {
 		return fieldNo;
 	}
 
+	/********************************************************************
+	 * This method will deposit a bonus to the players account when he	*
+	 * moves across the 'start' field.									*
+	 *******************************************************************/
 	public void landOnField(Player player) {
 		player.deposit(bonus);
 		output.showPassStartMessage(player.getName());
 		
-		
-		
 	}
-	
 
 }
 

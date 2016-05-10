@@ -15,6 +15,11 @@ public class Tax extends AbstractField {
 		this.fieldNo = fieldNo;
 	}
 
+	/************************************************************************
+	 * This method will decide how much tax you have to pay if you land on a*	
+	 * tax field. If you have the option to pay 10% or 4000 kr. this method	*
+	 * will also prompt this option.										*
+	 ***********************************************************************/
 	@Override
 	public void landOnField(Player player) {
 		// If tax is 2000
