@@ -50,6 +50,8 @@ public class DBConnector {
 	public ResultSet doQuery(String query) throws SQLException{
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(query);
+		stmt.close();
+		rs.close();
 		return rs;
 	}
 
@@ -61,6 +63,8 @@ public class DBConnector {
 	public void doUpdate(String query) throws SQLException{
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate(query);
+		stmt.close();
+		
 	}
 
 	/****************************************************************************
@@ -80,7 +84,9 @@ public class DBConnector {
 
 		String[] result = new String[list.size()];
 		result = list.toArray(result);
-
+		
+		stmt.close();
+		rs.close();
 		return result;
 	}
 
@@ -111,6 +117,8 @@ public class DBConnector {
 				list.add(player);
 			}			
 		}
+		stmt.close();
+		rs.close();
 		return list;
 	}
 
@@ -131,6 +139,8 @@ public class DBConnector {
 			list.add(PlayerName);
 			list.add(String.valueOf(TurnNumber));
 		}
+		stmt.close();
+		rs.close();
 		return list;
 	}
 
@@ -153,6 +163,8 @@ public class DBConnector {
 			list.add(fieldNo+","+fieldOwner+","+housesOnField+","+hotelOnField);
 
 		}
+		stmt.close();
+		rs.close();
 		return list;
 	}
 	
@@ -173,6 +185,8 @@ public class DBConnector {
 			String cardType = rs.getString("CardType");
 			list.add(cardNo+";;"+cardOwner+";;"+cardText+";;"+cardType);
 		}
+		stmt.close();
+		rs.close();
 		return list;
 	}
 	/************************************************************************
