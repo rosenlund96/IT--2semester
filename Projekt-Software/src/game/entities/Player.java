@@ -42,7 +42,7 @@ public class Player {
 		return isBroke; 
 	}
 
-	private void setBroke(boolean isBroke){
+	public void setBroke(boolean isBroke){
 		this.isBroke = isBroke;
 	}
 	public boolean getImprisoned(){

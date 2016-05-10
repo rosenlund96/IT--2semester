@@ -205,7 +205,7 @@ public class GameController {
 			turnNumber++;
 
 			// Changes turn
-			con.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition());
+			con.updatePlayerTable(timeStamp, board.getActivePlayerName(), board.getActivePlayerBalance(), board.getActivePlayerHouses(), board.getActivePlayerHotels(), board.getActivePlayerPrisonCards(),board.getActivePlayerPosition(), board.isActivePlayerBroke());
 			con.updateFieldTable(timeStamp, fieldManager.getFieldOwner(board.getActivePlayerPosition(),board.getActivePlayer()),board.getActivePlayerPosition(), fieldManager.getHouseCount(board.getActivePlayerPosition(),board.getActivePlayer()), fieldManager.getHotelCount(board.getActivePlayerPosition(), board.getActivePlayer()));
 			con.updateGameTable(timeStamp, state.name(), this.turnNumber, board.getActivePlayerName());
 			if(board.fieldManager.fields[board.getActivePlayerPosition()] instanceof LuckyCard){
@@ -257,7 +257,7 @@ public class GameController {
 		board = new GameBoard(names,STARTING_BALANCE,STARTING_POSITION,STARTING_HOUSES,STARTING_HOTELS,STARTING_PRISONTIME, STARTING_PRISONCARDS, output);
 		con.addToGameTable(timeStamp, state.name(), this.turnNumber, null);
 		for (int i = 0; i < names.size(); i++) {
-			con.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION);
+			con.addToPlayerTable(timeStamp, i,names.get(i), STARTING_BALANCE, STARTING_HOUSES, STARTING_HOTELS, STARTING_PRISONCARDS,STARTING_POSITION, null);
 		}
 		for (int i = 0; i < fieldManager.NUMBER_OF_FIELDS; i++) {
 			con.addToFieldTable(timeStamp, null, fieldManager.fields[i].getFieldNo()-1, 0, 0, fieldManager.fields[i].getFieldType().toString());
@@ -281,6 +281,7 @@ public class GameController {
 			board.players.get(j).setOutOfJailCard(players.get(j).getOutOfJailCard());
 			board.players.get(j).setHousesOwned(players.get(j).getHousesOwned());
 			board.players.get(j).setHotelsOwned(players.get(j).getHotelsOwned());
+			board.players.get(j).setBroke(players.get(j).getBroke());
 			output.addPlayer(board.players.get(j).getName(), board.players.get(j).getBalance(), j);
 			output.update(dieCup.getDice(), board.players.get(j).getPosition(), board.players.get(j).getBalance(), board.players.get(j).getName());
 			

@@ -21,6 +21,7 @@ public class DBConnector {
 	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
 	String createDB = "CREATE DATABASE " + timeStamp;
 	public Connection connection;
+	public boolean broke;
 
 	/****************************************************************
 	 * This method is used to create a connection to the specific	*
@@ -101,8 +102,14 @@ public class DBConnector {
 			int HotelsOwned = rs.getInt("hotelsOwned");
 			int PrisonCards = rs.getInt("prisonCards");
 			int PlayerPosition = rs.getInt("playerPosition");
-			Player player = new Player(PlayerName, PlayerBalance, PlayerPosition, false, false, 0, PrisonCards, HousesOwned, HotelsOwned);
-			list.add(player);
+			String isBroke = rs.getString("isBroke");
+			if(isBroke.startsWith(PlayerName)){
+				continue;
+			}
+			else{
+				Player player = new Player(PlayerName, PlayerBalance, PlayerPosition, false, false, 0, PrisonCards, HousesOwned, HotelsOwned);
+				list.add(player);
+			}			
 		}
 		return list;
 	}
@@ -190,14 +197,15 @@ public class DBConnector {
 	 ***********************************************************************/
 	public void createPlayersList(String gameName){
 		String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".player_list " +
-				"(playerName varchar(45) NOT NULL, " + 
+				"(playerName varchar(45) DEFAULT NULL, " + 
 				"playerIndex int (11) NOT NULL, " +
 				"playerBalance int (11) DEFAULT NULL, " +
 				"housesOwned int(2) DEFAULT NULL, " +
 				"hotelsOwned tinyint (1) DEFAULT NULL, " + 
+				"isBroke varchar (45) DEFAULT NULL, " +
 				"prisonCards int (1) DEFAULT NULL, " +
 				"playerPosition int (2) DEFAULT NULL, " +
-				"PRIMARY KEY (playerIndex));");
+				"UNIQUE KEY (playerName));");
 
 		try {
 			doUpdate(query);
@@ -218,7 +226,7 @@ public class DBConnector {
 		//Gemmer alt om felter.
 		String query = ("CREATE TABLE IF NOT EXISTS " + gameName+".field " +
 				"(fieldNo int (11) NOT NULL," +
-				"fieldOwner varchar (45) DEFAULT NULL, " +
+				"fieldOwner varchar(45) DEFAULT NULL, " +
 				"houseOnField int(2) DEFAULT NULL, " + 
 				"hotelOnField tinyint(1) DEFAULT NULL, " +
 				"PRIMARY KEY (fieldNo));");
@@ -280,9 +288,9 @@ public class DBConnector {
 	 * @param prisonCards If the player has any prisoncards.
 	 * @param playerPosition Where the player is on the gameBoard.	*
 	 ***************************************************************/
-	public void addToPlayerTable(String gameName, int playerIndex,String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
-		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerIndex,playerBalance, housesOwned, hotelsOwned, prisonCards, playerPosition)" +
-				"VALUES('"+playerName+"','"+playerIndex+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+prisonCards+"','"+playerPosition+"');");
+	public void addToPlayerTable(String gameName, int playerIndex,String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition, String isBroke){
+		String query = ("INSERT INTO " + gameName+".player_list(playerName, playerIndex,playerBalance, housesOwned, hotelsOwned,isBroke, prisonCards, playerPosition)" +
+				"VALUES('"+playerName+"','"+playerIndex+"','"+balance+"','"+housesOwned+"','"+hotelsOwned+"','"+isBroke+"','"+prisonCards+"','"+playerPosition+"');");
 		try {
 			doUpdate(query);
 		} catch (SQLException e) {
@@ -302,9 +310,9 @@ public class DBConnector {
 	 * @param prisonCards If the player has any prisoncards.			*
 	 * @param playerPosition Where the player is on the gameBoard.		*
 	 *******************************************************************/
-	public void updatePlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition){
+	public void updatePlayerTable(String gameName, String playerName, int balance, int housesOwned, int hotelsOwned, int prisonCards, int playerPosition, String isBroke){
 		String query = ("UPDATE "+ gameName+".player_list " +
-				"SET playerBalance='"+balance+"', housesOwned='"+housesOwned+"', hotelsOwned='"+hotelsOwned+"', prisonCards='"+prisonCards+"', playerPosition='"+playerPosition+"' " + 
+				"SET playerBalance='"+balance+"', housesOwned='"+housesOwned+"', hotelsOwned='"+hotelsOwned+"', prisonCards='"+prisonCards+"', playerPosition='"+playerPosition+"', isBroke='"+isBroke+"' " + 
 				"WHERE playerName='"+playerName+"';");
 
 		try {
@@ -421,8 +429,8 @@ public class DBConnector {
 	} 
 	public void createTables(String gameName){
 		createGame(gameName);
-		createField(gameName);
 		createPlayersList(gameName);
+		createField(gameName);
 		createCards(gameName);
 	}
 	public String createGameDB(String timeStamp){
