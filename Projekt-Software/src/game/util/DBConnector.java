@@ -155,7 +155,7 @@ public class DBConnector {
 	 * @param query The SQL command we want to complete is defined by the query	*
 	 * @return The list of cards that all have the same columns in the schema	*
 	 ***************************************************************************/
-	public ArrayList<String> loadCardstoArray(String query) throws SQLException{
+	public ArrayList<String> loadCardsToArray(String query) throws SQLException{
 		ArrayList<String> list= new ArrayList<String>();
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(query);

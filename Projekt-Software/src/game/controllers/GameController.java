@@ -106,7 +106,7 @@ public class GameController {
 				this.players = con.loadPlayersToArray("SELECT * FROM player_list ");
 				this.gameTable = con.loadGameToArray("SELECT * FROM game ");
 				this.fieldTable = con.loadFieldsToArray("SELECT * FROM field");
-				this.cardTable = con.loadCardstoArray("SELECT * FROM cards");
+				this.cardTable = con.loadCardsToArray("SELECT * FROM cards");
 			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
