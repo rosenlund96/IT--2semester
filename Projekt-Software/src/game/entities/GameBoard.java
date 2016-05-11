@@ -67,7 +67,7 @@ public class GameBoard {
 	/******************************************************
 	 * Moves the player an int amount from where he is    *
 	 ******************************************************/
-	public void moveActivePlayer(int amount ){
+	public void moveActivePlayer(int amount){
 		players.get(playerTurn).setPosition((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields());
 		fieldManager.newPosAmount=amount;
 		fieldManager.oldPos=players.get(playerTurn).getPosition()-amount;
