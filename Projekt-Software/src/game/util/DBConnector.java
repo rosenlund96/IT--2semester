@@ -12,7 +12,7 @@ import java.util.Calendar;
 import game.entities.Player;
 
 public class DBConnector {
-	/** @author Ronnie Dalsgaard */
+	
 	private final String HOST     = "Localhost";
 	private final int    PORT     = 3307;
 	private final String USERNAME = "root"; 

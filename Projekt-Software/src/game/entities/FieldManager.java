@@ -1,9 +1,7 @@
 package game.entities;
 
-import java.util.ArrayList;
 
 import game.boundaries.Outputable;
-import game.controllers.GameController;
 import game.entities.cards.AbstractCard;
 import game.entities.cards.MoveActivePlayer;
 import game.entities.fields.AbstractField;
