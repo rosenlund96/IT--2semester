@@ -29,7 +29,7 @@ public class FieldManager {
 	public int oldPos;
 	public static AbstractCard[] cards;
 	public static AbstractCard[] loadedCards;
-	private final int NUMBER_OF_CARDS= 33;
+	private final int NUMBER_OF_CARDS = 33;
 	String userHome = System.getProperty("user.home");
 	XMLReader reader = new XMLReader(userHome+"/git/IT--2semester/Projekt-Software/resources/language2.xml");
 
