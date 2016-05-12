@@ -27,7 +27,7 @@ public class LuckyCardTest {
 	}
 	
 	@Test
-	public void MovaActivePlayerTest() {
+	public void MoveActivePlayerTest() {
 		
 		//Setup
 		int cardNo = 15;
