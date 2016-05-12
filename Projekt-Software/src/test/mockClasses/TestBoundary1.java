@@ -146,7 +146,7 @@ public class TestBoundary1 implements Outputable {
 	@Override
 	public int PromptPrison(String playerName) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
 
 	@Override

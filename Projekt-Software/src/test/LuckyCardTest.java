@@ -59,7 +59,7 @@ public class LuckyCardTest {
 		assertEquals("Player balance should now be 2000", 2000, player.getBalance());
 	}
 	@Test
-	public void PrisonCardTest(){
+	public void usePrisonCardTest(){
 		//Setup
 		Prison prisonCard = new Prison(output, 0);
 		game.entities.fields.Prison prisonField = new game.entities.fields.Prison(fm, output, 11);
@@ -68,15 +68,16 @@ public class LuckyCardTest {
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
 		
 		//Act and asserts
-		prisonField.landOnField(p1);
-		assertEquals("Player should now be imprisoned", true, p1.getImprisoned());
 		prisonCard.drawCard(p1);
 		assertEquals("Player should now have a prison card", 1, p1.getOutOfJailCard());
+		prisonField.landOnField(p1);
+		assertEquals("Player should now be imprisoned, but uses jailcard", 0, p1.getOutOfJailCard());
+		
+		
 	}
 	@Test
-	public void newPrisonCardTest(){
+	public void LuckyCardQueueTest(){
 		//setup
-		FieldManager manager = new FieldManager(output);
 		LuckyCard card = new LuckyCard(fm,output,0);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0,0,0);
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
@@ -87,6 +88,20 @@ public class LuckyCardTest {
 
 		//Asserts
 		assertEquals("The two cards drawn, should not be the same, as cards are stored as a queue", false,oldCard==newCard);
+	}
+	@Test
+	public void taxCardTest(){
+		//Setup
+		Player p1 = new Player("name", 25000, 0, false, false ,0,0,4,2);
+		game.entities.cards.Tax taxCard = new game.entities.cards.Tax(output, 0, 13);
+		assertEquals("Player instantiated with balance 25000, and 4 houses plus 2 hotels", 25000, p1.getBalance());
+		assertEquals("The cardNumber of the taxField should be 13", 13,taxCard.getCardNo());
+		
+		//Act
+		taxCard.drawCard(p1);
+		
+		//Asserts
+		assertEquals("Player balance should now be 17.200", 17200, p1.getBalance());
 	}
 	
 }
