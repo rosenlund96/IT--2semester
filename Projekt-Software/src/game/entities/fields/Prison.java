@@ -1,7 +1,6 @@
 package game.entities.fields;
 
 import game.boundaries.Outputable;
-import game.controllers.GameController;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
 import game.entities.Player;

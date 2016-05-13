@@ -1,6 +1,5 @@
 package game.entities.fields;
 
-import javax.management.modelmbean.DescriptorSupport;
 
 import game.boundaries.Outputable;
 import game.entities.FieldManager;

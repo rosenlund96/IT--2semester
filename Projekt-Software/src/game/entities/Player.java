@@ -19,7 +19,7 @@ public class Player {
 		this.isBroke = false; 
 		this.position = position;
 		this.isImprisoned = false;
-		this.timeInPrison = 0;
+		Player.timeInPrison = 0;
 		this.outOfJailCard = 0;
 		this.housesOwned = housesOwned;
 		this.hotelsOwned = hotelsOwned;
@@ -75,9 +75,9 @@ public class Player {
 	 * @param timeInPrison Rounds in which the player cannot participate	*
 	 ***********************************************************************/
 	public void setTimeInPrison(int timeInPrison) {
-		this.timeInPrison=getTimeInPrison()+timeInPrison;
+		Player.timeInPrison=getTimeInPrison()+timeInPrison;
 		if(getTimeInPrison()==3){
-			this.timeInPrison=0;
+			Player.timeInPrison=0;
 			this.withdraw(1000);
 			this.setImprisoned(false);
 		}

@@ -287,4 +287,16 @@ public class TestBoundary1 implements Outputable {
 		
 	}
 
+	@Override
+	public void showFreeMessage(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showNotFreeMessage(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

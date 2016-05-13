@@ -2,9 +2,7 @@ package game.entities.fields;
 
 import game.entities.*;
 import game.entities.cards.AbstractCard;
-import game.resources.CardEffect;
 import game.util.XMLReader;
-import game.entities.cards.MoveActivePlayer;
 import game.boundaries.*;
 
 
