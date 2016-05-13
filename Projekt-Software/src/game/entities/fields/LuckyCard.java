@@ -27,7 +27,11 @@ public class LuckyCard extends AbstractField{
 		return fieldNo;
 	}
 
-	//Draw a card like in a queue
+	/********************************************
+	 * Draws a card like in a queue             * 
+	 * @param player the player drawing the card*
+	 * @return Returns the drawed card          *
+	 ********************************************/
 	public AbstractCard drawCard(Player player){
 		
 		this.drawnCard=FieldManager.cards[0];
