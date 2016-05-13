@@ -72,13 +72,15 @@ public class LuckyCardTest {
 		assertEquals("Player should now have a prison card", 1, p1.getOutOfJailCard());
 		prisonField.landOnField(p1);
 		assertEquals("Player should now be imprisoned, but uses jailcard", 0, p1.getOutOfJailCard());
+		assertEquals("Player is not imprisoned", false,p1.getImprisoned());
 		
 		
 	}
 	@Test
 	public void LuckyCardQueueTest(){
 		//setup
-		LuckyCard card = new LuckyCard(fm,output,0);
+		FieldManager fm = new FieldManager(output);
+		LuckyCard card = new LuckyCard(fm, output, 0);
 		Player p1 = new Player("name", 5000, 0, false, false, 1, 0,0,0);
 		assertEquals("Player has no prison card", 0, p1.getOutOfJailCard());
 		assertEquals("Cards instantiated, and array not empty", true,FieldManager.cards.length>0);
