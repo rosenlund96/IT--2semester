@@ -41,6 +41,8 @@
 	<load>Her kan du se dine gemte spil</load>
 	<doNothing>Du har valgt ikke at gøre noget.</doNothing>
 	<doubles>Du har slået to ens, og får en ekstratur!</doubles>
+	<free>Du har slået to ens, og er derfor fri!</free>
+	<free>Du formåede ikke at slå to ens, og må rådne lidt endnu.</free>
 	
 	
 	

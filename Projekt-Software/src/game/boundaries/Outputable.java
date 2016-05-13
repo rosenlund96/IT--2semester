@@ -103,6 +103,10 @@ public interface Outputable {
 	public void setFieldOwners(String playerName, int fieldNumber);
 
 	public void showIsDoublesMessage(String name);
+
+	public void showFreeMessage(String name);
+	
+	public void showNotFreeMessage(String name);
 	
 	
 

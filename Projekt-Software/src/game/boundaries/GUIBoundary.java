@@ -357,6 +357,25 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 
+	/*********************************************************************
+	 * Show a message to the player telling that he rolled to equal dices*
+	 *********************************************************************/
+	@Override
+	public void showFreeMessage(String name){
+		String s1 = reader.getElement("free", 0);
+		String msg = name = ": " + s1;
+		GUI.showMessage(msg);
+	}
+	
+	/****************************************************************************
+	 * Show a message to the player telling that he  did not roll to equal dices*
+	 ****************************************************************************/
+	@Override
+	public void showNotFreeMessage(String name){
+		String s1 = reader.getElement("free", 0);
+		String msg = name = ": " + s1;
+		GUI.showMessage(msg);
+	}
 	/************************************************************************
 	 * Shows a message that a player that has landed on a 'Prøv lykken'-	*
 	 * field and got a get-out-of-jail card.								*
@@ -585,7 +604,7 @@ public class GUIBoundary implements Outputable{
 		if(result == c1){
 			return 1;
 		}
-		else if(result == c1){
+		else if(result == c2){
 			return 2;
 		}
 		else if(result == c3){

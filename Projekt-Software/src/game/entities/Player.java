@@ -5,7 +5,8 @@ public class Player {
 
 	// Attributes
 
-	private int position, timeInPrison, outOfJailCard, housesOwned, hotelsOwned;
+	private int position, outOfJailCard, housesOwned, hotelsOwned;
+	private static int timeInPrison;
 	private String name;
 	private Balance balance;
 	private boolean isBroke, isImprisoned; 

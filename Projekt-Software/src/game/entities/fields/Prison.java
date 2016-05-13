@@ -60,25 +60,27 @@ public class Prison extends AbstractField{
 	 * @param player the player, landing on the prison field      *
 	 **************************************************************/
 	public void initializeChoice(Player player){
+		player.setImprisoned(true);
 		int choice = output.PromptPrison(player.getName());
 		switch(choice){
 		case 1:
 			payFine(player);
 			setTimeInPrison(0, player);
-			setImprisoned(false, player);
+			player.setImprisoned(false);
 			break;
 		case 2:
-			output.showRollingDiceForRent(player.getName());
+			output.promptRollDice(player.getName());
 			output.setDice(dices.getDice());
 
-			if (dices.getDie1()==dices.getDie2()) {
+			if (dices.isDoubles()!= 0) {
 				setImprisoned(false, player);
 				setTimeInPrison(0, player);
+				output.showFreeMessage(player.getName());
 
 
 			}
 			else setTimeInPrison(1, player);
-
+			output.showNotFreeMessage(player.getName());
 
 			break; 
 		case 3:
@@ -108,7 +110,6 @@ public class Prison extends AbstractField{
 	@Override
 	public void landOnField(Player player) {
 		if(fieldNo==11){
-			player.setTimeInPrison(player.getTimeInPrison()+1);
 			setImprisoned(true, player);
 			initializeChoice(player);
 		}
