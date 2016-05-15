@@ -24,17 +24,16 @@ public class Territory extends AbstractOwnable {
 	 ***********************************************************************/
 	@Override
 	public void landOnField(Player player){
-		getHotel();
 		// If owner is null, call Ownable.landonfield for option to buy the field
 		if (this.owner == null) {
 			super.landOnField(player);
 		}
 
-		else if (this.owner != player) 
+		else if (this.owner.getName() != player.getName()) 
 		{	// if player is not owner. player pay rent logic
 			transferRent(player);
 		}
-		else if (this.owner==player) {// Player is owner and should not pay rent
+		else if (this.owner.getName()==player.getName()) {// Player is owner and should not pay rent
 			output.showPlayerIsOwner(player.getName());
 			int choice = output.promptAction(player.getName());
 			if(choice==1){

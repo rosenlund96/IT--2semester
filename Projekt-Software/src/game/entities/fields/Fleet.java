@@ -26,7 +26,7 @@ public class Fleet extends AbstractOwnable {
 	public void landOnField (Player player) {
 		if (owner == null)
 			super.landOnField(player);
-		else if (player != owner){
+		else if (player.getName() != owner.getName()){
 			int fieldsOwned = fieldManager.getFieldsOwned(owner, FieldType.FLEET);
 			if (fieldsOwned == 1){
 				transferRent(RENT_1, player);

@@ -293,6 +293,7 @@ public class GameController {
 			String fieldOwner = fieldData[1];
 			int houseOnField = Integer.valueOf(fieldData[2]);
 			int hotelOnField = Integer.valueOf(fieldData[3]);
+			output.setHouse(houseOnField, fieldNumber+1);
 			for (int i = 0; i < players.size(); i++) {
 				if (fieldOwner.startsWith(players.get(i).getName())) {
 				this.tempPlayer = players.get(i);
@@ -300,11 +301,11 @@ public class GameController {
 			}
 			if(board.fieldManager.fields[x] instanceof AbstractOwnable){
 					((AbstractOwnable)board.fieldManager.fields[x]).setOwner(tempPlayer);
+					
 					this.tempPlayer=null;
 					}	
 			if(!fieldOwner.startsWith("null")){
 			output.setFieldOwners(fieldOwner, fieldNumber);
-			output.setHouse(houseOnField, fieldNumber);
 			if (hotelOnField == 1){
 				output.setHotel(true, fieldNumber);
 			}

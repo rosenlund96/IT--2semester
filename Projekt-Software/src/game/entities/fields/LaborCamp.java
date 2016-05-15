@@ -15,6 +15,7 @@ public class LaborCamp extends AbstractOwnable {
 		super(fieldManager, FieldType.LABOR_CAMP, price, baseRent, output, fieldNo);
 		dices = new DieCup();
 		this.fieldNo = fieldNo;
+		this.rent = baseRent;
 	}
 	
 	/************************************************************************
@@ -30,7 +31,7 @@ public class LaborCamp extends AbstractOwnable {
 		}
 		
 		// checks if the player is the owner if not. pay rent
-		else if (this.owner != player) {
+		else if (this.owner.getName() != player.getName()) {
 			// check how many LABOR CAMPS owner has
 			int fieldsOwned = fieldManager.getFieldsOwned(owner, FieldType.LABOR_CAMP);
 			output.showRollingDiceForRent(player.getName());
@@ -40,7 +41,7 @@ public class LaborCamp extends AbstractOwnable {
 			transferRent(amountToPay, player);
 		}
 		// checks if the player is the owner
-		else if (this.owner == player) {
+		else if (this.owner.getName() == player.getName()) {
 			output.showPlayerIsOwner(player.getName());
 
 		}
