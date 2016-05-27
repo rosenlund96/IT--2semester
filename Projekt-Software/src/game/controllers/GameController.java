@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import desktop_resources.GUI;
 import game.boundaries.*;
 import game.entities.FieldManager;
 import game.entities.GameBoard;
@@ -137,6 +139,7 @@ public class GameController {
 
 				String name = output.promptPlayerName(i+1, error);
 				if (name.length() == 0){
+					GUI.showMessage("Dit navn skal være længere end 0");
 					if(i>=3){
 						// break loop (no more players)
 						i = 6;
@@ -146,14 +149,20 @@ public class GameController {
 						error = true;
 				}
 				else{
+					if(names.contains(name)!= true){
 					names.add(name);
 					// Add player to gui
 					output.addPlayer(name, STARTING_BALANCE, i);
 
 					break;
+					}
+					else
+						GUI.showMessage("Navnet eksistere allerede");
+						error = true;
 				}				
 			}	
 		}
+		
 
 		// Creates the gameboard
 		initBoard();
